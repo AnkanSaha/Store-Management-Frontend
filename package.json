@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "tsc && vite build",
+    "build": "tailwindcss build -i ./src/assets/CSS/Tailwind/Input.css -o ./src/assets/CSS/Tailwind/Output.css -c ./tailwind.config.js --minify && tsc && vite build",
     "preview": "vite preview",
     "buildcss": "tailwindcss build -i ./src/assets/CSS/Tailwind/Input.css -o ./src/assets/CSS/Tailwind/Output.css -c ./tailwind.config.js --minify"
   },
