@@ -1,5 +1,6 @@
 import React from "react"; // import React from 'react';
 import { useNavigate } from "react-router-dom"; // import {useNavigate} from 'react-router-dom';
+import Navbar from "../Components/Most Used Components/Navbar";
 
 import { Box, Button, Typography } from "@mui/material";
 import { purple } from "@mui/material/colors";
@@ -11,13 +12,14 @@ function NotFound() {
 
   return (
     <>
+    <Navbar />
       <Box
         sx={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
-          minHeight: "100vh",
+          minHeight: "89vh",
           backgroundColor: primary,
         }}
       >
