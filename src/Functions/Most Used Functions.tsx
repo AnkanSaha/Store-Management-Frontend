@@ -13,5 +13,4 @@ export function Update_Document_Title ({TitleName} : Proptypes){
         TitleName = "Store Manager"
     }
 document.title = TitleName;
-
 }

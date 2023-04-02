@@ -2,6 +2,7 @@ import React from "react";
 
 // import Components
 import Navbar from "../Components/Most Used Components/Navbar";
+import Footer from "../Components/Most Used Components/Footer";
 
 // import Functions
 import { Update_Document_Title } from "../Functions/Most Used Functions"; // import Functions
@@ -11,6 +12,7 @@ function HomePage() {
   return (
     <>
       <Navbar />
+      <Footer />
     </>
   );
 }
