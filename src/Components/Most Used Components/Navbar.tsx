@@ -8,12 +8,10 @@ import { Link } from "react-router-dom"; // Import Essential Modules
 
 // import Variables For Details
 
-// define types for typescript
-type Proper = {
-  AppName: String;
-};
+// define type of Properties for the Navbar Component
+type Properties ={AppName:String}
 
-function Navbar({ AppName }: Proper) {
+function Navbar({AppName}:Properties) {
   return (
     <>
       <nav className="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900">
