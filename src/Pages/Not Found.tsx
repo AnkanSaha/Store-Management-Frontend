@@ -1,4 +1,3 @@
-import React from "react"; // import React from 'react';
 import { useNavigate } from "react-router-dom"; // import {useNavigate} from 'react-router-dom';
 import Navbar from "../Components/Most Used Components/Navbar";
 
@@ -32,6 +31,7 @@ function NotFound() {
         <Button
           onClick={() => {
             navigate("/");
+            window.location.reload();
           }}
           variant="contained"
           style={{ marginTop: 25 }}

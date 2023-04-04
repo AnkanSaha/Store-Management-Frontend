@@ -1,4 +1,4 @@
-import React, { memo } from "react"; // Import Essential Modules
+import { memo } from "react"; // Import Essential Modules
 
 // import React Logo from variable
 import { AppLogo } from "../../Non Changable variables"; // Import Essential Modules

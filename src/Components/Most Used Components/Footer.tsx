@@ -1,4 +1,4 @@
-import React, { memo } from "react"; // Import React
+import { memo } from "react"; // Import React
 // import icons
 
 // import Variables

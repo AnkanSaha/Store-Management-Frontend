@@ -1,5 +1,3 @@
-import React from "react";
-
 // import Components
 import Navbar from "../Components/Most Used Components/Navbar";
 import Footer from "../Components/Most Used Components/Footer";

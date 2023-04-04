@@ -1,5 +1,4 @@
 // import All Essential Components & Libraries
-import React from "react"; // import React
 
 // import Main Router
 import MainRouter from "./Router"; // import Main Router
