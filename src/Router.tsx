@@ -5,6 +5,7 @@ import HomePage from "./Pages/Home Page"; // import HomePage from "./Pages/Home 
 import NotFound from "./Pages/Not Found"; // import NotFound from "./Pages/Not Found";
 
 // Function declaration for the Router component
+// This function returns a Router component with a Routes component that contains a Route component that renders the HomePage component when the path is '/' and a Route component that renders the NotFound component when the path is '*'.
 export default function AppRouter() {
   return (
     <Router>

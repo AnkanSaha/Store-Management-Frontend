@@ -9,12 +9,12 @@ import { Link } from "react-router-dom"; // Import Essential Modules
 // import Variables For Details
 
 // define type of Properties for the Navbar Component
-type Properties ={AppName:String}
+type Properties = { AppName: String };
 
-function Navbar({AppName}:Properties) {
+function Navbar({ AppName }: Properties) {
   return (
     <>
-      <nav className="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900">
+      <nav className="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 fixed top-0 w-full">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
           <Link to="/" className="flex items-center">
             <img src={AppLogo} alt="main logo" className="h-8 mr-3" />
@@ -98,10 +98,21 @@ function Navbar({AppName}:Properties) {
               <li>
                 <Link
                   to="/login"
-                  style={{ paddingLeft: 12, paddingRight: 12 }}
-                  className="block py-4 bg-green-700 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
+                  className="inline-flex items-center justify-center px-3 py-1 text-base font-medium text-center text-white bg-green-700 rounded-lg hover:bg-black focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
                 >
-                  Login To Dashboard
+                  Dashboard
+                  <svg
+                    className="w-5 h-5 ml-2 -mr-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
                 </Link>
               </li>
             </ul>
@@ -109,7 +120,7 @@ function Navbar({AppName}:Properties) {
         </div>
         <div
           id="mega-menu-full-dropdown"
-          className=" hidden mt-1 border-gray-200 shadow-sm bg-gray-50 md:bg-white border-y dark:bg-gray-800 dark:border-gray-600"
+          className=" hidden mt-1 border-gray-200 shadow-xl z-50 bg-gray-50 md:bg-white border-y dark:bg-gray-800 dark:border-gray-600"
         >
           <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-gray-900 dark:text-white sm:grid-cols-2 md:px-6">
             <ul>
