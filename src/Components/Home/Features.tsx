@@ -15,7 +15,7 @@ export default function Features() {
   const Navigate = useNavigate(); // useNavigate
   return (
     <>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen bg-white">
         <div className="hero-content flex-col lg:flex-row">
           <img src={AppLogo} className="w-96 bg-transparent" />
           <div>
@@ -36,6 +36,14 @@ export default function Features() {
           </div>
         </div>
       </div>
+
+      <h1 className="my-5 ml-[17.25rem] text-5xl font-extrabold dark:text-white">
+        {AppName} Features
+        <small className="ml-2 font-semibold text-gray-500 dark:text-gray-400">
+          (Our Services)
+        </small>
+      </h1>
+
       <div className="flex flex-wrap ml-[5.25rem] space-x-3">
         {Our_Features.map(
           (
@@ -49,7 +57,10 @@ export default function Features() {
             index
           ) => {
             return (
-              <div className="card w-96 bg-base-100 shadow-xl  my-4" key={index}>
+              <div
+                className="card z-30 w-96 bg-base-100 shadow-xl  my-4"
+                key={index}
+              >
                 <div className="card-body">
                   <h2 className="card-title">{Title}</h2>
                   <p>{Description}</p>

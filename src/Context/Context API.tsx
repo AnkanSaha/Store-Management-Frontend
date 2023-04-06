@@ -1,13 +1,23 @@
 // import Essential Modules & Variables
-import { createContext } from "react"; // import {createContext} from 'react';
+import { createContext, useState } from "react"; // import {createContext} from 'react';
 
 // create the context
 export const GlobalContext = createContext({}); // const GlobalContext = createContext({});
 
-
 // creating a Global Provider function
 
-export function GlobalProvider(props:any) {
-    // Write your State & State Updaters here
-  return <GlobalContext.Provider value={{}}>{props.children}</GlobalContext.Provider>;
+export function GlobalProvider(props: any) {
+  // Write your State & State Updaters here
+
+  // State for Internet Status & State Updater
+  const [InternetStatus, setInternetStatus] = useState("Online"); // State for Internet Status
+  const UpdateInternetStatus = (Status: any) => {
+    setInternetStatus(Status);
+  }; // UpdateInternetStatus is a function that updates the InternetStatus state
+
+  return (
+    <GlobalContext.Provider value={{ InternetStatus, UpdateInternetStatus }}>
+      {props.children}
+    </GlobalContext.Provider>
+  );
 }
