@@ -136,34 +136,34 @@ function Navbar({ AppName }: Properties) {
             <ul>
               <li>
                 <Link
-                  to="#"
+                  to="/Add-new-customer"
                   className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
-                  <div className="font-semibold">Online Stores</div>
+                  <div className="font-semibold">Add New Customer</div>
                   <span className="text-sm text-gray-500 dark:text-gray-400">
-                    Connect with third-party tools that you're already using.
+                    Add new customer to your account.
                   </span>
                 </Link>
               </li>
               <li>
                 <Link
-                  to="#"
+                  to="/View-inventory"
                   className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
-                  <div className="font-semibold">Segmentation</div>
+                  <div className="font-semibold">View Inventory</div>
                   <span className="text-sm text-gray-500 dark:text-gray-400">
-                    Connect with third-party tools that you're already using.
+                    View your inventory and add new products.
                   </span>
                 </Link>
               </li>
               <li>
                 <Link
-                  to="#"
+                  to="/Make-Product-Bill"
                   className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
-                  <div className="font-semibold">Marketing CRM</div>
+                  <div className="font-semibold">Make Product Bill</div>
                   <span className="text-sm text-gray-500 dark:text-gray-400">
-                    Connect with third-party tools that you're already using.
+                    Make a bill for your customer.
                   </span>
                 </Link>
               </li>
@@ -171,34 +171,34 @@ function Navbar({ AppName }: Properties) {
             <ul>
               <li>
                 <Link
-                  to="#"
+                  to="/Orders-and-bills"
                   className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
-                  <div className="font-semibold">Online Stores</div>
+                  <div className="font-semibold">View All order & Bills</div>
                   <span className="text-sm text-gray-500 dark:text-gray-400">
-                    Connect with third-party tools that you're already using.
+                    View all your order and bills.
                   </span>
                 </Link>
               </li>
               <li>
                 <Link
-                  to="#"
+                  to="/manage-employees"
                   className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
-                  <div className="font-semibold">Segmentation</div>
+                  <div className="font-semibold"> Manage Employees</div>
                   <span className="text-sm text-gray-500 dark:text-gray-400">
-                    Connect with third-party tools that you're already using.
+                    Manage your employees and their salary.
                   </span>
                 </Link>
               </li>
               <li>
                 <Link
-                  to="#"
+                  to="/suppliers"
                   className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
-                  <div className="font-semibold">Marketing CRM</div>
+                  <div className="font-semibold">Manage Suppliers</div>
                   <span className="text-sm text-gray-500 dark:text-gray-400">
-                    Connect with third-party tools that you're already using.
+                    Manage your suppliers and their products.
                   </span>
                 </Link>
               </li>

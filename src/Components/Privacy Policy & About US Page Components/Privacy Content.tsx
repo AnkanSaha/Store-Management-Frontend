@@ -1,16 +1,19 @@
 // This is the Privacy Content Component which is used in the Privacy Policy Page.
+// import Variables & Context
+import { AppName, APPURL } from "../../Global/Global variables"; // import App Name
+
 export default function Privacy_Content() {
   return (
     <p className="mx-10 my-5">
-        Privacy Policy for Store Manager At Store Manager, accessible at
-        storemanager.daluabari.in, one of our main priorities is the privacy of
+        Privacy Policy for `${AppName}` At `${AppName}`, accessible at
+        `${APPURL}`, one of our main priorities is the privacy of
         our visitors. This Privacy Policy document contains types of information
-        that is collected and recorded by Store Manager and how we use it. If
+        that is collected and recorded by `${AppName}` and how we use it. If
         you have additional questions or require more information about our
         Privacy Policy, do not hesitate to contact us through email at
         ankansahaofficial@gmail.com This privacy policy applies only to our
         online activities and is valid for visitors to our website with regards
-        to the information that they shared and/or collect in Store Manager.
+        to the information that they shared and/or collect in `${AppName}`.
         This policy is not applicable to any information collected offline or
         via channels other than this website. Consent By using our website, you
         hereby consent to our Privacy Policy and agree to its terms. Information
@@ -30,7 +33,7 @@ export default function Privacy_Content() {
         with you, either directly or through one of our partners, including for
         customer service, to provide you with updates and other information
         relating to the website, and for marketing and promotional purposes Send
-        you emails Find and prevent fraud Log Files Store Manager follows a
+        you emails Find and prevent fraud Log Files `${AppName}` follows a
         standard procedure of using log files. These files log visitors when
         they visit websites. All hosting companies do this and a part of hosting
         services' analytics. The information collected by log files include
@@ -40,7 +43,7 @@ export default function Privacy_Content() {
         personally identifiable. The purpose of the information is for analyzing
         trends, administering the site, tracking users' movement on the website,
         and gathering demographic information. Cookies and Web Beacons Like any
-        other website, Store Manager uses ‘cookies'. These cookies are used to
+        other website, `${AppName}` uses ‘cookies'. These cookies are used to
         store information including visitors' preferences, and the pages on the
         website that the visitor accessed or visited. The information is used to
         optimize the users' experience by customizing our web page content based
@@ -57,16 +60,16 @@ export default function Privacy_Content() {
         we hyperlinked to their Privacy Policies below. Google
         https://policies.google.com/technologies/ads Advertising Partners
         Privacy Policies You may consult this list to find the Privacy Policy
-        for each of the advertising partners of Store Manager. Third-party ad
+        for each of the advertising partners of `${AppName}`. Third-party ad
         servers or ad networks uses technologies like cookies, JavaScript, or
         Web Beacons that are used in their respective advertisements and links
-        that appear on Store Manager, which are sent directly to users' browser.
+        that appear on `${AppName}`, which are sent directly to users' browser.
         They automatically receive your IP address when this occurs. These
         technologies are used to measure the effectiveness of their advertising
         campaigns and/or to personalize the advertising content that you see on
-        websites that you visit. Note that Store Manager has no access to or
+        websites that you visit. Note that `${AppName}` has no access to or
         control over these cookies that are used by third-party advertisers.
-        Third-Party Privacy Policies Store Manager's Privacy Policy does not
+        Third-Party Privacy Policies `${AppName}`'s Privacy Policy does not
         apply to other advertisers or websites. Thus, we are advising you to
         consult the respective Privacy Policies of these third-party ad servers
         for more detailed information. It may include their practices and
@@ -105,7 +108,7 @@ export default function Privacy_Content() {
         please contact us. Children's Information Another part of our priority
         is adding protection for children while using the internet. We encourage
         parents and guardians to observe, participate in, and/or monitor and
-        guide their online activity. Store Manager does not knowingly collect
+        guide their online activity. `${AppName}` does not knowingly collect
         any Personal Identifiable Information from children under the age of 13.
         If you think that your child provided this kind of information on our
         website, we strongly encourage you to contact us immediately and we will
