@@ -3,7 +3,7 @@ import Applogo from "../assets/Images/store-logo.png"; // App Logo
 
 // Basic Details About the Project
 export const AppName: String = "Store Manager"; // Name of the App
-export const AppLogo:String = Applogo; // App Logo
+export const AppLogo:any = Applogo; // App Logo
 export const APPURL:String = "storemanager.daluabari.in"; // App URL
 export const OwnerEmail:String = "ankansahaofficial@gmail.com"; // Owner Email
 
@@ -11,7 +11,7 @@ export const OwnerEmail:String = "ankansahaofficial@gmail.com"; // Owner Email
 export const Hostname: String = "http://localhost:3201";
 
 // our features section variables
-export const Our_Features: object[] = [
+export const Our_Features: any[] = [
   {
     Title: "Manage Your Store",
     Description:

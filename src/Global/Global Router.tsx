@@ -5,6 +5,7 @@ import HomePage from "../Pages/Home/Home Page"; // import HomePage from "./Pages
 import NotFound from "../Pages/Home/Not Found Page"; // import NotFound from "./Pages/Not Found";
 import PrivacyPolicy from "../Pages/Privacy Policy & About US Page/Privacy Policy Page"; // import PrivacyPolicy from "./Pages/Privacy Policy";
 import AboutUs from "../Pages/Privacy Policy & About US Page/About Us Page"; // import AboutUs from "./Pages/Aout Us Page";
+import Signup_Page from "../Pages/Auth/Signup Page"; // import Signup_Page from "./Pages/Auth/Signup Page";
 
 // Function declaration for the Router component
 // This function returns a Router component with a Routes component that contains a Route component that renders the HomePage component when the path is '/' and a Route component that renders the NotFound component when the path is '*'.
@@ -16,6 +17,7 @@ export default function AppRouter() {
         <Route path="*" element={<NotFound/>} />
         <Route path="/Privacy" element={<PrivacyPolicy/>} />
         <Route path="/About" element={<AboutUs/>} />
+        <Route path="/signup" element={<Signup_Page/>} />
       </Routes>
     </Router>
   );
