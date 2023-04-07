@@ -20,4 +20,4 @@ export function GlobalProvider({children}: any) {
       {children}
     </GlobalContext.Provider>
   );
-}
+}; // GlobalProvider is a function that returns the GlobalContext.Provider
