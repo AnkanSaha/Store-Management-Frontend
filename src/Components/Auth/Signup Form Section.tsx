@@ -5,6 +5,11 @@ import { Link } from "react-router-dom"; // Link Component
 
 // import Variables & Contexts
 import { AppName } from "../../Global/Global variables"; // App Name Variable
+import {
+  Signup_Form_City_Name,
+  Signup_Form_State_Name,
+  Signup_Form_Country_Name,
+} from "./Signup Form Variables"; // City Name Variable
 
 export default function Signup_Form_Section() {
   return (
@@ -19,112 +24,113 @@ export default function Signup_Form_Section() {
         <div className="grid gap-6 mb-6 md:grid-cols-2">
           <div>
             <label
-              htmlFor="first_name"
+              htmlFor="full_Name"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              First name
+              Full Name
             </label>
             <input
               type="text"
-              id="first_name"
+              id="full_Name"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="John"
+              placeholder="Ex: Ankan Saha"
               required
             />
           </div>
           <div>
             <label
-              htmlFor="last_name"
+              htmlFor="User_Email"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              Last name
+              Email Address
             </label>
             <input
-              type="text"
-              id="last_name"
+              type="email"
+              id="User_Email"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Doe"
+              placeholder="Ex: example@global.com"
               required
             />
           </div>
           <div>
             <label
-              htmlFor="company"
+              htmlFor="Address"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              Company
+              Address
             </label>
             <input
               type="text"
-              id="company"
+              id="Address"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Flowbite"
+              placeholder="Enter Your Address"
               required
             />
           </div>
           <div>
             <label
-              htmlFor="phone"
+              htmlFor="phone_number"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Phone number
             </label>
             <input
               type="tel"
-              id="phone"
+              id="phone_number"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="123-45-678"
+              placeholder="706******"
               pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
               required
             />
           </div>
-          <div>
-            <label
-              htmlFor="website"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
-              Website URL
-            </label>
-            <input
-              type="url"
-              id="website"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="flowbite.com"
-              required
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="visitors"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
-              Unique visitors (per month)
-            </label>
-            <input
-              type="number"
-              id="visitors"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder=""
-              required
-            />
-          </div>
+          <select className="select select-success w-full max-w-xs">
+            <option disabled selected value="">
+              Select Your city Name
+            </option>
+            {Signup_Form_City_Name.map((city: any) => {
+              return <option value={city}>{city}</option>;
+            })}
+          </select>
+          <select className="select select-success w-full max-w-xs">
+            <option disabled selected value="">
+              Select Your state Name
+            </option>
+            {Signup_Form_State_Name.map((city: any) => {
+              return <option value={city}>{city}</option>;
+            })}
+          </select>
         </div>
         <div className="mb-6">
           <label
-            htmlFor="email"
+            htmlFor="pincode"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
-            Email address
+            Enter Your Pincode
           </label>
           <input
-            type="email"
-            id="email"
+            type="number"
+            id="pincode"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="john.doe@company.com"
+            placeholder="******"
             required
           />
         </div>
-        <div className="mb-6">
+        <select className="select select-success min-w-full max-w-xs">
+          <option disabled selected value="">
+            Select Your country Name
+          </option>
+          {Signup_Form_Country_Name.map((city: any) => {
+            return <option value={city}>{city}</option>;
+          })}
+        </select>
+        <select className="select select-success min-w-full max-w-xs mt-5">
+          <option disabled selected value="">
+            Do you have GST Number?
+          </option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+        <div className="mb-6 mt-6">
           <label
             htmlFor="password"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -154,6 +160,68 @@ export default function Signup_Form_Section() {
             required
           />
         </div>
+        <div className="mb-6">
+          <label
+            htmlFor="Shop_Name"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Enter Shop Name
+          </label>
+          <input
+            type="text"
+            id="Shop_Name"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Enter Your Shop Name"
+            required
+          />
+        </div>
+
+        <div className="mb-6">
+          <label
+            htmlFor="Shop_Address"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Enter Shop Address
+          </label>
+          <input
+            type="text"
+            id="Shop_Address"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Enter Your Shop Address"
+            required
+          />
+        </div>
+
+        <div className="mb-6">
+          <label
+            htmlFor="GST_Number"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Enter GST Number (Optional)
+          </label>
+          <input
+            type="text"
+            id="GST_Number"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Enter Your GST Number (Optional)"
+          />
+        </div>
+
+        <div className="mb-6">
+          <label
+            htmlFor="PAN_Number"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Enter PAN Number
+          </label>
+          <input
+            type="text"
+            id="PAN_Number"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Enter Your PAN Number"
+          />
+        </div>
+
         <div className="flex items-start mb-6">
           <div className="flex items-center h-5">
             <input
