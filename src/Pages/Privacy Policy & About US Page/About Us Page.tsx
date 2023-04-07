@@ -10,7 +10,7 @@ import { AppName } from "../../Global/Global variables"; // import App Name
 // import Components
 import Navbar from "../../Components/Most Used Components/Navbar"; // import Navbar from '../Components/Most Used Components/Navbar';
 import Footer from "../../Components/Most Used Components/Footer"; // import Footer from '../Components/Most Used Components/Footer';
-import Connection from "../../Components/Most Used Components/Connection"; // import Connection from '../Components/Most Used Components/Connection';
+import { Connection_Fail } from "../../Components/Most Used Components/Connection"; // import Connection from '../Components/Most Used Components/Connection';
 import About_Us_Content from "../../Components/Privacy Policy & About US Page Components/About Us Content"; // import About_Us_Content from '../Components/Privacy Policy & About US Page Components/About Us Content';
 
 import {
@@ -27,20 +27,10 @@ export default function AboutUs() {
 
   return (
     <>
-      {InternetStatus === "Online" ? (
-        <>
-          <Navbar AppName="About us" />
-          <About_Us_Content />
-          <Footer />
-        </>
-      ) : InternetStatus === "Offline" ? (
-        <>
-          <Navbar AppName="No Internet" />
-          <About_Us_Content />
-          <Footer />
-          <Connection />
-        </>
-      ) : null}
+      {InternetStatus === "Offline" ? <Connection_Fail /> : null}
+      <Navbar AppName="About us" />
+      <About_Us_Content />
+      <Footer />
     </>
   );
 }

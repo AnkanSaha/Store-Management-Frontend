@@ -6,7 +6,8 @@ import { useContext } from "react"; // useContext Hook
 // import Components
 import Navbar from "../../Components/Most Used Components/Navbar"; // Navbar Component
 import Footer from "../../Components/Most Used Components/Footer"; // Footer Component
-import Connection from "../../Components/Most Used Components/Connection"; // Connection Component
+import { Connection_Fail } from "../../Components/Most Used Components/Connection"; // Connection Component
+import Signup_Form_Section from "../../Components/Auth/Signup Form Section"; // Signup Form Section Component
 
 // import Functions
 import {
@@ -28,18 +29,10 @@ export default function Signup_Page() {
 
   return (
     <>
-      {InternetStatus === "Online" ? (
-        <>
-          <Navbar AppName="Signup" />
-          <Footer />
-        </>
-      ) : InternetStatus === "Offline" ? (
-        <>
-          <Navbar AppName="Signup" />
-          <Footer />
-          <Connection />
-        </>
-      ) : null}
+      {InternetStatus === "Offline" ? <Connection_Fail /> : null}
+      <Navbar AppName="Signup" />
+      <Signup_Form_Section />
+      <Footer FooterStyle="static" />
     </>
   );
 }
