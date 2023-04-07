@@ -1,7 +1,7 @@
 import { memo } from "react"; // Import Essential Modules
 
 // import React Logo from variable
-import { AppLogo } from "../../Non Changable variables"; // Import Essential Modules
+import { AppLogo } from "../../Global/Global variables"; // Import Essential Modules
 
 // import Router Module
 import { Link } from "react-router-dom"; // Import Essential Modules
@@ -99,10 +99,10 @@ function Navbar({ AppName }: Properties) {
               </li>
               <li>
                 <Link
-                  to="#"
+                  to="/Contact"
                   className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
                 >
-                  Resources
+                  Contact Us
                 </Link>
               </li>
               <li>

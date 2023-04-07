@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom"; // import Link from react-router-dom
 
 // import Variables
-import { AppName } from "../../Non Changable variables"; // import AppName from Non Changable variables
+import { AppName } from "../../Global/Global variables"; // import AppName from Non Changable variables
 
 // import Components
 

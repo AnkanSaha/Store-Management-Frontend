@@ -6,7 +6,7 @@ export const GlobalContext = createContext({}); // const GlobalContext = createC
 
 // creating a Global Provider function
 
-export function GlobalProvider(props: any) {
+export function GlobalProvider({children}: any) {
   // Write your State & State Updaters here
 
   // State for Internet Status & State Updater
@@ -17,7 +17,7 @@ export function GlobalProvider(props: any) {
 
   return (
     <GlobalContext.Provider value={{ InternetStatus, UpdateInternetStatus }}>
-      {props.children}
+      {children}
     </GlobalContext.Provider>
   );
 }

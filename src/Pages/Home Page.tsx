@@ -8,6 +8,7 @@ import Upper_First_Section from "../Components/Home/Upper First Section"; // imp
 import Upper_Second_Section from "../Components/Home/Upper Second Section"; // import Upper Second Section
 import Features from "../Components/Home/Features"; // import Features Section
 import Connection from "../Components/Most Used Components/Connection"; // import Connection
+import Hero_Comp from "../Components/Home/Hero Comp"; // import Hero Comp
 
 // import Functions
 import {
@@ -16,7 +17,7 @@ import {
 } from "../Functions/Most Used Functions"; // import Functions
 
 // import Variables & Context
-import { AppName } from "../Non Changable variables"; // import App Name
+import { AppName } from "../Global/Global variables"; // import App Name
 import { GlobalContext } from "../Context/Context API"; // import Global Context
 
 // This function is used to update the document title.
@@ -36,6 +37,7 @@ function HomePage() {
           <Navbar AppName={AppName} />
           <Upper_First_Section />
           <Upper_Second_Section />
+          <Hero_Comp />
           <Features />
           <Footer FooterStyle="static" />
         </>
@@ -44,6 +46,7 @@ function HomePage() {
           <Navbar AppName="No Internet" />
           <Upper_First_Section />
           <Upper_Second_Section />
+          <Hero_Comp />
           <Features />
           <Footer FooterStyle="static" />
           <Connection />

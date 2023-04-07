@@ -4,7 +4,6 @@
 import { useContext } from "react"; // import UseContext from 'react';
 
 // import Variables & Context
-import { AppName } from "../Non Changable variables"; // import {AppName} from "../Non Changable variables";
 import { GlobalContext } from "../Context/Context API"; // import Global Context
 
 // import Essential React components
@@ -22,7 +21,7 @@ export default function PrivacyPolicy() {
     <>
       {InternetStatus === "Online" ? (
         <>
-          <Navbar AppName={AppName} />
+          <Navbar AppName="Privacy Policy" />
           <h1 className="text-4xl font-bold ml-[23.25rem] mt-[5rem]">
             Privacy Policy for Store Manager
           </h1>

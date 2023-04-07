@@ -1,5 +1,5 @@
 // This is the upper second section of the home page
-import {AppName} from "../../Non Changable variables"; // Importing the non changable variables
+import {AppName} from "../../Global/Global variables"; // Importing the non changable variables
 
 export default function Upper_Second_Section() {
   return (
