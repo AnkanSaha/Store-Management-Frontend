@@ -9,9 +9,16 @@ import { Link } from "react-router-dom"; // Import Essential Modules
 // import Variables For Details
 
 // define type of Properties for the Navbar Component
-type Properties = { AppName: String };
+interface Properties {
+  AppName: String;
+}
 
 function Navbar({ AppName }: Properties) {
+  // function for toggle the navbar down
+  const Opener = (ID: String) => {
+    document.getElementById(`${ID}`)?.classList.toggle("hidden");
+  };
+
   return (
     <>
       <nav className="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 fixed top-0 w-full">
@@ -61,6 +68,9 @@ function Navbar({ AppName }: Properties) {
               <li>
                 <button
                   id="mega-menu-full-dropdown-button"
+                  onClick={() => {
+                    Opener("mega-menu-full-dropdown");
+                  }}
                   data-collapse-toggle="mega-menu-full-dropdown"
                   className="flex items-center justify-between w-full py-2 pl-3 pr-4  text-gray-900 rounded md:w-auto hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
                 >
@@ -120,7 +130,7 @@ function Navbar({ AppName }: Properties) {
         </div>
         <div
           id="mega-menu-full-dropdown"
-          className=" hidden mt-1 border-gray-200 shadow-xl z-50 bg-gray-50 md:bg-white border-y dark:bg-gray-800 dark:border-gray-600"
+          className=" hidden mt-1 border-gray-200 shadow-xl z-50 bg-gray-50 md:bg-white border-y dark:bg-gray-800 dark:border-gray-600 rounded-lg"
         >
           <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-gray-900 dark:text-white sm:grid-cols-2 md:px-6">
             <ul>

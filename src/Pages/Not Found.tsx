@@ -20,7 +20,7 @@ function NotFound() {
 
   return (
     <>
-    <Navbar />
+    <Navbar AppName="Not Found" />
       <Box
         sx={{
           display: "flex",

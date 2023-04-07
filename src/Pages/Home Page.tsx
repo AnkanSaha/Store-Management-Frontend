@@ -10,7 +10,10 @@ import Features from "../Components/Home/Features"; // import Features Section
 import Connection from "../Components/Most Used Components/Connection"; // import Connection
 
 // import Functions
-import { Update_Document_Title } from "../Functions/Most Used Functions"; // import Functions
+import {
+  Update_Document_Title,
+  Internet_Connection_Status,
+} from "../Functions/Most Used Functions"; // import Functions
 
 // import Variables & Context
 import { AppName } from "../Non Changable variables"; // import App Name
@@ -21,18 +24,9 @@ import { GlobalContext } from "../Context/Context API"; // import Global Context
 
 function HomePage() {
   // using Context API
-  const { InternetStatus, UpdateInternetStatus }: any =
-    useContext(GlobalContext); // const {InternetStatus, UpdateInternetStatus} = useContext(GlobalContext);
+  const { InternetStatus }: any = useContext(GlobalContext); // const {InternetStatus, UpdateInternetStatus} = useContext(GlobalContext);
 
-  // // Event Listener for Internet Connection Status (Online)
-  window.addEventListener("online", () => {
-    UpdateInternetStatus("Online");
-  });
-
-  // // Event Listener for Internet Connection Status (Offline)
-  window.addEventListener("offline", () => {
-    UpdateInternetStatus("Offline");
-  });
+  Internet_Connection_Status(); // Internet Connection Status
 
   Update_Document_Title({ TitleName: "Home - Store Manager" }); // Update Document Title
   return (
@@ -47,7 +41,7 @@ function HomePage() {
         </>
       ) : InternetStatus === "Offline" ? (
         <>
-          <Navbar AppName={AppName} />
+          <Navbar AppName="No Internet" />
           <Upper_First_Section />
           <Upper_Second_Section />
           <Features />
