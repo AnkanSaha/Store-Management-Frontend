@@ -4,9 +4,13 @@ import { createContext, useState } from "react"; // import {createContext} from 
 // create the context
 export const GlobalContext = createContext({}); // const GlobalContext = createContext({});
 
-// creating a Global Provider function
+// making a interface for GlobalProvider Props
+interface Properties {
+  children: any;
+}
 
-export function GlobalProvider({children}: any) {
+// creating a Global Provider function
+export function GlobalProvider({ children }: Properties) {
   // Write your State & State Updaters here
 
   // State for Internet Status & State Updater
@@ -20,4 +24,4 @@ export function GlobalProvider({children}: any) {
       {children}
     </GlobalContext.Provider>
   );
-}; // GlobalProvider is a function that returns the GlobalContext.Provider
+} // GlobalProvider is a function that returns the GlobalContext.Provider
