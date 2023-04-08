@@ -24,7 +24,7 @@ function Navbar({ AppName }: Properties) {
       <nav className="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 fixed top-0 w-full">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
           <Link to="/" className="flex items-center">
-            <img src={AppLogo} alt="main logo" className="h-8 mr-3" />
+            <img src={AppLogo} alt="mainlogo" className="h-8 mr-3" />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
               {AppName}
             </span>

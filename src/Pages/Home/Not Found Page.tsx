@@ -61,7 +61,6 @@ function NotFound() {
         <Button
           onClick={() => {
             navigate("/");
-            window.location.reload();
           }}
           variant="contained"
           style={{ marginTop: 25 }}

@@ -8,6 +8,7 @@ import Navbar from "../../Components/Most Used Components/Navbar"; // Navbar Com
 import Footer from "../../Components/Most Used Components/Footer"; // Footer Component
 import { Connection_Fail } from "../../Components/Most Used Components/Connection"; // Connection Component
 import Signup_Form_Section from "../../Components/Auth/Signup Form Section"; // Signup Form Section Component
+import Loading from "../../Components/Most Used Components/Loading"; // Loading Component
 
 // import Functions
 import {
@@ -21,7 +22,7 @@ import { GlobalContext } from "../../Context/Context API"; // Global Context
 
 export default function Signup_Page() {
   // using Contexts
-  const { InternetStatus }: any = useContext(GlobalContext); // Global Context
+  const { InternetStatus, LoadingStatus }: any = useContext(GlobalContext); // Global Context
 
   // using Functions
   Internet_Connection_Status(); // Internet Connection Status Function
@@ -30,9 +31,17 @@ export default function Signup_Page() {
   return (
     <>
       {InternetStatus === "Offline" ? <Connection_Fail /> : null}
-      <Navbar AppName="Signup" />
-      <Signup_Form_Section />
-      <Footer FooterStyle="static" />
+      {LoadingStatus === true ? (
+        <>
+          <Loading />
+        </>
+      ) : LoadingStatus === false ? (
+        <>
+          <Navbar AppName="Signup" />
+          <Signup_Form_Section />
+          <Footer FooterStyle="static" />
+        </>
+      ) : null}
     </>
   );
 }
