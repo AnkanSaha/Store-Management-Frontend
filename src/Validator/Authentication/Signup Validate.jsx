@@ -1,17 +1,5 @@
 // This File is for Signup Validation
 
-// import External Packages
-
-// import Internal Modules
-
-// import Internal Components
-
-// import Context API
-
-// import Variables
-
-
-
 // Signup Validation Function
 export default async function SignupValidation(values) {
     // validate all fields

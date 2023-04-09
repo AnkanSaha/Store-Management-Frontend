@@ -8,7 +8,7 @@ export const APPURL: String = "storemanager.daluabari.in"; // App URL
 export const OwnerEmail: String = "ankansahaofficial@gmail.com"; // Owner Email
 
 // HTTP Request Variables
-export const Hostname: String = "http://localhost:3201";
+// export const Hostname: String = "http://localhost:3201";
 
 // our features section variables
 export const Our_Features: any[] = [

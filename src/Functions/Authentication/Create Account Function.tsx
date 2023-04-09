@@ -5,7 +5,7 @@
 // import Components
 
 // import Variables & Contexts
-import { Hostname } from "../../Global/Global variables"; // import the hostname
+// import { Hostname } from "../../Global/Global variables"; // import the hostname
 
 // Typescript Interface
 interface Props{
@@ -14,10 +14,8 @@ interface Props{
 
 // function to create account
 export default async function CreateAccountFunction ({FullData}: Props){
-    console.log(FullData, Hostname);
-
     // fetch the data from the server
-    let Wait = await fetch(`${Hostname}/post/auth/CreateAccount`, {
+    let Wait = await fetch(`/post/auth/CreateAccount`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
