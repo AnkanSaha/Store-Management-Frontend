@@ -14,11 +14,11 @@ import {
 import { GlobalContext } from "../../../Context/Context API"; // Global Context
 
 // import Functions
-
+import SignupValidation from "../../../Validator/Authentication/Signup Validate"; // Signup Validation Function
 
 export default function Signup_Form_Section() {
   // use the Global Context
-  let {UpdateLoading}:any = useContext(GlobalContext); // Global Context
+  let { UpdateLoading }: any = useContext(GlobalContext); // Global Context
 
   // state for the form
   let [FormData, setFormData] = useState({
@@ -55,7 +55,8 @@ export default function Signup_Form_Section() {
   // handle form submit button
   const SubmitForm = async () => {
     // send the data to the function to validate the data
-    UpdateLoading(false); // update the loading state
+    let Result = await SignupValidation(FormData); // validate the data
+    Result === true ? UpdateLoading(true) : null;
   };
 
   return (
