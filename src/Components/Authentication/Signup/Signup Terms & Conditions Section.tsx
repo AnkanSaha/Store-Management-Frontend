@@ -8,19 +8,19 @@ import { useNavigate } from "react-router-dom"; // useNavigate hook
 import { Button } from "@mui/material"; // Button component
 
 // import Components
-import Navbar from "../Most Used Components/Navbar"; // import Navbar from "./Most Used Components/Navbar";
-import Footer from "../Most Used Components/Footer"; // import Footer from "./Most Used Components/Footer";
-import { Connection_Fail } from "../Most Used Components/Connection"; // import Connection from "./Most Used Components/Connection";
+import Navbar from "../../Most Used Components/Navbar"; // import Navbar from "./Most Used Components/Navbar";
+import Footer from "../../Most Used Components/Footer"; // import Footer from "./Most Used Components/Footer";
+import { Connection_Fail } from "../../Most Used Components/Connection"; // import Connection from "./Most Used Components/Connection";
 
 // import Variables & Contexts
-import { AppName, APPURL } from "../../Global/Global variables"; // import { AppName } from "../../Global/Global variables";
-import { GlobalContext } from "../../Context/Context API"; // import { GlobalContext } from "../../Context/Context API";
+import { AppName, APPURL } from "../../../Global/Global variables"; // import { AppName } from "../../Global/Global variables";
+import { GlobalContext } from "../../../Context/Context API"; // import { GlobalContext } from "../../Context/Context API";
 
 // import Functions
 import {
   Update_Document_Title,
   Internet_Connection_Status,
-} from "../../Functions/Most Used Functions"; // import { Update_Document_Title } from "../../Functions/Most Used Functions";
+} from "../../../Functions/Most Used Functions"; // import { Update_Document_Title } from "../../Functions/Most Used Functions";
 
 function Signup_Terms_and_Conditions_Section() {
   // using Context API

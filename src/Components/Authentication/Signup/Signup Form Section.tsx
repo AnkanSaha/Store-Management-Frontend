@@ -5,13 +5,13 @@ import { Link } from "react-router-dom"; // Link Component
 import { useState, useContext } from "react"; // useState Hook
 
 // import Variables & Contexts
-import { AppName } from "../../Global/Global variables"; // App Name Variable
+import { AppName } from "../../../Global/Global variables"; // App Name Variable
 import {
   Signup_Form_City_Name,
   Signup_Form_State_Name,
   Signup_Form_Country_Name,
 } from "./Signup Form Variables"; // City Name Variable
-import { GlobalContext } from "../../Context/Context API"; // Global Context
+import { GlobalContext } from "../../../Context/Context API"; // Global Context
 
 // import Functions
 

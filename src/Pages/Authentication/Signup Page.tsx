@@ -7,7 +7,7 @@ import { useContext } from "react"; // useContext Hook
 import Navbar from "../../Components/Most Used Components/Navbar"; // Navbar Component
 import Footer from "../../Components/Most Used Components/Footer"; // Footer Component
 import { Connection_Fail } from "../../Components/Most Used Components/Connection"; // Connection Component
-import Signup_Form_Section from "../../Components/Auth/Signup Form Section"; // Signup Form Section Component
+import Signup_Form_Section from "../../Components/Authentication/Signup/Signup Form Section"; // Signup Form Section Component
 import Loading from "../../Components/Most Used Components/Loading"; // Loading Component
 
 // import Functions
