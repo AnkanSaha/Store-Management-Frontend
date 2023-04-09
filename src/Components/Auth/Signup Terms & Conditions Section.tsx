@@ -354,6 +354,7 @@ function Signup_Terms_and_Conditions_Section() {
           onClick={() => {
             navigate("/signup");
           }}
+          color="error"
           style={{ marginTop: 40, marginLeft: 450 }}
           variant="contained"
         >

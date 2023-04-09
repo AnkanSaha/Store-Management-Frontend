@@ -2,7 +2,7 @@
 
 // import React hooks  & other React related stuff
 import { Link } from "react-router-dom"; // Link Component
-import { useState } from "react"; // useState Hook
+import { useState, useContext } from "react"; // useState Hook
 
 // import Variables & Contexts
 import { AppName } from "../../Global/Global variables"; // App Name Variable
@@ -11,8 +11,15 @@ import {
   Signup_Form_State_Name,
   Signup_Form_Country_Name,
 } from "./Signup Form Variables"; // City Name Variable
+import { GlobalContext } from "../../Context/Context API"; // Global Context
+
+// import Functions
+
 
 export default function Signup_Form_Section() {
+  // use the Global Context
+  let {UpdateLoading}:any = useContext(GlobalContext); // Global Context
+
   // state for the form
   let [FormData, setFormData] = useState({
     Name: "",
@@ -43,6 +50,12 @@ export default function Signup_Form_Section() {
   const handleFormCheckboxInputChange = (Data: any) => {
     // Update the state of the form using the setFormData function & the spread operator
     setFormData({ ...FormData, [Data.target.name]: Data.target.checked });
+  };
+
+  // handle form submit button
+  const SubmitForm = async () => {
+    // send the data to the function to validate the data
+    UpdateLoading(false); // update the loading state
   };
 
   return (
@@ -362,7 +375,10 @@ export default function Signup_Form_Section() {
             .
           </label>
         </div>
-        <button className="text-white bg-black hover:bg-cyan-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 min-w-full">
+        <button
+          onClick={SubmitForm}
+          className="text-white bg-black hover:bg-cyan-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 min-w-full"
+        >
           Submit
         </button>
         <Link to="/login">
