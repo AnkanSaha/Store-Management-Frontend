@@ -14,8 +14,6 @@
 
 // Signup Validation Function
 export default async function SignupValidation(values) {
-    console.table(values);
-    
     // validate all fields
     if (values.Name === "" || values.Name === null || values.Name === undefined) {
         alert("Name is Required");

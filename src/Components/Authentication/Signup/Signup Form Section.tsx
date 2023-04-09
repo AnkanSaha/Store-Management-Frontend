@@ -15,6 +15,7 @@ import { GlobalContext } from "../../../Context/Context API"; // Global Context
 
 // import Functions
 import SignupValidation from "../../../Validator/Authentication/Signup Validate"; // Signup Validation Function
+import CreateAccountFunction from "../../../Functions/Authentication/Create Account Function"; // Create Account Function
 
 export default function Signup_Form_Section() {
   // use the Global Context
@@ -56,7 +57,11 @@ export default function Signup_Form_Section() {
   const SubmitForm = async () => {
     // send the data to the function to validate the data
     let Result = await SignupValidation(FormData); // validate the data
-    Result === true ? UpdateLoading(true) : null;
+    if(Result === true){
+      UpdateLoading(true); // update the loading state
+      let FetchResult = await CreateAccountFunction({FullData: FormData}); // create the account
+      console.log(FetchResult);
+    }
   };
 
   return (
