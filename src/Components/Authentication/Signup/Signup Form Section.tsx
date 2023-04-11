@@ -21,7 +21,7 @@ import { Connection_Fail } from "../../Most Used Components/Connection & Alert";
 
 export default function Signup_Form_Section() {
   // use the Global Context
-  let { UpdateLoading, AlertMessage, UpdateAlert }: any =
+  let { UpdateLoading, AlertMessage, UpdateAuthDetails, UpdateAlert }: any =
     useContext(GlobalContext); // Global Context
 
   // state for the form
@@ -65,6 +65,13 @@ export default function Signup_Form_Section() {
     if (Submission_Result.Status === "Failed") {
       UpdateAlert(Submission_Result); // update the alert
       UpdateLoading(false); // update the loading state
+    } else if (Submission_Result.Status === "Exist") {
+      UpdateAlert(Submission_Result); // update the alert
+      UpdateLoading(false); // update the loading state
+    } else if (Submission_Result.Status === "Success") {
+      UpdateAlert(Submission_Result); // update the alert
+      UpdateAuthDetails(Submission_Result.Data); // update the auth details
+      UpdateLoading(false); // update the loading state
     }
     // if the submission is successful & Verification failed
     else if (Submission_Result.Status === false) {
@@ -74,6 +81,8 @@ export default function Signup_Form_Section() {
 
   return (
     <>
+    {/* Showing  Alert When AlertMessage State Change */}
+    
       {AlertMessage.Status === "Failed" ? (
         <>
           <Connection_Fail
@@ -81,7 +90,22 @@ export default function Signup_Form_Section() {
             Message={AlertMessage.Message}
           />
         </>
+      ) : AlertMessage.Status === "Exist" ? (
+        <>
+          <Connection_Fail
+            Title={AlertMessage.Status}
+            Message={AlertMessage.Message}
+          />
+        </>
+      ) : AlertMessage.Status === "Success" ? (
+        <>
+          <Connection_Fail
+            Title={AlertMessage.Status}
+            Message={AlertMessage.Message}
+          />
+        </>
       ) : null}
+
       <h1 className="mt-[5.25rem] mb-10 ml-[19rem] text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
         <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
           Join With

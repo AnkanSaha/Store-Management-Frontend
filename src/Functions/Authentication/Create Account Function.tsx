@@ -7,7 +7,7 @@ import SignupValidation from "../../Validator/Authentication/Signup Validate"; /
 import { HTTP_POST } from "../Most Used Functions"; // import HTTP POST Function
 
 // import Variables & Contexts
-import { Hostname } from "../../Global/Global variables"; // import the hostname
+// import { Hostname } from "../../Global/Global variables"; // import the hostname
 
 // Typescript Interface
 interface Props {
@@ -22,7 +22,7 @@ export default async function CreateAccountFunction({ FullData }: Props) {
   // if the validation is successful
   if (Validation_Result === true) {
     let wait = await HTTP_POST({
-      PostPath: `${Hostname}/post/auth/CreateAccount`,
+      PostPath: `/post/auth/CreateAccount`,
       SendData: FullData,
     }); // send the data to the server
     return wait;
