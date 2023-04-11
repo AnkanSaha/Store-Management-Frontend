@@ -10,7 +10,7 @@ import { AppName } from "../../Global/Global variables"; // import App Name
 // import Components
 import Navbar from "../../Components/Most Used Components/Navbar"; // import Navbar from '../Components/Most Used Components/Navbar';
 import Footer from "../../Components/Most Used Components/Footer"; // import Footer from '../Components/Most Used Components/Footer';
-import { Connection_Fail } from "../../Components/Most Used Components/Connection"; // import Connection from '../Components/Most Used Components/Connection';
+import { Connection_Fail } from "../../Components/Most Used Components/Connection & Alert"; // import Connection from '../Components/Most Used Components/Connection';
 import About_Us_Content from "../../Components/Privacy Policy & About US Page Components/About Us Content"; // import About_Us_Content from '../Components/Privacy Policy & About US Page Components/About Us Content';
 
 import {

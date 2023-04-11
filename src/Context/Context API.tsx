@@ -20,7 +20,7 @@ export function GlobalProvider({ children }: Properties) {
   }; // UpdateInternetStatus is a function that updates the InternetStatus state
 
   // State for Loading & State Updater
-  const [AuthDetails, setAuthDetails] = useState(false); // State for Loading
+  const [AuthDetails, setAuthDetails] = useState({}); // State for Loading
   const UpdateAuthDetails = (Status: any) => {
     setAuthDetails(Status);
   }; // UpdateAuthDetails is a function that updates the Loading state
@@ -31,15 +31,24 @@ export function GlobalProvider({ children }: Properties) {
     setLoadingStatus(Status);
   }; // UpdateLoading is a function that updates the Loading state
 
+  // State for Alert & State Updater
+  const [AlertMessage, setAlertMessage] = useState({}); // State for Alert
+  const UpdateAlert = (Message: any) => {setAlertMessage(Message)}; // UpdateAlert is a function that updates the Alert state
+
   return (
     <GlobalContext.Provider
       value={{
         InternetStatus,
         UpdateInternetStatus,
+
         AuthDetails,
         UpdateAuthDetails,
+
         LoadingStatus,
         UpdateLoading,
+
+        AlertMessage,
+        UpdateAlert,
       }}
     >
       {children}

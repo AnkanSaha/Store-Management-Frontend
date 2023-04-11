@@ -14,12 +14,15 @@ import {
 import { GlobalContext } from "../../../Context/Context API"; // Global Context
 
 // import Functions
-import SignupValidation from "../../../Validator/Authentication/Signup Validate"; // Signup Validation Function
 import CreateAccountFunction from "../../../Functions/Authentication/Create Account Function"; // Create Account Function
+
+// import Components
+import { Connection_Fail } from "../../Most Used Components/Connection & Alert"; // Connection Fail Component
 
 export default function Signup_Form_Section() {
   // use the Global Context
-  let { UpdateLoading }: any = useContext(GlobalContext); // Global Context
+  let { UpdateLoading, AlertMessage, UpdateAlert }: any =
+    useContext(GlobalContext); // Global Context
 
   // state for the form
   let [FormData, setFormData] = useState({
@@ -42,30 +45,43 @@ export default function Signup_Form_Section() {
   });
 
   // handle form input change
-  const handleFormInputChange = (Data: any) => {
+  const handleFormInputChange = (element: any) => {
     // Update the state of the form using the setFormData function & the spread operator
-    setFormData({ ...FormData, [Data.target.name]: Data.target.value });
+    setFormData({ ...FormData, [element.target.name]: element.target.value });
   };
 
   // handle formCheckbox input change
-  const handleFormCheckboxInputChange = (Data: any) => {
+  const handleFormCheckboxInputChange = (element: any) => {
     // Update the state of the form using the setFormData function & the spread operator
-    setFormData({ ...FormData, [Data.target.name]: Data.target.checked });
+    setFormData({ ...FormData, [element.target.name]: element.target.checked });
   };
 
   // handle form submit button
   const SubmitForm = async () => {
-    // send the data to the function to validate the data
-    let Result = await SignupValidation(FormData); // validate the data
-    if(Result === true){
-      UpdateLoading(true); // update the loading state
-      let FetchResult = await CreateAccountFunction({FullData: FormData}); // create the account
-      console.log(FetchResult);
+    UpdateLoading(true); // update the loading state
+    let Submission_Result = await CreateAccountFunction({ FullData: FormData }); // create the account
+
+    // if already registered
+    if (Submission_Result.Status === "Failed") {
+      UpdateAlert(Submission_Result); // update the alert
+      UpdateLoading(false); // update the loading state
+    }
+    // if the submission is successful & Verification failed
+    else if (Submission_Result.Status === false) {
+      UpdateLoading(false); // update the loading state
     }
   };
 
   return (
     <>
+      {AlertMessage.Status === "Failed" ? (
+        <>
+          <Connection_Fail
+            Title={AlertMessage.Status}
+            Message={AlertMessage.Message}
+          />
+        </>
+      ) : null}
       <h1 className="mt-[5.25rem] mb-10 ml-[19rem] text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
         <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
           Join With

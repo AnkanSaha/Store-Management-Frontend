@@ -7,7 +7,7 @@ import Footer from "../../Components/Most Used Components/Footer"; // import Foo
 import Upper_First_Section from "../../Components/Home/Upper First Section"; // import Upper First Section
 import Upper_Second_Section from "../../Components/Home/Upper Second Section"; // import Upper Second Section
 import Features from "../../Components/Home/Features"; // import Features Section
-import { Connection_Fail } from "../../Components/Most Used Components/Connection"; // import Connection
+import { Connection_Fail } from "../../Components/Most Used Components/Connection & Alert"; // import Connection
 import Hero_Comp from "../../Components/Home/Hero Comp"; // import Hero Comp
 
 // import Functions

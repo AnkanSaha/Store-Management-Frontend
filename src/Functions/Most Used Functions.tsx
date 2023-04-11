@@ -34,3 +34,24 @@ export function Internet_Connection_Status() {
     UpdateInternetStatus("Offline");
   });
 }
+
+
+// HTTP Request Function POST
+interface FunctionProps {
+  PostPath: string;
+  SendData: object;
+}
+
+export async function HTTP_POST({ PostPath, SendData }: FunctionProps) {
+  let Wait = await fetch(PostPath, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(SendData), // end of fetch
+  }); // end of fetch
+  // convert the data into json
+  let Data = await Wait.json();
+
+  return Data;
+}

@@ -10,7 +10,7 @@ import { Button } from "@mui/material"; // Button component
 // import Components
 import Navbar from "../../Most Used Components/Navbar"; // import Navbar from "./Most Used Components/Navbar";
 import Footer from "../../Most Used Components/Footer"; // import Footer from "./Most Used Components/Footer";
-import { Connection_Fail } from "../../Most Used Components/Connection"; // import Connection from "./Most Used Components/Connection";
+import { Connection_Fail } from "../../Most Used Components/Connection & Alert"; // import Connection from "./Most Used Components/Connection";
 
 // import Variables & Contexts
 import { AppName, APPURL } from "../../../Global/Global variables"; // import { AppName } from "../../Global/Global variables";
