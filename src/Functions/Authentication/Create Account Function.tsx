@@ -7,7 +7,6 @@ import SignupValidation from "../../Validator/Authentication/Signup Validate"; /
 import { HTTP_POST } from "../Most Used Functions"; // import HTTP POST Function
 
 // import Variables & Contexts
-// import { Hostname } from "../../Global/Global variables"; // import the hostname
 
 // Typescript Interface
 interface Props {
