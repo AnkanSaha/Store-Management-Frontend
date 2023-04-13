@@ -61,14 +61,14 @@ export default function Signup_Form_Section() {
     UpdateLoading(true); // update the loading state
     let Submission_Result = await CreateAccountFunction({ FullData: FormData }); // create the account
 
-    // if already registered
+    // ** if already registered
     if (Submission_Result.Status === "Failed") {
-      UpdateAlert(Submission_Result); // update the alert
+      UpdateAlert(Submission_Result); // *? update the alert
       UpdateLoading(false); // update the loading state
     } else if (Submission_Result.Status === "Exist") {
       UpdateAlert(Submission_Result); // update the alert
       UpdateLoading(false); // update the loading state
-    } else if (Submission_Result.Status === "Success") {
+    } else if (Submission_Result.Status === "Success") { // 
       UpdateAlert(Submission_Result); // update the alert
       UpdateAuthDetails(Submission_Result.Data); // update the auth details
       UpdateLoading(false); // update the loading state

@@ -67,7 +67,7 @@ export default async function SignupValidation(X) {
         alert("Shop Address is Required");
         return false;
     }
-    else if(X.PAN === "" || X.PAN === null || X.PAN === undefined) {
+    else if(X.PAN === "" || X.PAN === null || X.PAN === undefined || X.PAN.length !== 10) {
         alert("PAN is Required"); 
         return false;
     }

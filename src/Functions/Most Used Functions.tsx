@@ -4,7 +4,7 @@ import { useContext } from "react"; // import UseContext from 'react';
 
 // import Context API
 import { GlobalContext } from "../Context/Context API"; // import Global Context
-// import { Hostname } from "../Global/Global variables"; // import Hostname
+import { Hostname } from "../Global/Global variables"; // import Hostname
 
 //defile types for typescript
 type Proptypes = {
@@ -44,7 +44,7 @@ interface FunctionProps {
 }
 
 export async function HTTP_POST({ PostPath, SendData }: FunctionProps) {
-  let Wait = await fetch(`${PostPath}`, {
+  let Wait = await fetch(`${Hostname}${PostPath}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

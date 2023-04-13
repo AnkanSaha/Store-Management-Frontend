@@ -1,5 +1,8 @@
 // import All Essential Components & Libraries
 
+// Chakra UI Provider
+import { ChakraProvider } from "@chakra-ui/react";
+
 // import Main Router
 import MainRouter from "../Setting/Router"; // import Main Router
 
@@ -24,7 +27,9 @@ export default function GlobalAPI() {
   return (
     <>
       <GlobalProvider>
-        <MainRouter />
+        <ChakraProvider>
+          <MainRouter />
+        </ChakraProvider>
       </GlobalProvider>
     </>
   );
