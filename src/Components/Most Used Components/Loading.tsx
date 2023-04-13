@@ -1,5 +1,7 @@
 // this component is used to show loading state
 
+import { Progress } from "@chakra-ui/react"; // Chakra UI Progress Component
+
 // making interface for Loading Props
 interface Properties {
   Title: String;
@@ -9,6 +11,7 @@ interface Properties {
 export default function Loading({ Title, Description }: Properties) {
   return (
     <>
+      <Progress size="md" isIndeterminate colorScheme="red" />
       <div className="relative items-center block max-w-sm p-6 bg-white border border-gray-100 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-800 dark:hover:bg-gray-700 ml-[28.25rem] mt-[13.25rem]">
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white opacity-20">
           {Title}
@@ -51,5 +54,6 @@ export default function Loading({ Title, Description }: Properties) {
 // setting the default props for Loading
 Loading.defaultProps = {
   Title: "Loading...",
-  Description: "Please wait while we are loading the data. This may take a while. Please be patient. Thank you.",
+  Description:
+    "Please wait while we are loading the data. This may take a while. Please be patient. Thank you.",
 };

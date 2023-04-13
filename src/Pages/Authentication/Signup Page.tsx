@@ -33,7 +33,10 @@ export default function Signup_Page() {
       {InternetStatus === "Offline" ? <Connection_Fail /> : null}
       {LoadingStatus === true ? (
         <>
-          <Loading />
+          <Loading
+            Title="Creating your account !"
+            Description="Please wait while we create your account. This may take a while. do not refresh the page."
+          />
         </>
       ) : LoadingStatus === false ? (
         <>
