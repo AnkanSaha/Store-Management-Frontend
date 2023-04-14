@@ -17,7 +17,7 @@ import { GlobalContext } from "../../../Context/Context API"; // Global Context
 import CreateAccountFunction from "../../../Functions/Authentication/Create Account Function"; // Create Account Function
 
 // import Components
-import { Alert } from "../../Most Used Components/Connection & Alert"; // Connection Fail Component
+import { Alert } from "../../Most Used Components/Alert"; // Connection Fail Component
 
 export default function Signup_Form_Section() {
   // use the Global Context

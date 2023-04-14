@@ -11,7 +11,7 @@ import { AppName } from "../../Global/Global variables"; // import App Name
 import Navbar from "../../Components/Most Used Components/Navbar"; // import Navbar from "../Components/Most Used Components/Navbar";
 import Footer from "../../Components/Most Used Components/Footer"; // import Footer from "../Components/Most Used Components/Footer";
 import Privacy_Content from "../../Components/Privacy Policy & About US Page Components/Privacy Content"; // import Privacy Content from "../Components/Privacy Policy & About US Page Components/Privacy Content";
-import { Connection_Fail } from "../../Components/Most Used Components/Connection & Alert"; // import Connection from "../Components/Most Used Components/Connection";
+import { Connection_Fail } from "../../Components/Most Used Components/Connection Fail"; // import Connection from "../Components/Most Used Components/Connection";
 
 // import Functions
 import {

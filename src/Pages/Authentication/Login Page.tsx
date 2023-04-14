@@ -6,7 +6,7 @@ import { useContext } from "react"; // useContext Hook
 // import Components
 import Navbar from "../../Components/Most Used Components/Navbar"; // Navbar Component
 import Footer from "../../Components/Most Used Components/Footer"; // Footer Component
-import { Connection_Fail } from "../../Components/Most Used Components/Connection & Alert"; // Connection Component
+import { Connection_Fail } from "../../Components/Most Used Components/Connection Fail"; // Connection Component
 import Loading from "../../Components/Most Used Components/Loading"; // Loading Component
 
 // import Functions

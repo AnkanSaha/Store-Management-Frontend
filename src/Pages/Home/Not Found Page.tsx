@@ -19,7 +19,7 @@ import { purple } from "@mui/material/colors";
 import { GlobalContext } from "../../Context/Context API"; // import Global Context
 import { AppName } from "../../Global/Global variables"; // import App Name
 // import Components
-import { Connection_Fail } from "../../Components/Most Used Components/Connection & Alert"; // import Connection from "../Components/Most Used Components/Connection";
+import { Connection_Fail } from "../../Components/Most Used Components/Connection Fail"; // import Connection from "../Components/Most Used Components/Connection";
 
 import {
   Internet_Connection_Status,
