@@ -11,7 +11,7 @@ import { GlobalProvider } from "../Context/Context API"; // import Global API Li
 // import All Global Styles
 
 // Tailwind CSS
-import "../assets/CSS/Tailwind/Input.css"; // import Tailwind Input CSS
+import "../assets/Style/Tailwind/Input.css"; // import Tailwind Input CSS
 
 // DaisyUI CSS
 import "daisyui"; // import daisyUI

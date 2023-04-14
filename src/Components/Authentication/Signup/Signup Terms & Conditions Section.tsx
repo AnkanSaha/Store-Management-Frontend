@@ -4,8 +4,9 @@
 import { useContext } from "react"; // useContext hook
 import { useNavigate } from "react-router-dom"; // useNavigate hook
 
-// import Material UI components
-import { Button } from "@mui/material"; // Button component
+// import UI components
+import { Button } from "@chakra-ui/react";
+import { TbArrowBackUp } from "react-icons/tb";
 
 // import Components
 import Navbar from "../../Most Used Components/Navbar"; // import Navbar from "./Most Used Components/Navbar";
@@ -351,14 +352,14 @@ function Signup_Terms_and_Conditions_Section() {
           damage of any nature.
         </p>
         <Button
+          colorScheme="facebook"
           onClick={() => {
             navigate("/signup");
           }}
-          color="error"
-          style={{ marginTop: 40, marginLeft: 450 }}
-          variant="contained"
+          leftIcon={<TbArrowBackUp />}
+          style={{ marginLeft: 460, marginTop: 40 }}
         >
-          Go Back To Signup Page
+          Back To Signup Page
         </Button>
       </div>
       <Footer FooterStyle="static" />

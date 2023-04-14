@@ -68,7 +68,8 @@ export default function Signup_Form_Section() {
     } else if (Submission_Result.Status === "Exist") {
       UpdateAlert(Submission_Result); // update the alert
       UpdateLoading(false); // update the loading state
-    } else if (Submission_Result.Status === "Success") { // 
+    } else if (Submission_Result.Status === "Success") {
+      //
       UpdateAlert(Submission_Result); // update the alert
       UpdateAuthDetails(Submission_Result.Data); // update the auth details
       UpdateLoading(false); // update the loading state
@@ -81,28 +82,19 @@ export default function Signup_Form_Section() {
 
   return (
     <>
-    {/* Showing  Alert When AlertMessage State Change */}
-    
+      {/* Showing  Alert When AlertMessage State Change */}
+
       {AlertMessage.Status === "Failed" ? (
         <>
-          <Alert
-            Title={AlertMessage.Status}
-            Message={AlertMessage.Message}
-          />
+          <Alert Title={AlertMessage.Status} Message={AlertMessage.Message} />
         </>
       ) : AlertMessage.Status === "Exist" ? (
         <>
-          <Alert
-            Title={AlertMessage.Status}
-            Message={AlertMessage.Message}
-          />
+          <Alert Title={AlertMessage.Status} Message={AlertMessage.Message} />
         </>
       ) : AlertMessage.Status === "Success" ? (
         <>
-          <Alert
-            Title={AlertMessage.Status}
-            Message={AlertMessage.Message}
-          />
+          <Alert Title={AlertMessage.Status} Message={AlertMessage.Message} />
         </>
       ) : null}
 
