@@ -10,12 +10,11 @@ import MainRouter from "../Setting/Router"; // import Main Router
 import { GlobalProvider } from "../Context/Context API"; // import Global API Linker
 // import All Global Styles
 
-// DaisyUI CSS
-import "daisyui"; // import daisyUI
-
 // Tailwind CSS
 import "../assets/CSS/Tailwind/Input.css"; // import Tailwind Input CSS
-import "../assets/CSS/Tailwind/Output.css"; // import Tailwind CSS
+
+// DaisyUI CSS
+import "daisyui"; // import daisyUI
 
 // Flowbite CSS
 import "flowbite"; // import Flowbite CSS

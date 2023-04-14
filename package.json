@@ -8,11 +8,9 @@
 
     "dev": "vite --host",
 
-    "build": "tailwindcss build -i ./src/assets/CSS/Tailwind/Input.css -o ./src/assets/CSS/Tailwind/Output.css -c ./tailwind.config.js --minify && tsc && vite build",
+    "build": "tsc && vite build",
 
-    "preview": "vite preview",
-    
-    "buildcss": "tailwindcss build -i ./src/assets/CSS/Tailwind/Input.css -o ./src/assets/CSS/Tailwind/Output.css -c ./tailwind.config.js --minify"
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^18.2.0",
