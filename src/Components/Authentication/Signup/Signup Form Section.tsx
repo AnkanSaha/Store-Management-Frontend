@@ -17,7 +17,7 @@ import { GlobalContext } from "../../../Context/Context API"; // Global Context
 import CreateAccountFunction from "../../../Functions/Authentication/Create Account Function"; // Create Account Function
 
 // import Components
-import { Connection_Fail } from "../../Most Used Components/Connection & Alert"; // Connection Fail Component
+import { Alert } from "../../Most Used Components/Connection & Alert"; // Connection Fail Component
 
 export default function Signup_Form_Section() {
   // use the Global Context
@@ -85,21 +85,21 @@ export default function Signup_Form_Section() {
     
       {AlertMessage.Status === "Failed" ? (
         <>
-          <Connection_Fail
+          <Alert
             Title={AlertMessage.Status}
             Message={AlertMessage.Message}
           />
         </>
       ) : AlertMessage.Status === "Exist" ? (
         <>
-          <Connection_Fail
+          <Alert
             Title={AlertMessage.Status}
             Message={AlertMessage.Message}
           />
         </>
       ) : AlertMessage.Status === "Success" ? (
         <>
-          <Connection_Fail
+          <Alert
             Title={AlertMessage.Status}
             Message={AlertMessage.Message}
           />

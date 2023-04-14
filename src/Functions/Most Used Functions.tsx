@@ -4,7 +4,6 @@ import { useContext } from "react"; // import UseContext from 'react';
 
 // import Context API
 import { GlobalContext } from "../Context/Context API"; // import Global Context
-// import { Hostname } from "../Global/Global variables"; // import Hostname
 
 //defile types for typescript
 type Proptypes = {
@@ -24,12 +23,12 @@ export function Update_Document_Title({ TitleName }: Proptypes) {
 export function Internet_Connection_Status() {
   // using Context API
   const { UpdateInternetStatus }: any = useContext(GlobalContext); // const {InternetStatus, UpdateInternetStatus} = useContext(GlobalContext);
-
+  
   // // Event Listener for Internet Connection Status (Online)
   window.addEventListener("online", () => {
     UpdateInternetStatus("Online");
   });
-
+  
   // // Event Listener for Internet Connection Status (Offline)
   window.addEventListener("offline", () => {
     UpdateInternetStatus("Offline");
@@ -42,6 +41,8 @@ interface FunctionProps {
   PostPath: string;
   SendData: object;
 }
+
+// import { Hostname } from "../Global/Global variables"; // import Hostname
 
 export async function HTTP_POST({ PostPath, SendData }: FunctionProps) {
   let Wait = await fetch(`${PostPath}`, {
