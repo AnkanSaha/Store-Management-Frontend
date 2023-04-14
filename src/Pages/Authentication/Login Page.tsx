@@ -8,7 +8,7 @@ import Navbar from "../../Components/Most Used Components/Navbar"; // Navbar Com
 import Footer from "../../Components/Most Used Components/Footer"; // Footer Component
 import { Connection_Fail } from "../../Components/Most Used Components/Connection Fail"; // Connection Component
 import Loading from "../../Components/Most Used Components/Loading"; // Loading Component
-
+import Login_Form_Section from "../../Components/Authentication/Login/Login Form Section"; // Login Form Section Component
 // import Functions
 import {
   Update_Document_Title,
@@ -40,6 +40,7 @@ export default function Login_Page() {
       ) : LoadingStatus === false ? (
         <>
           <Navbar AppName="Login" />
+          <Login_Form_Section />
           <Footer />
         </>
       ) : null}
