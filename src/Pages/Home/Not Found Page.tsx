@@ -3,8 +3,8 @@ import { useContext } from "react"; // import {useContext} from 'react';
 import { useNavigate } from "react-router-dom"; // import {useNavigate} from 'react-router-dom';
 import Navbar from "../../Components/Most Used Components/Navbar";
 
-import { Box, Button, Typography } from "@mui/material";
-import { purple } from "@mui/material/colors";
+import { Heading, Button } from "@chakra-ui/react";
+import { TiArrowBackOutline } from "react-icons/ti";
 
 // The NotFound function is a component that displays a 404 page with a button
 // that redirects the user to the home page.
@@ -27,8 +27,6 @@ import {
 } from "../../Functions/Most Used Functions"; // import Internet Connection Status
 
 function NotFound() {
-  const primary = purple[500]; // #f44336
-
   // using Context API
   const { InternetStatus }: any = useContext(GlobalContext); // const {InternetStatus, UpdateInternetStatus} = useContext(GlobalContext);
 
@@ -42,32 +40,19 @@ function NotFound() {
     <>
       {InternetStatus === "Offline" ? <Connection_Fail /> : null}
       <Navbar AppName="Not Found" />
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: "column",
-          minHeight: "100vh",
-          backgroundColor: primary,
+      <Heading className="mt-[16.25rem] text-center">
+        404 - Page Not Found
+      </Heading>
+      <Button
+        onClick={() => {
+          navigate("/");
         }}
+        className="ml-[38.5rem]"
+        style={{ marginTop: 40 }}
+        leftIcon={<TiArrowBackOutline />}
       >
-        <Typography variant="h1" style={{ color: "white" }}>
-          404
-        </Typography>
-        <Typography variant="h6" style={{ color: "white" }}>
-          The page you’re looking for doesn’t exist.
-        </Typography>
-        <Button
-          onClick={() => {
-            navigate("/");
-          }}
-          variant="contained"
-          style={{ marginTop: 25 }}
-        >
-          Back Home
-        </Button>
-      </Box>
+        Go Home
+      </Button>
     </>
   );
 }

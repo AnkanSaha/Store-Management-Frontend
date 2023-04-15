@@ -55,6 +55,14 @@ export default async function SignupValidation(X) {
         alert("Country is Required");
         return false;
     }
+    else if(X.SecurityQuestion === "" || X.SecurityQuestion === null || X.SecurityQuestion === undefined) {
+        alert("Security Question is Required");
+        return false;
+    }
+    else if(X.SecurityAnswer === "" || X.SecurityAnswer === null || X.SecurityAnswer === undefined) {
+        alert("Security Answer is Required");
+        return false;
+    }
     else if(X.isTermsAccepted === false) {
         alert("Please Accept Terms and Conditions");
         return false;

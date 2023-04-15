@@ -10,6 +10,7 @@ import {
   Signup_Form_City_Name,
   Signup_Form_State_Name,
   Signup_Form_Country_Name,
+  Signup_Form_Security_Question,
 } from "./Signup Form Variables"; // City Name Variable
 import { GlobalContext } from "../../../Context/Context API"; // Global Context
 
@@ -36,6 +37,8 @@ export default function Signup_Form_Section() {
     State: "",
     Zip: "",
     Country: "",
+    SecurityQuestion: "",
+    SecurityAnswer: "",
     isTermsAccepted: false,
     ShopName: "",
     ShopAddress: "",
@@ -313,6 +316,44 @@ export default function Signup_Form_Section() {
             required
           />
         </div>
+        <select
+          className="select select-success min-w-full my-5 max-w-xs"
+          name="SecurityQuestion"
+          id="SecurityQuestion"
+          onChange={handleFormInputChange}
+          value={FormData.SecurityQuestion}
+        >
+          <option disabled defaultValue="" value="">
+            Select a Security Question
+          </option>
+          {Signup_Form_Security_Question.map((Question: any, index: any) => {
+            return (
+              <option key={index} value={Question}>
+                {Question}
+              </option>
+            );
+          })}
+        </select>
+
+        <div className="mb-6">
+          <label
+            htmlFor="Shop_Name"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Enter security answer
+          </label>
+          <input
+            type="text"
+            id="SecurityAnswer"
+            onChange={handleFormInputChange}
+            name="SecurityAnswer"
+            value={FormData.SecurityAnswer}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Enter Your security answer"
+            required
+          />
+        </div>
+
         <div className="mb-6">
           <label
             htmlFor="Shop_Name"
