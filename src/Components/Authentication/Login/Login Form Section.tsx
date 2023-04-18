@@ -50,6 +50,7 @@ let {UpdateAlert, AlertMessage, UpdateLoading}:any = useContext(GlobalContext); 
     let Status = await Login_Function({LoginData:LoginData}); // function for Login
 
      if (Status?.Status === false){
+      console.log(UpdateAlert, AlertMessage)
       UpdateLoading(false); // update loading state
      }
 
