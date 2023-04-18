@@ -1,4 +1,5 @@
 // All Imports
+export const Hostname: String = "https://store.theankan.live"; // Hostname ex: http://localhost:3201
 import Applogo from "../assets/Images/store-logo.png"; // App Logo
 
 // Basic Details About the Project
@@ -8,7 +9,6 @@ export const APPURL: String = "storemanager.daluabari.in"; // App URL
 export const OwnerEmail: String = "ankansahaofficial@gmail.com"; // Owner Email
 
 // HTTP Request Variables
-export const Hostname: String = "http://localhost:3201"; // Hostname
 
 // our features section variables
 export const Our_Features: any[] = [

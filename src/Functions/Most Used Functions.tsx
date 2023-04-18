@@ -42,10 +42,10 @@ interface FunctionProps {
   SendData: object;
 }
 
-// import { Hostname } from "../Global/Global variables"; // import Hostname
+import { Hostname } from "../Global/Global variables"; // import Hostname
 
 export async function HTTP_POST({ PostPath, SendData }: FunctionProps) {
-  let Wait = await fetch(`${PostPath}`, {
+  let Wait = await fetch(`${Hostname}${PostPath}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

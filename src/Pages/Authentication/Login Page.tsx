@@ -41,7 +41,7 @@ export default function Login_Page() {
         <>
           <Navbar AppName="Login" />
           <Login_Form_Section />
-          <Footer />
+          <Footer FooterStyle="static" />
         </>
       ) : null}
     </>

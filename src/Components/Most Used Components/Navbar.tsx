@@ -1,12 +1,10 @@
-import { memo } from "react"; // Import Essential Modules
+import { memo, useEffect, useState } from "react"; // Import Essential Modules
 
 // import React Logo from variable
 import { AppLogo } from "../../Global/Global variables"; // Import Essential Modules
 
 // import Router Module
-import { Link } from "react-router-dom"; // Import Essential Modules
-
-// import Variables For Details
+import { Link, useLocation } from "react-router-dom"; // Import Essential Modules
 
 // define type of Properties for the Navbar Component
 interface Properties {
@@ -18,6 +16,31 @@ function Navbar({ AppName }: Properties) {
   const Opener = (ID: String) => {
     document.getElementById(`${ID}`)?.classList.toggle("hidden");
   };
+
+  // state for PathName and Path
+  let [PathName, SetPathName] = useState("Login Now"); // define variables
+  let [Path, SetPath] = useState("/login"); // define variables
+  let [NavButtonShow, setNavButtonShow] = useState("inline-flex");
+
+  // logic for changing path name
+  let Location = useLocation();
+
+  useEffect(() => {
+    if (Location.pathname === "/") {
+      SetPath("/login"); // set path
+      SetPathName("Dashboard"); // set path name
+    } else if (Location.pathname === "/login") {
+      SetPathName("Create Account"); // set path name
+      SetPath("/signup"); // set path
+    } else if (Location.pathname === "/signup") {
+      SetPathName("Login now"); // set path name
+      SetPath("/login"); // set path
+    } else if (Location.pathname === "/dashboard") {
+      SetPathName("Login now"); // set path name
+      setNavButtonShow("hidden"); // Set NavbarButton Show & Hidden
+      SetPath("/login"); // set path
+    }
+  }, [Location.pathname]);
 
   return (
     <>
@@ -107,10 +130,10 @@ function Navbar({ AppName }: Properties) {
               </li>
               <li>
                 <Link
-                  to="/login"
-                  className="inline-flex items-center justify-center px-3 py-1 text-base font-medium text-center text-white bg-green-700 rounded-lg hover:bg-black focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+                  to={Path}
+                  className={`items-center justify-center px-3 py-1 text-base font-medium text-center text-white bg-green-700 rounded-lg hover:bg-black focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 ${NavButtonShow}`}
                 >
-                  Dashboard
+                  {PathName}
                   <svg
                     className="w-5 h-5 ml-2 -mr-1"
                     fill="currentColor"

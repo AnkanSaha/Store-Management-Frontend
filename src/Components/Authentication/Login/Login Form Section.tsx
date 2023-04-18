@@ -1,9 +1,59 @@
 // This is a component that will be used in the login Page Component
 
+// import React
+import {useState, useContext} from "react"; // import useState hook
+
+// import context API
+import { GlobalContext } from "../../../Context/Context API"; // import global Context API
+
+// import React router dom
+import { Link } from "react-router-dom"; // import Link component
+
 // import UI Components
 import { Button } from "@chakra-ui/react";
 
+// import Functions
+import Login_Function from "../../../Functions/Authentication/Login Function"; // import Login Function
+
 export default function Login_Form_Section() {
+// using context API
+let {UpdateAlert, AlertMessage, UpdateLoading}:any = useContext(GlobalContext); // using context api
+
+  // state for store login data
+  let [LoginData, setLoginData]=useState({
+    Email: "",
+    Password: "",
+    RememberMe: false
+  });
+
+  // handle login data
+  let Name:string; // store the name of the input field
+  let Value:string; // store the value of the input field
+
+  const HandleData = (ChangedData:any)=>{
+    Name=ChangedData.target.name;
+    Value=ChangedData.target.value;
+    setLoginData({...LoginData, [Name]:Value})
+  }
+
+  // handle checked data
+  let CheckedStatus: boolean // store the checked status of the input field
+  const handleChecked = (CheckedElement:any)=>{
+    CheckedStatus = CheckedElement.target.checked;
+    setLoginData({...LoginData, [CheckedElement.target.name]:CheckedStatus})
+  }
+
+  // Handle Submit
+  const SubmitData = async ()=>{
+    UpdateLoading(true); // update loading state
+
+    let Status = await Login_Function({LoginData:LoginData}); // function for Login
+
+     if (Status?.Status === false){
+      UpdateLoading(false); // update loading state
+     }
+
+  }
   return (
     <>
       <h1 className="mb-4 mt-[6.25rem] text-center text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
@@ -24,7 +74,10 @@ export default function Login_Form_Section() {
           </label>
           <input
             type="email"
+            onChange={HandleData}
             id="email"
+            name="Email"
+            value={LoginData.Email}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="enter your email address here"
             required
@@ -39,7 +92,10 @@ export default function Login_Form_Section() {
           </label>
           <input
             type="password"
+            onChange={HandleData}
             id="password"
+            name="Password"
+            value={LoginData.Password}
             placeholder="enter your password here"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             required
@@ -50,7 +106,8 @@ export default function Login_Form_Section() {
             <input
               id="remember"
               type="checkbox"
-              value=""
+              onChange={handleChecked}
+              name="RememberMe"
               className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
               required
             />
@@ -65,10 +122,23 @@ export default function Login_Form_Section() {
         <Button
           colorScheme="teal"
           size="lg"
-          style={{ marginTop: 15, marginLeft: 460 }}
+          onClick={SubmitData}
+          style={{ marginTop: 15, marginLeft: 480 }}
         >
           Login now
         </Button>
+        <Link to="/signup">
+          <p className="text-center text-blue-800 mt-7">
+            {" "}
+            Don't have an account? click here{" "}
+          </p>
+        </Link>
+        <Link to="/user/system/forgot/lost-password">
+          <p className="text-center text-blue-800 mt-5">
+            {" "}
+            Forgot Password? click here{" "}
+          </p>
+        </Link>
       </div>
     </>
   );
