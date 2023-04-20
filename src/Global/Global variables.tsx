@@ -84,3 +84,42 @@ export const Our_Features: any[] = [
     ButtonColor: "pink",
   },
 ]; // Features Array
+
+export const Dashboard_Sidebar_Options: any[] = [
+  {
+    Title: "Dashboard",
+  },
+  {
+    Title: "Manage Employees",
+  },
+  {
+    Title: "Manage Inventory",
+  },
+  {
+    Title: "Manage Customers",
+  },
+  {
+    Title: "Manage Orders",
+  },
+  {
+    Title: "Manage Suppliers",
+  },
+  {
+    Title: "Manage Products",
+  },
+  {
+    Title: "Manage Categories",
+  },
+  {
+    Title: "Print Invoice",
+  },
+  {
+    Title: "Manage Profile",
+  },
+  {
+    Title: "Logout",
+  },
+  {
+    Title: "About us",
+  },
+]; // Dashboard Sidebar Options
