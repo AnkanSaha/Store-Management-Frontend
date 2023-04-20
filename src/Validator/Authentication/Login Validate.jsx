@@ -21,10 +21,6 @@ export default async function LoginValidate (Y){
         alert("Password must contain at least one of the special characters (@, #, $, %, &, *, !, ~, ^, (, ), -, +, =, {, }, [, ], :, ;, <, >, ?, /, |)");
         return false;
     }
-    else if(Y.RememberMe === null || Y.RememberMe === undefined || Y.RememberMe === "" || Y.RememberMe === false){
-        alert("Remember Me must be checked");
-        return false;
-    }
     else{
         return true;
     }

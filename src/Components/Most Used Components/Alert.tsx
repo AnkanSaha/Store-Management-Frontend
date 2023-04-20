@@ -2,37 +2,39 @@
 
 // Assigning the default props to the component
 type AlertProps = {
-    Title: string;
-    Message: string;
-    ButtonText?: string;
-  };
-  
-  export function Alert({ Title, Message, ButtonText }: AlertProps) {
-    return (
-      <>
-        <input
-          type="checkbox"
-          id="my-modal-6"
-          defaultChecked
-          className="modal-toggle"
-        />
-        <div className="modal modal-bottom sm:modal-middle">
-          <div className="modal-box">
-            <h3 className="font-bold text-lg">{Title}</h3>
-            <p className="py-4">{Message}</p>
-            <div className="modal-action">
-              <label htmlFor="my-modal-6" className="btn">
-                {ButtonText}
-              </label>
-            </div>
+  Title: string;
+  Message: string;
+  ButtonText?: string;
+  ButtonFunc: any;
+};
+
+export function Alert({ Title, Message, ButtonText, ButtonFunc }: AlertProps) {
+  return (
+    <>
+      <input
+        type="checkbox"
+        id="my-modal-6"
+        defaultChecked
+        className="modal-toggle"
+      />
+      <div className="modal modal-bottom sm:modal-middle">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg">{Title}</h3>
+          <p className="py-4">{Message}</p>
+          <div className="modal-action" onClick={ButtonFunc}>
+            <label htmlFor="my-modal-6" className="btn">
+              {ButtonText}
+            </label>
           </div>
         </div>
-      </>
-    );
-  } // This component is used to show a modal when alerting the user
-  
-  Alert.defaultProps = {
-    Title: "Alert",
-    Message: "This is an alert",
-    ButtonText: "Close",
-  };
+      </div>
+    </>
+  );
+} // This component is used to show a modal when alerting the user
+
+Alert.defaultProps = {
+  Title: "Alert",
+  Message: "This is an alert",
+  ButtonText: "Close",
+  ButtonFunc: () => {},
+};
