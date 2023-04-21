@@ -29,7 +29,7 @@ export default function Dashboard() {
   // clear alert message
   useEffect(() => {
     UpdateAlert({}); // Update Alert
-  });
+  }, []);
 
   Internet_Connection_Status(); // Internet Connection Status
   // Update Document Title with logic

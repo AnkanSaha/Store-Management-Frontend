@@ -60,7 +60,7 @@ export default function Login_Form_Section() {
         UpdateAlert(CacheData); // Updating Success Status
       }
     });
-  });
+  }, []);
 
   // Handle Submit
   const SubmitData = async () => {
