@@ -35,6 +35,10 @@ export function GlobalProvider({ children }: Properties) {
   const [AlertMessage, setAlertMessage] = useState({}); // State for Alert
   const UpdateAlert = (Message: any) => {setAlertMessage(Message)}; // UpdateAlert is a function that updates the Alert state
 
+    // State for Alert & State Updater
+    const [SidebarOption, setSidebarOption] = useState("dashboard"); // State for Alert
+    const UpdateSidebarOption = (Value: any) => {setSidebarOption(Value)}; // UpdateAlert is a function that updates the Alert state
+
   return (
     <GlobalContext.Provider
       value={{
@@ -49,6 +53,9 @@ export function GlobalProvider({ children }: Properties) {
 
         AlertMessage,
         UpdateAlert,
+
+        SidebarOption,
+        UpdateSidebarOption,
       }}
     >
       {children}

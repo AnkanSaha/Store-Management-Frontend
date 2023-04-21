@@ -1,5 +1,5 @@
 // All Imports
-export const Hostname: String = " https://store.theankan.live"; // Hostname ex: http://localhost:3201
+export const Hostname: String = " http://localhost:3201"; // Hostname ex: http://localhost:3201
 import Applogo from "../assets/Images/store-logo.png"; // App Logo
 
 // Basic Details About the Project
@@ -88,38 +88,50 @@ export const Our_Features: any[] = [
 export const Dashboard_Sidebar_Options: any[] = [
   {
     Title: "Dashboard",
+    OptionValue: "dashboard"
   },
   {
     Title: "Manage Employees",
+    OptionValue: "manage-employees"
   },
   {
     Title: "Manage Inventory",
+    OptionValue: "manage-inventory"
   },
   {
     Title: "Manage Customers",
+    OptionValue: "manage-customers"
   },
   {
     Title: "Manage Orders",
+    OptionValue: "manage-orders"
   },
   {
     Title: "Manage Suppliers",
+    OptionValue: "manage-suppliers"
   },
   {
     Title: "Manage Products",
+    OptionValue: "manage-products"
   },
   {
     Title: "Manage Categories",
+    OptionValue: "manage-categories"
   },
   {
     Title: "Print Invoice",
+    OptionValue: "print-invoice"
   },
   {
     Title: "Manage Profile",
+    OptionValue: "manage-profile"
   },
   {
     Title: "Logout",
+    OptionValue: "logout"
   },
   {
     Title: "About us",
+    OptionValue: "about-us"
   },
 ]; // Dashboard Sidebar Options

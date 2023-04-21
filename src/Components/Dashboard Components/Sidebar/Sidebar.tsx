@@ -1,5 +1,11 @@
 // Sidebar By Chakra ui
 
+// import all the components we are going to use
+import { useContext } from "react"; // import useContext hook
+
+// import context
+import { GlobalContext } from "../../../Context/Context API"; // import Global Context
+
 // interface for Sidebar
 interface props {
   TopText: string;
@@ -28,6 +34,10 @@ import { Dashboard_Sidebar_Options } from "../../../Global/Global variables"; //
 
 export default function Sidebar({TopText}: props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  // use context
+  const { UpdateSidebarOption }:any = useContext(GlobalContext); // use setSidebarOption from Global Context
+
   return (
     <>
       <Button
@@ -50,7 +60,7 @@ export default function Sidebar({TopText}: props) {
                 {Dashboard_Sidebar_Options.map((item, index) => {
                   return (
                     <li key={index}>
-                      <a className=" font-bold cursor-pointer flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                      <a onClick={()=>{UpdateSidebarOption(item.OptionValue)}} className=" font-bold cursor-pointer flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                         <span className="ml-3">{item.Title}</span>
                       </a>
                     </li>
