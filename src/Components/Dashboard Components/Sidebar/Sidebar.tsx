@@ -1,4 +1,10 @@
 // Sidebar By Chakra ui
+
+// interface for Sidebar
+interface props {
+  TopText: string;
+}
+
 // import ui components
 import {
   Drawer,
@@ -11,14 +17,16 @@ import {
   Button,
 } from "@chakra-ui/react";
 
+// import icons
 import { TiThMenuOutline } from "react-icons/ti";
 
+// import React Hooks
 import { useDisclosure } from "@chakra-ui/react";
 
 // import variables
 import { Dashboard_Sidebar_Options } from "../../../Global/Global variables"; // import Dashboard Sidebar Options
 
-export default function Sidebar() {
+export default function Sidebar({TopText}: props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
@@ -34,7 +42,7 @@ export default function Sidebar() {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>Choose Your Action</DrawerHeader>
+          <DrawerHeader bgColor="Highlight">{TopText}</DrawerHeader>
 
           <DrawerBody>
             <div className="py-4 overflow-y-auto">
@@ -62,3 +70,7 @@ export default function Sidebar() {
     </>
   );
 }
+
+Sidebar.defaultProps = {
+  TopText: "Choose an Option",
+} // Sidebar Default Props

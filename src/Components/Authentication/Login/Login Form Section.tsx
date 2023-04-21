@@ -1,7 +1,7 @@
 // This is a component that will be used in the login Page Component
 
 // import React
-import { useState, useContext } from "react"; // import useState hook
+import { useState, useContext, useEffect } from "react"; // import useState hook
 
 // import context API
 import { GlobalContext } from "../../../Context/Context API"; // import global Context API
@@ -14,6 +14,10 @@ import { Button } from "@chakra-ui/react";
 import { Alert } from "../../Most Used Components/Alert"; // Importing Alert Component
 // import Functions
 import Login_Function from "../../../Functions/Authentication/Login Function"; // import Login Function
+import {
+  Store_Cache_Data,
+  Return_Cache_Data,
+} from "../../../Functions/Cache/cache Storage"; // Store Cache Data Function
 
 export default function Login_Form_Section() {
   // Using React Hooks
@@ -46,19 +50,40 @@ export default function Login_Form_Section() {
     setLoginData({ ...LoginData, [CheckedElement.target.name]: CheckedStatus });
   };
 
+  // fetch data from cache
+  useEffect(() => {
+    Return_Cache_Data({ DataPath: "AuthData" }).then((CacheData) => {
+      if (CacheData === false) {
+        console.log("No Data Found");
+      } else {
+        UpdateAuthDetails(CacheData); // update the login Status
+        UpdateAlert(CacheData); // Updating Success Status
+      }
+    });
+  });
+
   // Handle Submit
   const SubmitData = async () => {
     UpdateLoading(true); // update loading state
 
     let LoginStatus = await Login_Function({ LoginData: LoginData }); // function for Login
-
     if (LoginStatus?.Status === false) {
       UpdateAlert({}); // Clearing all data from this state
       UpdateLoading(false); // update loading state
     } else if (LoginStatus.Status === "Success") {
-      UpdateLoading(false); // update loading state
-      UpdateAlert(LoginStatus); // Updating Success Status
-      UpdateAuthDetails(LoginStatus); // update the login Status
+      if (LoginStatus.SaveLocally === true) {
+        UpdateLoading(false); // update loading state
+        UpdateAlert(LoginStatus); // Updating Success Status
+        UpdateAuthDetails(LoginStatus); // update the login Status
+        await Store_Cache_Data({
+          AuthData: LoginStatus,
+          DataPath: "AuthData",
+        });
+      } else if (LoginStatus.SaveLocally === false) {
+        UpdateLoading(false); // update loading state
+        UpdateAlert(LoginStatus); // Updating Success Status
+        UpdateAuthDetails(LoginStatus); // update the login Status
+      }
     } else if (LoginStatus.Status === "Failed") {
       UpdateLoading(false); // update loading state
       UpdateAlert(LoginStatus); // Updating Filed Status
