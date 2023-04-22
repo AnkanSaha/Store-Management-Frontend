@@ -86,28 +86,48 @@ export const Our_Features: any[] = [
       OptionValue: "manage-employees",
     },
     {
+      Title: "Add Employee",
+      OptionValue: "add-employee"
+    },
+    {
       Title: "Manage Inventory",
       OptionValue: "manage-inventory",
+    },
+    {
+      Title: "Add new inventory item",
+      OptionValue: "add-new-inventory-item"
     },
     {
       Title: "Manage Customers",
       OptionValue: "manage-customers",
     },
     {
+      Title: "Add Customer",
+      OptionValue: "add-customer"
+    },
+    {
       Title: "Manage Orders",
       OptionValue: "manage-orders",
+    },
+    {
+      Title: "Create new order",
+      OptionValue: "create-new-order"
     },
     {
       Title: "Manage Suppliers",
       OptionValue: "manage-suppliers",
     },
     {
-      Title: "Manage Products",
-      OptionValue: "manage-products",
+      Title: "Add Supplier",
+      OptionValue: "add-supplier"
     },
     {
       Title: "Manage Categories",
       OptionValue: "manage-categories",
+    },
+    {
+      Title: "Add Category",
+      OptionValue: "add-category"
     },
     {
       Title: "Print Invoice",

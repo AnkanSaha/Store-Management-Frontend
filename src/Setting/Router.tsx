@@ -6,8 +6,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // im
 // Common Pages
 import HomePage from "../Pages/Home/Home Page"; // import HomePage from "./Pages/Home Page";
 import NotFound from "../Pages/Home/Not Found Page"; // import NotFound from "./Pages/Not Found";
-import PrivacyPolicy from "../Pages/Privacy Policy & About US Page/Privacy Policy Page"; // import PrivacyPolicy from "./Pages/Privacy Policy";
-import AboutUs from "../Pages/Privacy Policy & About US Page/About Us Page"; // import AboutUs from "./Pages/Aout Us Page";
+import PrivacyPolicy from "../Pages/Privacy Policy & About US & Contact us Page/Privacy Policy Page"; // import PrivacyPolicy from "./Pages/Privacy Policy";
+import AboutUs from "../Pages/Privacy Policy & About US & Contact us Page/About Us Page"; // import AboutUs from "./Pages/Aout Us Page";
+import ContactPage from "../Pages/Privacy Policy & About US & Contact us Page/Contact us page";
 
 // Auth Pages
 import Signup_Page from "../Pages/Authentication/Signup Page"; // import Signup_Page from "./Pages/Auth/Signup Page";
@@ -25,13 +26,17 @@ export default function AppRouter() {
         <Route path="*" element={<NotFound />} />
         <Route path="/Privacy" element={<PrivacyPolicy />} />
         <Route path="/About" element={<AboutUs />} />
+        <Route path ="/Contact" element={<ContactPage />} />
+
         <Route path="/signup" element={<Signup_Page />} />
-        <Route path="/login" element={<Login_Page />} />
-        <Route path="/dashboard" element={<Dashboard />} />
         <Route
           path="/signup/process/terms-andconditions"
           element={<Signup_Terms_and_Conditions_Section />}
         />
+        <Route path="/login" element={<Login_Page />} />
+        
+        <Route path="/dashboard" element={<Dashboard />} />
+
       </Routes>
     </Router>
   );

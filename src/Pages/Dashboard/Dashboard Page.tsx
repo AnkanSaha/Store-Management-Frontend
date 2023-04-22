@@ -5,7 +5,6 @@ import { useContext, useEffect } from "react"; // context API
 
 // import Components
 import Navbar from "../../Components/Most Used Components/Navbar"; // import Navbar
-import Footer from "../../Components/Most Used Components/Footer"; // import Footer
 import { Connection_Fail } from "../../Components/Most Used Components/Connection Fail"; // import Connection
 import NotFound from "../Home/Not Found Page"; // Not Found Page
 
@@ -46,7 +45,6 @@ export default function Dashboard() {
         <>
           <Navbar AppName={AuthDetails.AccountDetails.ShopName} />
           <Dashboard_Overview />
-          <Footer />
         </>
       ) : (
         <NotFound
