@@ -1,5 +1,6 @@
 // import Essetial Components & Variables
-import { Our_Features, AppName } from "../../Global/Global variables"; // import Features Array
+import { AppName } from "../../Global/Global variables"; // import AppName
+import { Our_Features } from "../../Global/Global Array Variables"; // import Our_Features
 import { useNavigate } from "react-router-dom"; // import Link
 
 // interface for Features Array

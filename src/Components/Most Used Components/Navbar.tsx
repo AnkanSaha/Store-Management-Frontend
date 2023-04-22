@@ -11,6 +11,9 @@ interface Properties {
   AppName: String;
 }
 
+// import Global Variables
+import { Navbar_Services_Options } from "../../Global/Global Array Variables"; // import Navbar Services Options
+
 function Navbar({ AppName }: Properties) {
   // function for toggle the navbar down
   const Opener = (ID: String) => {
@@ -157,74 +160,42 @@ function Navbar({ AppName }: Properties) {
         >
           <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-gray-900 dark:text-white sm:grid-cols-2 md:px-6">
             <ul>
-              <li>
-                <Link
-                  to="/Add-new-customer"
-                  className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
-                >
-                  <div className="font-semibold">Add New Customer</div>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    Add new customer to your account.
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/View-inventory"
-                  className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
-                >
-                  <div className="font-semibold">View Inventory</div>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    View your inventory and add new products.
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/Make-Product-Bill"
-                  className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
-                >
-                  <div className="font-semibold">Make Product Bill</div>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    Make a bill for your customer.
-                  </span>
-                </Link>
-              </li>
+              {Navbar_Services_Options.map((item, index) => {
+                if (index + 1 <= Navbar_Services_Options.length / 2) {
+                  return (
+                    <li key={index}>
+                      <Link
+                        to={item.OptionPath}
+                        className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                      >
+                        <div className="font-semibold">{item.Title}</div>
+                        <span className="text-sm text-gray-500 dark:text-gray-400">
+                          {item.Description}
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                }
+              })}
             </ul>
             <ul>
-              <li>
-                <Link
-                  to="/Orders-and-bills"
-                  className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
-                >
-                  <div className="font-semibold">View All order & Bills</div>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    View all your order and bills.
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/manage-employees"
-                  className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
-                >
-                  <div className="font-semibold"> Manage Employees</div>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    Manage your employees and their salary.
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/suppliers"
-                  className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
-                >
-                  <div className="font-semibold">Manage Suppliers</div>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    Manage your suppliers and their products.
-                  </span>
-                </Link>
-              </li>
+              {Navbar_Services_Options.map((item, index) => {
+                if (index >= Navbar_Services_Options.length / 2) {
+                  return (
+                    <li key={index}>
+                      <Link
+                        to={item.OptionPath}
+                        className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                      >
+                        <div className="font-semibold">{item.Title}</div>
+                        <span className="text-sm text-gray-500 dark:text-gray-400">
+                          {item.Description}
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                }
+              })}
             </ul>
           </div>
         </div>

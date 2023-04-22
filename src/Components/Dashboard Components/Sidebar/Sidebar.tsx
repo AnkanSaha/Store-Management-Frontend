@@ -30,13 +30,13 @@ import { TiThMenuOutline } from "react-icons/ti";
 import { useDisclosure } from "@chakra-ui/react";
 
 // import variables
-import { Dashboard_Sidebar_Options } from "../../../Global/Global variables"; // import Dashboard Sidebar Options
+import { Dashboard_Sidebar_Options } from "../../../Global/Global Array Variables"; // import Dashboard Sidebar Options
 
-export default function Sidebar({TopText}: props) {
+export default function Sidebar({ TopText }: props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   // use context
-  const { UpdateSidebarOption }:any = useContext(GlobalContext); // use setSidebarOption from Global Context
+  const { UpdateSidebarOption }: any = useContext(GlobalContext); // use setSidebarOption from Global Context
 
   return (
     <>
@@ -60,7 +60,12 @@ export default function Sidebar({TopText}: props) {
                 {Dashboard_Sidebar_Options.map((item, index) => {
                   return (
                     <li key={index}>
-                      <a onClick={()=>{UpdateSidebarOption(item.OptionValue)}} className=" font-bold cursor-pointer flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                      <a
+                        onClick={() => {
+                          UpdateSidebarOption(item.OptionValue);
+                        }}
+                        className=" font-bold cursor-pointer flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                      >
                         <span className="ml-3">{item.Title}</span>
                       </a>
                     </li>
@@ -83,4 +88,4 @@ export default function Sidebar({TopText}: props) {
 
 Sidebar.defaultProps = {
   TopText: "Choose an Option",
-} // Sidebar Default Props
+}; // Sidebar Default Props
