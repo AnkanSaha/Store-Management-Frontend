@@ -153,31 +153,37 @@ export const Our_Features: any[] = [
       Title: "Add New Customer",
       Description: "Add new customer to your account.",
       OptionPath: "/dashboard",
+      OptionValue: "add-customer"
     },
     {
       Title: "View Inventory",
       Description: "View your inventory. Add, edit and delete products.",
       OptionPath: "/dashboard",
+      OptionValue: "manage-inventory",
     },
     {
       Title: "Make Product Bill",
       Description: "Make a product bill for your customer.",
       OptionPath: "/dashboard",
+      OptionValue: "print-invoice",
     },
     {
       Title: "View All order & Bills",
       Description: "View all your orders and bills.",
       OptionPath: "/dashboard",
+      OptionValue: "manage-orders",
     },
     {
       Title: "Manage Employees",
       Description: "Manage your employees. Add, edit and delete employees.",
       OptionPath: "/dashboard",
+      OptionValue: "manage-employees",
     },
     {
       Title: "Manage Suppliers",
       Description: "Manage your suppliers and their products.",
       OptionPath: "/dashboard",
+      OptionValue: "manage-suppliers",
     },
   ]; // Navbar Options
   

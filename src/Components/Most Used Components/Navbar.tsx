@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from "react"; // Import Essential Modules
+import { memo, useEffect, useState, useContext } from "react"; // Import Essential Modules
 
 // import React Logo from variable
 import { AppLogo } from "../../Global/Global variables"; // Import Essential Modules
@@ -13,8 +13,12 @@ interface Properties {
 
 // import Global Variables
 import { Navbar_Services_Options } from "../../Global/Global Array Variables"; // import Navbar Services Options
+import { GlobalContext } from "../../Context/Context API"; // import global Context API
 
 function Navbar({ AppName }: Properties) {
+  // use context
+  const { UpdateSidebarOption }: any = useContext(GlobalContext); // use setSidebarOption from Global Context
+
   // function for toggle the navbar down
   const Opener = (ID: String) => {
     document.getElementById(`${ID}`)?.classList.toggle("hidden");
@@ -167,6 +171,9 @@ function Navbar({ AppName }: Properties) {
                       <Link
                         to={item.OptionPath}
                         className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                        onClick={() => {
+                          UpdateSidebarOption(item.OptionValue);
+                        }}
                       >
                         <div className="font-semibold">{item.Title}</div>
                         <span className="text-sm text-gray-500 dark:text-gray-400">
@@ -186,6 +193,9 @@ function Navbar({ AppName }: Properties) {
                       <Link
                         to={item.OptionPath}
                         className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                        onClick={() => {
+                          UpdateSidebarOption(item.OptionValue);
+                        }}
                       >
                         <div className="font-semibold">{item.Title}</div>
                         <span className="text-sm text-gray-500 dark:text-gray-400">

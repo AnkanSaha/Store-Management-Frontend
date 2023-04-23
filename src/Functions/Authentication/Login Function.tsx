@@ -5,6 +5,7 @@
 // import Functions
 import LoginValidate from "../../Validator/Authentication/Login Validate"; // import Login Validate Function
 import { HTTP_POST } from "../Most Used Functions"; // import HTTP POST Function
+import { Store_Cache_Data } from "../../Functions/Cache/cache Storage"; // Store Cache Data Function
 
 // Typescript Interface
 interface Props {
@@ -21,10 +22,21 @@ export default async function Login_Function({ LoginData }: Props) {
       PostPath: "/post/auth/login",
       SendData: LoginData,
     }); // send the data to the server
-    return Result;
+
+    // Store the data in cache
+    if (Result.SaveLocally === true) {
+      await Store_Cache_Data({
+        AuthData: Result,
+        DataPath: "AuthData",
+      });
+      // return the result
+      return Result;
+    } else {
+      return Result;
+    }
   } else if (Verification_Result === false) {
     return {
-      Status: false
+      Status: false,
     };
   }
 }

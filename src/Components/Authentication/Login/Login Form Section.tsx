@@ -14,10 +14,7 @@ import { Button } from "@chakra-ui/react";
 import { Alert } from "../../Most Used Components/Alert"; // Importing Alert Component
 // import Functions
 import Login_Function from "../../../Functions/Authentication/Login Function"; // import Login Function
-import {
-  Store_Cache_Data,
-  Return_Cache_Data,
-} from "../../../Functions/Cache/cache Storage"; // Store Cache Data Function
+import { Return_Cache_Data } from "../../../Functions/Cache/cache Storage"; // Store Cache Data Function
 
 export default function Login_Form_Section() {
   // Using React Hooks
@@ -55,6 +52,7 @@ export default function Login_Form_Section() {
     Return_Cache_Data({ DataPath: "AuthData" }).then((CacheData) => {
       if (CacheData === false) {
         console.log("No Data Found");
+        UpdateLoading(false); // update loading state to false
       } else {
         UpdateAuthDetails(CacheData); // update the login Status
         UpdateAlert(CacheData); // Updating Success Status
@@ -71,19 +69,9 @@ export default function Login_Form_Section() {
       UpdateAlert({}); // Clearing all data from this state
       UpdateLoading(false); // update loading state
     } else if (LoginStatus.Status === "Success") {
-      if (LoginStatus.SaveLocally === true) {
-        UpdateLoading(false); // update loading state
-        UpdateAlert(LoginStatus); // Updating Success Status
-        UpdateAuthDetails(LoginStatus); // update the login Status
-        await Store_Cache_Data({
-          AuthData: LoginStatus,
-          DataPath: "AuthData",
-        });
-      } else if (LoginStatus.SaveLocally === false) {
-        UpdateLoading(false); // update loading state
-        UpdateAlert(LoginStatus); // Updating Success Status
-        UpdateAuthDetails(LoginStatus); // update the login Status
-      }
+      UpdateLoading(false); // update loading state
+      UpdateAlert(LoginStatus); // Updating Success Status
+      UpdateAuthDetails(LoginStatus); // update the login Status
     } else if (LoginStatus.Status === "Failed") {
       UpdateLoading(false); // update loading state
       UpdateAlert(LoginStatus); // Updating Filed Status

@@ -14,7 +14,7 @@ export default function Manage_Employees() {
 
   return (
     <>
-      <div className="overflow-x-auto shadow-md sm:rounded-lg ml-[12.25rem] fixed top-[5.5rem] w-[85%]">
+      <div className="table-compact z-30 overflow-x-auto shadow-md sm:rounded-lg ml-[12.25rem] fixed top-[5.5rem] w-[85%]">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
