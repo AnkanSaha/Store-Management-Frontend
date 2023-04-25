@@ -12,6 +12,7 @@ import { GlobalContext } from "../../Context/Context API"; // import Global Cont
 // import all essential components & libraries
 import Dashboad_Homepage from "./Dashboard Sub Components/Dashboad Homepage"; // import Dashboad_Homepage component
 import Manage_Employees from "./Dashboard Sub Components/Employee Management/Manage Employees"; // import Manage_Employees component
+import Add_New_Employee from "./Dashboard Sub Components/Employee Management/Add New Employee";
 
 export default function Dashboard_Overview() {
   // using Context API
@@ -24,6 +25,8 @@ export default function Dashboard_Overview() {
         <Dashboad_Homepage UserName={AuthDetails.AccountDetails.ShopName} />
       ) : SidebarOption === "manage-employees" ? (
         <Manage_Employees />
+      ) : SidebarOption === "add-employee" ? (
+        <Add_New_Employee />
       ) : null}
     </>
   );
