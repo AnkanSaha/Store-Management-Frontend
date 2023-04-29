@@ -6,12 +6,13 @@ import Footer from "../../Most Used Components/Footer";
 
 type Props = {
   Message: string;
+  Height: string;
 };
 
-export default function Dashboard_No_Data_Found({ Message }: Props) {
+export default function Dashboard_No_Data_Found({ Message, Height }: Props) {
   return (
     <>
-      <Heading className="text-center">{Message}</Heading>
+      <Heading className="text-center" style={{marginTop:Height}}>{Message}</Heading>
 
       <div role="status" className="ml-[40.25rem] mt-[3.25rem]">
         <svg
@@ -37,3 +38,8 @@ export default function Dashboard_No_Data_Found({ Message }: Props) {
     </>
   );
 }
+
+Dashboard_No_Data_Found.defaultProps = {
+  Message: "No Data Found",
+  Height: "0",
+};

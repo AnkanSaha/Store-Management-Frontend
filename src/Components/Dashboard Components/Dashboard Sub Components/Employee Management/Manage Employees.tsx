@@ -109,7 +109,7 @@ export default function Manage_Employees() {
                               {Employee.EmployeePhoneNumber}
                             </td>
                             <td className="px-6 py-4">
-                              ₹{Employee.EmployeeMonthlySalary}
+                              ₹ {Employee.EmployeeMonthlySalary}
                             </td>
                             <td className="px-6 py-4">
                               {Employee.EmployeeRole}
