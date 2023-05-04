@@ -12,6 +12,7 @@ import Dashboard_No_Data_Found from "../Dashboard No Data Found"; // import Dash
 import { Button } from "@chakra-ui/react"; // import Button Component
 import { Alert } from "../../../Most Used Components/Alert"; // import Alert Component
 import { AiOutlineRollback } from "react-icons/ai"; // import AiOutlineRollback Icon
+import {RiDeleteBin2Line} from 'react-icons/ri'; // import RiDeleteBin2Line Icon
 //import Context
 import { GlobalContext } from "../../../../Context/Context API"; // import Global Context
 
@@ -43,8 +44,8 @@ export default function Manage_Single_Employee() {
     HTTP_POST({
       PostPath: "/post/employee/get",
       SendData: {
-        User_id: AuthDetails.AccountDetails.User_id,
-        OwnerEmail: AuthDetails.AccountDetails.Email,
+        User_id: AuthDetails.Data.AccountDetails.User_id,
+        OwnerEmail: AuthDetails.Data.AccountDetails.Email,
       },
     }).then((Response) => {
       setLoadingState(false); // Set Loading Text to false
@@ -128,6 +129,17 @@ export default function Manage_Single_Employee() {
                 colorScheme="linkedin"
               >
                 Go Back
+              </Button>
+              <Button
+                leftIcon={<RiDeleteBin2Line />}
+                onClick={() => {
+                  Navigate("/dashboard");
+                }}
+                className="ml-[7.25rem] mt-5 rounded-3xl"
+                variant="solid"
+                colorScheme="red"
+              >
+               Delete Record
               </Button>
             </>
           ) : (

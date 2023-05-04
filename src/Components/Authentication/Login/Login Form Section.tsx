@@ -65,6 +65,7 @@ export default function Login_Form_Section() {
     UpdateLoading(true); // update loading state
 
     let LoginStatus = await Login_Function({ LoginData: LoginData }); // function for Login
+    console.log(LoginStatus)
     if (LoginStatus?.Status === false) {
       UpdateAlert({}); // Clearing all data from this state
       UpdateLoading(false); // update loading state

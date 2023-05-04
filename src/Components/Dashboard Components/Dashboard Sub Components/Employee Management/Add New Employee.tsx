@@ -22,7 +22,12 @@ import { Alert } from "../../../Most Used Components/Alert"; // Alert Component
 import { AppName } from "../../../../Global/Global variables"; // App Name
 import { GlobalContext } from "../../../../Context/Context API"; // Context API
 
-export default function Add_New_Employee() {
+// types
+type props = {
+  StoreName: string;
+};
+
+export default function Add_New_Employee({StoreName}:props) {
   // Context API
   const {
     UpdateLoading,
@@ -33,11 +38,11 @@ export default function Add_New_Employee() {
   }: any = useContext(GlobalContext); // Set Document Title
 
   // Update Document Title with logic
-  Update_Document_Title({ TitleName: `Add New Employee - ${AppName}` }); // Update Document Title
+  Update_Document_Title({ TitleName: `Add New Employee - ${StoreName}` }); // Update Document Title
 
   // State for Employee Details
   const [EmployeeDetails, setEmployeeDetails] = useState({
-    User_id: AuthDetails.AccountDetails.User_id,
+    User_id: AuthDetails.Data.AccountDetails.User_id,
     EmployeeName: "",
     EmployeeEmail: "",
     EmployeePhoneNumber: "",
@@ -178,3 +183,8 @@ export default function Add_New_Employee() {
     </div>
   );
 }
+
+// default props
+Add_New_Employee.defaultProps = {
+  StoreName: AppName,
+};

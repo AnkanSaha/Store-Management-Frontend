@@ -24,7 +24,7 @@ export default async function Login_Function({ LoginData }: Props) {
     }); // send the data to the server
 
     // Store the data in cache
-    if (Result.SaveLocally === true) {
+    if (Result.Data.SaveLocally === true) {
       await Store_Cache_Data({
         AuthData: Result,
         DataPath: "AuthData",

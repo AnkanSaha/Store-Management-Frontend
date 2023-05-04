@@ -17,13 +17,18 @@ import { Alert } from "../../../Most Used Components/Alert"; // import Alert Com
 //import Context
 import { GlobalContext } from "../../../../Context/Context API"; // import Global Context
 
-export default function Manage_Employees() {
+// types & interfaces
+type props = {
+  ShopName: string;
+};
+
+export default function Manage_Employees({ShopName}:props) {
   let Navigate = useNavigate(); // Navigate
   // Context
   const { AuthDetails, UpdateAlert, AlertMessage }: any =
     useContext(GlobalContext); // Global Context
   // Update Document Title with logic
-  Update_Document_Title({ TitleName: `Manage Employees - ${AppName}` }); // Update Document Title
+  Update_Document_Title({ TitleName: `Manage Employees - ${ShopName}` }); // Update Document Title
   // End of Update Document Title with logic
 
   // States
@@ -36,8 +41,8 @@ export default function Manage_Employees() {
     HTTP_POST({
       PostPath: "/post/employee/get",
       SendData: {
-        User_id: AuthDetails.AccountDetails.User_id,
-        OwnerEmail: AuthDetails.AccountDetails.Email,
+        User_id: AuthDetails.Data.AccountDetails.User_id,
+        OwnerEmail: AuthDetails.Data.AccountDetails.Email,
       },
     }).then((Response) => {
       setLoadingText(false); // Set Loading Text to false
@@ -143,3 +148,8 @@ export default function Manage_Employees() {
     </>
   );
 } // End of Manage_Employees
+
+// default props for Manage_Employees
+Manage_Employees.defaultProps = {
+  ShopName: AppName,
+}; // End of default props for Manage_Employees

@@ -8,7 +8,7 @@ import { GlobalContext } from "../../../Context/Context API"; // import Global C
 
 // interface for Sidebar
 interface props {
-  TopText: string;
+  AdminName: string;
 }
 
 // import ui components
@@ -32,7 +32,7 @@ import { useDisclosure } from "@chakra-ui/react";
 // import variables
 import { Dashboard_Sidebar_Options } from "../../../Global/Global Array Variables"; // import Dashboard Sidebar Options
 
-export default function Sidebar({ TopText }: props) {
+export default function Sidebar({ AdminName }: props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   // use context
@@ -52,7 +52,7 @@ export default function Sidebar({ TopText }: props) {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader bgColor="Highlight">{TopText}</DrawerHeader>
+          <DrawerHeader bgColor="Highlight">{`Welcome ${AdminName}`}</DrawerHeader>
 
           <DrawerBody>
             <div className="py-4 overflow-y-auto">
@@ -63,6 +63,7 @@ export default function Sidebar({ TopText }: props) {
                       <a
                         onClick={() => {
                           UpdateSidebarOption(item.OptionValue);
+                          onClose();
                         }}
                         className=" font-bold cursor-pointer flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                       >
@@ -87,5 +88,5 @@ export default function Sidebar({ TopText }: props) {
 }
 
 Sidebar.defaultProps = {
-  TopText: "Choose an Option",
+  AdminName: "User",
 }; // Sidebar Default Props

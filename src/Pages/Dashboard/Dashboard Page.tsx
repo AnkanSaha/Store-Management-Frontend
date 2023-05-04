@@ -35,7 +35,7 @@ export default function Dashboard() {
   // Update Document Title with logic
   if (AuthDetails.Status === "Success") {
     Update_Document_Title({
-      TitleName: `${AuthDetails.AccountDetails.ShopName} - ${AppName}`,
+      TitleName: `${AuthDetails.Data.AccountDetails.ShopName} - ${AppName}`,
     }); // Update Document Title
   }
 
@@ -48,7 +48,7 @@ export default function Dashboard() {
             <Loading Title="Fetching from server" Description="Please wait a moment  while we fetch data from server for you." />
           ) : (
             <>
-              <Navbar AppName={AuthDetails.AccountDetails.ShopName} />
+              <Navbar AppName={AuthDetails.Data.AccountDetails.ShopName} />
               <Dashboard_Overview />
             </>
           )}
