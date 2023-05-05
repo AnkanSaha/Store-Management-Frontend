@@ -18,7 +18,10 @@ import { RiDeleteBin2Line } from "react-icons/ri"; // import RiDeleteBin2Line Ic
 import { GlobalContext } from "../../../../Context/Context API"; // import Global Context
 
 // import Functions
-import { HTTP_GET } from "../../../../Functions/Most Used Functions"; // import HTTP_POST Function
+import {
+  HTTP_GET,
+  HTTP_DELETE,
+} from "../../../../Functions/Most Used Functions"; // import HTTP_POST Function
 import { Update_Document_Title } from "../../../../Functions/Most Used Functions"; // import Functions
 
 // function for Manage Single Employee
@@ -33,6 +36,7 @@ export default function Manage_Single_Employee() {
   // state management
   let [LoadingState, setLoadingState] = useState<boolean>(true); // state for loading
   let [EmployeeData, setEmployeeData] = useState<any>([]); // Employee Data
+  let [isDeleting, setIsDeleting] = useState<boolean>(false); // is Deleting
 
   Update_Document_Title({
     TitleName: `Control Panel for ${ParameterData.Phone}`,
@@ -59,6 +63,19 @@ export default function Manage_Single_Employee() {
     });
   }, []); // End of useEffect
 
+  async function DeleteRecord() {
+    setIsDeleting(true); // set is Deleting to true
+    let Result = await HTTP_DELETE({
+      PostPath: `/delete/employee/delete?User_id=${AuthDetails.Data.AccountDetails.User_id}&OwnerEmail=${AuthDetails.Data.AccountDetails.Email}&EmployeeEmail=${ParameterData.Email}&EmployeeMobileNumber=${ParameterData.Phone}`,
+    });
+    setIsDeleting(false); // set is Deleting to true
+    if (Result.Status === "Employee Deleted") {
+      Navigate("/dashboard");
+    } else {
+      UpdateAlert(Result);
+    }
+  }
+
   return (
     <>
       {LoadingState === true ? (
@@ -72,6 +89,18 @@ export default function Manage_Single_Employee() {
           {EmployeeData.length !== 0 ? (
             <>
               {AlertMessage.Status === "No Employee Found" ? (
+                <Alert
+                  Title={AlertMessage.Status}
+                  Message={AlertMessage.Message}
+                  ButtonText="ok"
+                />
+              ) : AlertMessage.Status === "Accont Not Found" ? (
+                <Alert
+                  Title={AlertMessage.Status}
+                  Message={AlertMessage.Message}
+                  ButtonText="ok"
+                />
+              ) : AlertMessage.Status === "No Store Found" ? (
                 <Alert
                   Title={AlertMessage.Status}
                   Message={AlertMessage.Message}
@@ -129,9 +158,7 @@ export default function Manage_Single_Employee() {
               </Button>
               <Button
                 leftIcon={<RiDeleteBin2Line />}
-                onClick={() => {
-                  Navigate("/dashboard");
-                }}
+                onClick={DeleteRecord}
                 className="ml-[7.25rem] mt-5 rounded-3xl"
                 variant="solid"
                 colorScheme="red"
@@ -140,6 +167,11 @@ export default function Manage_Single_Employee() {
               </Button>
               <Footer />
             </>
+          ) : isDeleting === true ? (
+            <Dashboard_No_Data_Found
+              Message=" Deleting Employee Record..."
+              Height="10rem"
+            />
           ) : (
             <Dashboard_No_Data_Found
               Message=" No Employee Found with this Phone Number."
