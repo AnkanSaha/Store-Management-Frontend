@@ -26,7 +26,7 @@ export default function GlobalAPI() {
   return (
     <>
 
-     {document.addEventListener('contextmenu', event => event.preventDefault()) } 
+     {/* {document.addEventListener('contextmenu', event => event.preventDefault()) }  */} 
 
       <GlobalProvider>
         <ChakraProvider>

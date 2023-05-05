@@ -37,20 +37,38 @@ export function Internet_Connection_Status() {
 
 
 // HTTP Request Function POST
-interface FunctionProps {
+interface POSTFunctionProps {
   PostPath: string;
   SendData: object;
 }
 
 import { Hostname } from "../Global/Global variables"; // import Hostname
 
-export async function HTTP_POST({ PostPath, SendData }: FunctionProps) {
+export async function HTTP_POST({ PostPath, SendData }: POSTFunctionProps) {
   let Wait = await fetch(`${Hostname}${PostPath}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(SendData), // end of fetch
+  }); // end of fetch
+  // convert the data into json
+  let Data = await Wait.json();
+
+  return Data;
+}
+
+
+// GET function
+interface GETFunctionProps {
+  PostPath: string;
+}
+export async function HTTP_GET({ PostPath}: GETFunctionProps) {
+  let Wait = await fetch(`${Hostname}${PostPath}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    }
   }); // end of fetch
   // convert the data into json
   let Data = await Wait.json();

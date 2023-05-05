@@ -31,7 +31,7 @@ export default function Dashboard_No_Data_Found({ Message, Height }: Props) {
             fill="currentFill"
           />
         </svg>
-        <span className="sr-only">Loading...</span>
+        <span className="sr-only">{Message}</span>
       </div>
 
       <Footer />

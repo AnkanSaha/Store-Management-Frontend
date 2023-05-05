@@ -8,16 +8,17 @@ import { useState, useEffect, useContext } from "react"; // import useState for 
 import Navbar from "../../../Most Used Components/Navbar"; // import Navbar Component
 import Loading from "../../../Most Used Components/Loading"; // import Loading Component
 import Dashboard_No_Data_Found from "../Dashboard No Data Found"; // import Dashboard No Data Found Component
+import Footer from "../../../Most Used Components/Footer"; // import Footer component
 
 import { Button } from "@chakra-ui/react"; // import Button Component
 import { Alert } from "../../../Most Used Components/Alert"; // import Alert Component
 import { AiOutlineRollback } from "react-icons/ai"; // import AiOutlineRollback Icon
-import {RiDeleteBin2Line} from 'react-icons/ri'; // import RiDeleteBin2Line Icon
+import { RiDeleteBin2Line } from "react-icons/ri"; // import RiDeleteBin2Line Icon
 //import Context
 import { GlobalContext } from "../../../../Context/Context API"; // import Global Context
 
 // import Functions
-import { HTTP_POST } from "../../../../Functions/Most Used Functions"; // import HTTP_POST Function
+import { HTTP_GET } from "../../../../Functions/Most Used Functions"; // import HTTP_POST Function
 import { Update_Document_Title } from "../../../../Functions/Most Used Functions"; // import Functions
 
 // function for Manage Single Employee
@@ -41,16 +42,12 @@ export default function Manage_Single_Employee() {
   // useEffect
   useEffect(() => {
     setLoadingState(true); // Set Loading Text to true
-    HTTP_POST({
-      PostPath: "/post/employee/get",
-      SendData: {
-        User_id: AuthDetails.Data.AccountDetails.User_id,
-        OwnerEmail: AuthDetails.Data.AccountDetails.Email,
-      },
+    HTTP_GET({
+      PostPath: `/get/employee/get?User_id=${AuthDetails.Data.AccountDetails.User_id}&OwnerEmail=${AuthDetails.Data.AccountDetails.Email}`,
     }).then((Response) => {
       setLoadingState(false); // Set Loading Text to false
       if (Response.Status === "Employee Found") {
-        let Filtered_employee_Data = Response.Employee.filter(
+        let Filtered_employee_Data = Response.Data.filter(
           (Employee: any) =>
             Employee.EmployeePhoneNumber === ParameterData.Phone &&
             Employee.EmployeeEmail === ParameterData.Email
@@ -139,8 +136,9 @@ export default function Manage_Single_Employee() {
                 variant="solid"
                 colorScheme="red"
               >
-               Delete Record
+                Delete Record
               </Button>
+              <Footer />
             </>
           ) : (
             <Dashboard_No_Data_Found

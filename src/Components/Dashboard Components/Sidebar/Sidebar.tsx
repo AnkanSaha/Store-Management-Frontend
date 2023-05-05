@@ -42,7 +42,7 @@ export default function Sidebar({ AdminName }: props) {
     <>
       <Button
         leftIcon={<TiThMenuOutline />}
-        className="mt-[19.25rem] ml-[2.25rem] "
+        className="mt-[19.25rem] ml-[2.25rem] absolute "
         colorScheme="teal"
         onClick={onOpen}
       >
