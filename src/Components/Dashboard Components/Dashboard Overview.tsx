@@ -16,7 +16,7 @@ import Add_New_Employee from "./Dashboard Sub Components/Employee Management/Add
 
 
 // Manage Profile
-import ViewProfile from "./Dashboard Sub Components/View Profile"; // import ViewProfile component
+import ViewProfile from "./Dashboard Sub Components/Profile/View Profile"; // import ViewProfile component
 
 export default function Dashboard_Overview() {
   // using Context API

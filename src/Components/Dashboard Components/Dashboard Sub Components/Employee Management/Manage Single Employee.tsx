@@ -83,6 +83,10 @@ export default function Manage_Single_Employee() {
           Title={`Loading ${ParameterData.Phone}'s Details`}
           Description={`Please wait while we are loading the details of ${ParameterData.Email} for you. This may take a few seconds.`}
         />
+      ) : isDeleting === true ? (
+        <>
+        <Loading Title="Deleting Employee" Description="Please wait while we are deleting the employee. This may take a few seconds." />
+        </>
       ) : (
         <>
           <Navbar />
@@ -167,11 +171,6 @@ export default function Manage_Single_Employee() {
               </Button>
               <Footer />
             </>
-          ) : isDeleting === true ? (
-            <Dashboard_No_Data_Found
-              Message=" Deleting Employee Record..."
-              Height="10rem"
-            />
           ) : (
             <Dashboard_No_Data_Found
               Message=" No Employee Found with this Phone Number."
