@@ -18,6 +18,7 @@ import Login_Page from "../Pages/Authentication/Login Page"; // import Login_Pag
 // Dashboard Components
 import Dashboard from "../Pages/Dashboard/Dashboard Page"; // import Dashboard Page
 import Manage_Single_Employee from "../Components/Dashboard Components/Dashboard Sub Components/Employee Management/Manage Single Employee"; // import Manage Single Employee
+import Edit_Employee_Details from "../Components/Dashboard Components/Dashboard Sub Components/Employee Management/Edit Employee Details"; // import Edit Employeee Data
 
 export default function AppRouter() {
   return (
@@ -39,6 +40,7 @@ export default function AppRouter() {
         <Route path="/dashboard" element={<Dashboard />} />
 
         <Route path="/dashboard/employee/:Email/:Phone" element={<Manage_Single_Employee />} />
+        <Route path="/dashboard/employee/:Email/:Phone/edit" element={<Edit_Employee_Details />} />
 
       </Routes>
     </Router>

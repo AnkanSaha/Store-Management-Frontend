@@ -44,6 +44,13 @@ interface POSTFunctionProps {
 
 import { Hostname } from "../Global/Global variables"; // import Hostname
 
+/**
+ * This is an asynchronous function that sends a POST request to a specified path with JSON data and
+ * returns the response data in JSON format.
+ * @param {POSTFunctionProps}  - - `PostPath`: a string representing the path to which the POST request
+ * will be sent.
+ * @returns the data received from the HTTP POST request after converting it to JSON format.
+ */
 export async function HTTP_POST({ PostPath, SendData }: POSTFunctionProps) {
   let Wait = await fetch(`${Hostname}${PostPath}`, {
     method: "POST",
@@ -59,6 +66,13 @@ export async function HTTP_POST({ PostPath, SendData }: POSTFunctionProps) {
 }
 
 
+/**
+ * This is a TypeScript React function that performs a GET request to a specified endpoint and returns
+ * the response data in JSON format.
+ * @param {GETFunctionProps}  - This is a TypeScript function that performs an HTTP GET request to a
+ * specified endpoint.
+ * @returns the data fetched from the specified URL in JSON format.
+ */
 // GET function
 interface GETFunctionProps {
   PostPath: string;
@@ -76,6 +90,16 @@ export async function HTTP_GET({ PostPath}: GETFunctionProps) {
   return Data;
 }
 
+/**
+ * This is a TypeScript React function that sends a DELETE request to a specified endpoint and returns
+ * the response data in JSON format.
+ * @param {DELETEFunctionProps}  - The above code defines an asynchronous function named `HTTP_DELETE`
+ * that takes an object with a single property `PostPath` as its argument. The `PostPath` property is a
+ * string that represents the path of the resource to be deleted. The function sends an HTTP DELETE
+ * request to the specified path using
+ * @returns the data obtained from the HTTP DELETE request made to the specified PostPath. The data is
+ * converted to JSON format before being returned.
+ */
 // DELEE function
 interface DELETEFunctionProps {
   PostPath: string;
@@ -86,6 +110,21 @@ export async function HTTP_DELETE({ PostPath}: DELETEFunctionProps) {
     headers: {
       "Content-Type": "application/json",
     }
+  }); // end of fetch
+  // convert the data into json
+  let Data = await Wait.json();
+
+  return Data;
+}
+
+// PUT function
+export async function HTTP_PUT({ PostPath, SendData }: POSTFunctionProps) {
+  let Wait = await fetch(`${Hostname}${PostPath}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(SendData), // end of fetch
   }); // end of fetch
   // convert the data into json
   let Data = await Wait.json();
