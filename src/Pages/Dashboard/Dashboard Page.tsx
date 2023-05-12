@@ -15,7 +15,7 @@ import {
   Internet_Connection_Status,
 } from "../../Functions/Most Used Functions"; // import Functions
 
-import Dashboard_Overview from "../../Components/Dashboard Components/Dashboard Overview"; // import Dashboard Overview Component
+import Dashboard_Overview from "../../Components/Dashboard Components/Dashboard Controller"; // import Dashboard Overview Component
 
 // import Variables & Context
 import { AppName } from "../../Global/Global variables"; // import App Name
