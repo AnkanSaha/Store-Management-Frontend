@@ -27,7 +27,7 @@
     "autoprefixer": "^10.4.14",
     "daisyui": "^2.51.5",
     "flowbite": "^1.6.5",
-    "framer-motion": "^10.11.6",
+    "framer-motion": "^10.12.10",
     "postcss": "^8.4.21",
     "react-csv": "^2.2.2",
     "react-icons": "^4.8.0",
