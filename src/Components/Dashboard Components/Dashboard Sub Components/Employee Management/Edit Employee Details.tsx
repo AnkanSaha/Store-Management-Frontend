@@ -17,6 +17,7 @@ import {
   Update_Document_Title,
   HTTP_GET,
 } from "../../../../Functions/Most Used Functions";
+import { UpdateEmployee } from "../../../../Functions/Store Management/Employee Management Function";
 
 export default function Edit_Employee_Details() {
   const ParameterData = useParams(); // getting data from parameter
@@ -29,6 +30,17 @@ export default function Edit_Employee_Details() {
   // All States
   const [isLoading, setIsLodaing] = React.useState<boolean>(true);
   const [EmployeeData, setEmployeeData] = React.useState<any>({});
+
+  const [NewEmployeeData, setNewEmployeeData] = React.useState<any>({
+    OwnerEmail: AuthDetails.Data.AccountDetails.Email,
+    User_id: AuthDetails.Data.AccountDetails.User_id,
+    EmployeeName: "",
+    EmployeeEmail: ParameterData.Email,
+    EmployeeMonthlySalary: "",
+    EmployeePhoneNumber: ParameterData.Phone,
+    EmployeeDateOfJoining: "",
+    EmployeeRole: "",
+  });
 
   Update_Document_Title({
     TitleName: `Edit ${ParameterData.Phone} Details`,
@@ -58,7 +70,32 @@ export default function Edit_Employee_Details() {
   // function on press
   const GoBack = (event: any) => {
     event.preventDefault();
+    setEmployeeData({}); // Clearing Employee Data
     Navigator(`/dashboard`);
+  };
+
+  // Update Employee Data on Change
+  const updateEmployeeDataonChange = (element: any) => {
+    setNewEmployeeData({
+      ...NewEmployeeData,
+      [element.target.name]: element.target.value,
+    });
+  };
+
+  // Update All Data in Server
+  const SaveDataToServer = async (event: any) => {
+    event.preventDefault();
+    setIsLodaing(true);
+    let AfterResult = await UpdateEmployee({
+      UpdateEmployeeData: NewEmployeeData,
+    });
+    if (AfterResult === false) {
+      console.log("Failed to validate");
+      setIsLodaing(false);
+    } else if (AfterResult.Status) {
+      setIsLodaing(false);
+      UpdateAlert(AfterResult);
+    }
   };
   return (
     <>
@@ -69,18 +106,56 @@ export default function Edit_Employee_Details() {
               Title={AlertMessage.Status}
               Message={AlertMessage.Message}
               ButtonText="ok"
+              ButtonFunc={() => {
+                Navigator("/dashboard");
+              }}
             />
           ) : AlertMessage.Status === "Accont Not Found" ? (
             <Alert
               Title={AlertMessage.Status}
               Message={AlertMessage.Message}
               ButtonText="ok"
+              ButtonFunc={() => {
+                Navigator("/dashboard");
+              }}
             />
           ) : AlertMessage.Status === "No Store Found" ? (
             <Alert
               Title={AlertMessage.Status}
               Message={AlertMessage.Message}
               ButtonText="ok"
+              ButtonFunc={() => {
+                Navigator("/dashboard");
+              }}
+            />
+          ) : null}
+
+          {AlertMessage.Status === "Employee Updated" ? (
+            <Alert
+              Title={AlertMessage.Status}
+              Message={AlertMessage.Message}
+              ButtonText="Manage Employee"
+              ButtonFunc={() => {
+                Navigator("/dashboard");
+              }}
+            />
+          ) : AlertMessage.Status === "No Employee Found" ? (
+            <Alert
+              Title={AlertMessage.Status}
+              Message={AlertMessage.Message}
+              ButtonText="ok"
+              ButtonFunc={() => {
+                Navigator("/dashboard");
+              }}
+            />
+          ) : AlertMessage.Status === "Accont Not Found" ? (
+            <Alert
+              Title={AlertMessage.Status}
+              Message={AlertMessage.Message}
+              ButtonText="ok"
+              ButtonFunc={() => {
+                Navigator("/dashboard");
+              }}
             />
           ) : null}
           {EmployeeData.length !== 0 ? (
@@ -94,12 +169,13 @@ export default function Edit_Employee_Details() {
                 <div className="relative z-0 w-full mb-6 group">
                   <input
                     type="email"
-                    defaultValue={EmployeeData[0].EmployeeEmail}
+                    value={NewEmployeeData.EmployeeEmail}
                     disabled
                     name="EmployeeEmail"
+                    onChange={updateEmployeeDataonChange}
                     id="EmployeeEmail"
                     className="block bg-slate-50 py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    placeholder="Enter Email"
+                    placeholder=""
                     required
                   />
                   <label
@@ -113,9 +189,10 @@ export default function Edit_Employee_Details() {
                   <input
                     type="number"
                     name="EmployeePhoneNumber"
-                    defaultValue={EmployeeData[0].EmployeePhoneNumber}
                     disabled
                     id="EmployeePhoneNumber"
+                    onChange={updateEmployeeDataonChange}
+                    value={NewEmployeeData.EmployeePhoneNumber}
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                     placeholder=""
                     required
@@ -132,7 +209,8 @@ export default function Edit_Employee_Details() {
                     type="text"
                     name="EmployeeName"
                     id="EmployeeName"
-                    defaultValue={EmployeeData[0].EmployeeName}
+                    onChange={updateEmployeeDataonChange}
+                    value={NewEmployeeData.EmployeeName}
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                     placeholder=" "
                     required
@@ -149,8 +227,9 @@ export default function Edit_Employee_Details() {
                     <input
                       type="text"
                       name="EmployeeRole"
+                      onChange={updateEmployeeDataonChange}
                       id="EmployeeRole"
-                      defaultValue={EmployeeData[0].EmployeeRole}
+                      value={NewEmployeeData.EmployeeRole}
                       className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                       placeholder=" "
                       required
@@ -166,8 +245,9 @@ export default function Edit_Employee_Details() {
                     <input
                       type="text"
                       name="EmployeeMonthlySalary"
+                      onChange={updateEmployeeDataonChange}
                       id="EmployeeMonthlySalary"
-                      defaultValue={EmployeeData[0].EmployeeMonthlySalary}
+                      value={NewEmployeeData.EmployeeMonthlySalary}
                       className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                       placeholder=" "
                       required
@@ -185,8 +265,9 @@ export default function Edit_Employee_Details() {
                     <input
                       type="date"
                       name="EmployeeDateOfJoining"
+                      onChange={updateEmployeeDataonChange}
                       id="EmployeeDateOfJoining"
-                      defaultValue={EmployeeData[0].EmployeeDateOfJoining}
+                      value={NewEmployeeData.EmployeeDateOfJoining}
                       className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                       placeholder=" "
                       required
@@ -201,6 +282,7 @@ export default function Edit_Employee_Details() {
                 </div>
                 <button
                   type="submit"
+                  onClick={SaveDataToServer}
                   className="text-white ml-[26.5rem] mt-5 bg-green-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
                   Save Changes
