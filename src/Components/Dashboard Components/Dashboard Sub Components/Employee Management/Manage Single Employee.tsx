@@ -10,10 +10,12 @@ import Loading from "../../../Most Used Components/Loading"; // import Loading C
 import Dashboard_No_Data_Found from "../Dashboard No Data Found"; // import Dashboard No Data Found Component
 import Footer from "../../../Most Used Components/Footer"; // import Footer component
 
+/* These lines of code are importing various components and icons from different libraries and files. */
 import { Button } from "@chakra-ui/react"; // import Button Component
 import { Alert } from "../../../Most Used Components/Alert"; // import Alert Component
 import { AiOutlineRollback } from "react-icons/ai"; // import AiOutlineRollback Icon
 import { RiDeleteBin2Line } from "react-icons/ri"; // import RiDeleteBin2Line Icon
+import { RxUpdate } from "react-icons/rx"; // import GrDocumentUpdate
 //import Context
 import { GlobalContext } from "../../../../Context/Context API"; // import Global Context
 
@@ -76,6 +78,12 @@ export default function Manage_Single_Employee() {
     }
   }
 
+  const SendUIinEdit = () => {
+    Navigate(
+      `/dashboard/employee/${ParameterData.Email}/${ParameterData.Phone}/edit`
+    );
+  };
+
   return (
     <>
       {LoadingState === true ? (
@@ -85,7 +93,10 @@ export default function Manage_Single_Employee() {
         />
       ) : isDeleting === true ? (
         <>
-        <Loading Title="Deleting Employee" Description="Please wait while we are deleting the employee. This may take a few seconds." />
+          <Loading
+            Title="Deleting Employee"
+            Description="Please wait while we are deleting the employee. This may take a few seconds."
+          />
         </>
       ) : (
         <>
@@ -112,7 +123,7 @@ export default function Manage_Single_Employee() {
                 />
               ) : null}
 
-              <div className="bg-white shadow-2xl rounded-2xl p-4 mt-[8.5rem] mx-60 space-y-6 px-5">
+              <div className="bg-white shadow-2xl rounded-2xl p-4 mt-[6.5rem] mx-60 space-y-6 px-5">
                 <h1 className="text-center">
                   <span className="text-2xl font-bold">
                     Employee Details for {ParameterData.Phone}
@@ -154,7 +165,7 @@ export default function Manage_Single_Employee() {
                 onClick={() => {
                   Navigate("/dashboard");
                 }}
-                className="ml-[27.25rem] mt-5"
+                className="ml-[23.25rem] mt-5"
                 variant="solid"
                 colorScheme="linkedin"
               >
@@ -168,6 +179,15 @@ export default function Manage_Single_Employee() {
                 colorScheme="red"
               >
                 Delete Record
+              </Button>
+              <Button
+                leftIcon={<RxUpdate />}
+                onClick={SendUIinEdit}
+                className="ml-[7.25rem] mt-5 rounded-3xl"
+                variant="solid"
+                colorScheme="green"
+              >
+                Update Record
               </Button>
               <Footer />
             </>
