@@ -4,7 +4,7 @@
 import { useContext } from "react"; // import useContext hook
 
 // import context
-import { GlobalContext } from "../../../Context/Context API"; // import Global Context
+import { GlobalContext } from "../../../../Context/Context API"; // import Global Context
 
 // interface for Sidebar
 interface props {
@@ -30,7 +30,7 @@ import { TiThMenuOutline } from "react-icons/ti";
 import { useDisclosure } from "@chakra-ui/react";
 
 // import variables
-import { Dashboard_Sidebar_Options } from "../../../Global/Global Array Variables"; // import Dashboard Sidebar Options
+import { Dashboard_Sidebar_Options } from "../../../../Global/Global Array Variables"; // import Dashboard Sidebar Options
 
 export default function Sidebar({ AdminName }: props) {
   const { isOpen, onOpen, onClose } = useDisclosure();

@@ -1,10 +1,10 @@
 // this is the default page that will be shown when the user is logged in
 
 // import all essential components & libraries
-import Footer from "../../Most Used Components/Footer"; // import Footer component
+import Footer from "../../../Most Used Components/Footer"; // import Footer component
 
 // import Variables
-import { AppLogo, AppName } from "../../../Global/Global variables"; // import AppLogo & AppName
+import { AppLogo, AppName } from "../../../../Global/Global variables"; // import AppLogo & AppName
 
 // interface for props
 interface props {

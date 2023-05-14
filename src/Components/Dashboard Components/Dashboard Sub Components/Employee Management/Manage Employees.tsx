@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom"; // import useNavigate
 
 // import Variables & Context
 import { AppName } from "../../../../Global/Global variables"; // import App Name
-import Dashboard_No_Data_Found from "../Dashboard No Data Found";
+import Dashboard_No_Data_Found from "../Basic Components/Dashboard No Data Found";
 
 // import Functional Components
 import { Update_Document_Title } from "../../../../Functions/Most Used Functions"; // import Functions

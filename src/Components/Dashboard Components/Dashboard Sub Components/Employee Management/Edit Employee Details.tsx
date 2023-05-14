@@ -6,7 +6,7 @@ import Navbar from "../../../Most Used Components/Navbar"; // import Navbar
 import Loading from "../../../Most Used Components/Loading"; // import loading
 import { Alert } from "../../../Most Used Components/Alert"; // import Alert
 import Footer from "../../../Most Used Components/Footer"; // import footer
-import Dashboard_No_Data_Found from "../Dashboard No Data Found"; // import Dashboard_No_Data_Found
+import Dashboard_No_Data_Found from "../Basic Components/Dashboard No Data Found"; // import Dashboard_No_Data_Found
 
 // import Context API & variables
 import { AppName } from "../../../../Global/Global variables"; // import common variables
@@ -16,15 +16,18 @@ import { GlobalContext } from "../../../../Context/Context API"; // import globa
 import {
   Update_Document_Title,
   HTTP_GET,
+  Internet_Connection_Status
 } from "../../../../Functions/Most Used Functions";
 import { UpdateEmployee } from "../../../../Functions/Store Management/Employee Management Function";
+import { Connection_Fail } from "../../../Most Used Components/Connection Fail";
 
 export default function Edit_Employee_Details() {
+  Internet_Connection_Status(); // Internet Connection Status
   const ParameterData = useParams(); // getting data from parameter
   const Navigator = useNavigate(); // Creating instance of Navigator
 
   // using Context API
-  let { AuthDetails, UpdateAlert, AlertMessage }: any =
+  let { AuthDetails, UpdateAlert, AlertMessage, InternetStatus }: any =
     React.useContext(GlobalContext);
 
   // All States
@@ -49,6 +52,7 @@ export default function Edit_Employee_Details() {
 
   // useEffect
   React.useEffect(() => {
+    UpdateAlert({}); // Update Alert Message
     setIsLodaing(true); // Set Loading Text to true
     HTTP_GET({
       PostPath: `/get/employee/get?User_id=${AuthDetails.Data.AccountDetails.User_id}&OwnerEmail=${AuthDetails.Data.AccountDetails.Email}`,
@@ -160,6 +164,7 @@ export default function Edit_Employee_Details() {
           ) : null}
           {EmployeeData.length !== 0 ? (
             <>
+            {InternetStatus === "Offline" ? <Connection_Fail /> : null}
               <Navbar AppName={`${AppName} (${ParameterData.Phone})`} />
 
               <form className="mt-[6.25rem] mx-20">
