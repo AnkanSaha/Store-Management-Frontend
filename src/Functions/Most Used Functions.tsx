@@ -1,3 +1,8 @@
+/**
+ * The Proptypes type is defined as an object with a single property called TitleName of type string.
+ * @property {string} TitleName - a string that represents the name of a title. It is likely used as a
+ * prop in a component.
+ */
 // This File is for the most used functions in the project
 // Import Essential Packages
 import { useContext } from "react"; // import UseContext from 'react';
@@ -10,6 +15,13 @@ type Proptypes = {
   TitleName: string;
 };
 
+/**
+ * This function updates the document title with a given title name or a default title if none is
+ * provided.
+ * @param {Proptypes}  - The function `Update_Document_Title` takes in a single parameter `TitleName`
+ * which is of type `Proptypes`. The `Proptypes` is likely a custom type defined elsewhere in the
+ * codebase. The function updates the document title with the value of `TitleName` if it
+ */
 // This function is for updating the document title
 
 export function Update_Document_Title({ TitleName }: Proptypes) {
@@ -19,6 +31,9 @@ export function Update_Document_Title({ TitleName }: Proptypes) {
   document.title = TitleName;
 }
 
+/**
+ * This function listens to the internet connection status and updates it using Context API.
+ */
 // This function is for always listening to the internet connection status
 export function Internet_Connection_Status() {
   // using Context API
@@ -117,6 +132,14 @@ export async function HTTP_DELETE({ PostPath}: DELETEFunctionProps) {
   return Data;
 }
 
+/**
+ * This is a TypeScript React function that sends a PUT request with JSON data to a specified path and
+ * returns the response data as JSON.
+ * @param {POSTFunctionProps}  - - `PostPath`: a string representing the path of the API endpoint to
+ * send the PUT request to.
+ * @returns the data received from the server after making a PUT request with the specified PostPath
+ * and SendData. The data is converted to JSON format before being returned.
+ */
 // PUT function
 export async function HTTP_PUT({ PostPath, SendData }: POSTFunctionProps) {
   let Wait = await fetch(`${Hostname}${PostPath}`, {

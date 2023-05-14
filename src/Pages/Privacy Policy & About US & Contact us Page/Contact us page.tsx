@@ -45,7 +45,7 @@ const Contact = () => {
           </div>
           <div className="flex items-center">
             <FaPhoneAlt className="text-gray-400 mr-4" />
-            <p className="text-gray-700">{OwnerPhone}</p>
+            <a href={`tel:${OwnerPhone}`} className="text-gray-700">{OwnerPhone}</a>
           </div>
         </div>
       </div>

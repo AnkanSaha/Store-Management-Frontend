@@ -1,9 +1,23 @@
+/* The code is importing the necessary modules and variables from the React library, specifically the
+`createContext` and `useState` functions. It then creates a new context called `GlobalContext` using
+the `createContext` function and exports it. The initial value of the context is an empty object. */
 // import Essential Modules & Variables
 import { createContext, useState } from "react"; // import {createContext} from 'react';
 
 // create the context
 export const GlobalContext = createContext({}); // const GlobalContext = createContext({});
 
+/**
+ * This is a TypeScript React function that creates a global provider with multiple states and state
+ * updaters.
+ * @param {Properties}  - This code defines an interface for the properties of a global provider
+ * component, which takes in a `children` prop. It then defines a `GlobalProvider` function that
+ * returns a `GlobalContext.Provider` component with several state variables and their corresponding
+ * state updater functions as values in the provider's `value`
+ * @returns The GlobalProvider function is returning the GlobalContext.Provider component with the
+ * provided props and children as its content. The GlobalContext.Provider component is used to provide
+ * the state and state updaters to its child components through the use of the useContext hook.
+ */
 // making a interface for GlobalProvider Props
 interface Properties {
   children: any;

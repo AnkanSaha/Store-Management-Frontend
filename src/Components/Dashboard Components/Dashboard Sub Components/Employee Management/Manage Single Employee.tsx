@@ -6,8 +6,9 @@ import { useState, useEffect, useContext } from "react"; // import useState for 
 
 // import Functional Components
 import Navbar from "../../../Most Used Components/Navbar"; // import Navbar Component
+import { Connection_Fail } from "../../../Most Used Components/Connection Fail"; // import Connection Fail Component
 import Loading from "../../../Most Used Components/Loading"; // import Loading Component
-import Dashboard_No_Data_Found from "../Dashboard No Data Found"; // import Dashboard No Data Found Component
+import Dashboard_No_Data_Found from "../Basic Components/Dashboard No Data Found"; // import Dashboard No Data Found Component
 import Footer from "../../../Most Used Components/Footer"; // import Footer component
 
 /* These lines of code are importing various components and icons from different libraries and files. */
@@ -23,14 +24,16 @@ import { GlobalContext } from "../../../../Context/Context API"; // import Globa
 import {
   HTTP_GET,
   HTTP_DELETE,
+  Internet_Connection_Status,
 } from "../../../../Functions/Most Used Functions"; // import HTTP_POST Function
 import { Update_Document_Title } from "../../../../Functions/Most Used Functions"; // import Functions
 
 // function for Manage Single Employee
 export default function Manage_Single_Employee() {
+  Internet_Connection_Status(); // Internet Connection Status
   let Navigate = useNavigate(); // Navigate
   // Context
-  const { AuthDetails, UpdateAlert, AlertMessage }: any =
+  const { AuthDetails, UpdateAlert, AlertMessage, InternetStatus }: any =
     useContext(GlobalContext); // Global Context
 
   let ParameterData: any = useParams(); // get the search params
@@ -47,6 +50,7 @@ export default function Manage_Single_Employee() {
 
   // useEffect
   useEffect(() => {
+    UpdateAlert({}); // Update Alert Message
     setLoadingState(true); // Set Loading Text to true
     HTTP_GET({
       PostPath: `/get/employee/get?User_id=${AuthDetails.Data.AccountDetails.User_id}&OwnerEmail=${AuthDetails.Data.AccountDetails.Email}`,
@@ -100,6 +104,7 @@ export default function Manage_Single_Employee() {
         </>
       ) : (
         <>
+             {InternetStatus === "Offline" ? <Connection_Fail /> : null}
           <Navbar />
           {EmployeeData.length !== 0 ? (
             <>

@@ -2,7 +2,7 @@
 
 // import Variables & Context
 import { Heading } from "@chakra-ui/react";
-import Footer from "../../Most Used Components/Footer";
+import Footer from "../../../Most Used Components/Footer";
 
 type Props = {
   Message: string;
