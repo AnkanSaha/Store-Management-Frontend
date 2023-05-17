@@ -3,6 +3,7 @@
 // HTTP Request Variables
 export const Hostname: String = "https://store.theankan.live";
  // Hostname ex: http://localhost:3201 / https://store.theankan.live
+export const Hostname: String = "https://store.theankan.live"; // Hostname ex: http://localhost:3201 / https://store.theankan.live
 import Applogo from "../assets/Images/store-logo.png"; // App Logo
 
 // Basic Details About the Project
