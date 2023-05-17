@@ -38,7 +38,6 @@ export default async function Login_Function({ LoginData }: Props) {
       PostPath: "/post/auth/login",
       SendData: LoginData,
     }); // send the data to the server
-
     // Store the data in cache
     if (Result.Data.SaveLocally === true) {
       await Store_Cache_Data({

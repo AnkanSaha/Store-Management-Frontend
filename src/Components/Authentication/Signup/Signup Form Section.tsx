@@ -42,7 +42,7 @@ export default function Signup_Form_Section() {
     isTermsAccepted: false,
     ShopName: "",
     ShopAddress: "",
-    isGSTIN: "",
+    isGSTIN: "No",
     GSTIN: "",
     PAN: "",
   });
@@ -277,7 +277,7 @@ export default function Signup_Form_Section() {
           <option disabled defaultValue="" value="">
             Do you have GST Number?
           </option>
-          <option value="Yes">Yes</option>
+          <option value="Yes" >Yes</option>
           <option value="No">No</option>
         </select>
         <div className="mb-6 mt-6">
