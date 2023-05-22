@@ -168,7 +168,7 @@ export default function Manage_Single_Employee() {
               <Button
                 leftIcon={<AiOutlineRollback />}
                 onClick={() => {
-                  Navigate("/dashboard");
+                  Navigate(-1);
                 }}
                 className="ml-[23.25rem] mt-5"
                 variant="solid"
