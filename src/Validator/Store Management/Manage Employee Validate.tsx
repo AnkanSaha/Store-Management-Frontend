@@ -1,7 +1,26 @@
 // This File For Validate Manage Employee Form
 
+// types
+type str = string;
+type num = number;
+type bool = boolean;
 
-export async function ValidateAddEmployee(data) {
+// interface
+interface ValidateAddEmployee {
+    EmployeeName: str;
+    EmployeeEmail: str;
+    EmployeePhoneNumber:  str;
+    EmployeeMonthlySalary: num;
+    EmployeeRole: str;
+    EmployeeDateOfJoining: str;
+}
+
+interface ValidateUpdateEmployee extends ValidateAddEmployee {
+    OwnerEmail: str;
+}
+
+
+export async function ValidateAddEmployee(data:ValidateAddEmployee): Promise<bool> {
     // Validate Add Employee Form
     if (data.EmployeeName === "" || data.EmployeeName === null || data.EmployeeName === undefined) {
         alert ("Please Enter Employee Name");
@@ -15,11 +34,11 @@ export async function ValidateAddEmployee(data) {
         alert ("Please Enter Valid Employee Email");
         return false
     }
-    else if (data.EmployeePhoneNumber === "" || data.EmployeePhoneNumber === null || data.EmployeePhoneNumber === undefined || data.EmployeePhoneNumber.length !== 10) {
+    else if (data.EmployeePhoneNumber === null || data.EmployeePhoneNumber === undefined || data.EmployeePhoneNumber.length !== 10) {
         alert ("Please Enter Valid Employee Phone");
         return false
     }
-    else if(data.EmployeeMonthlySalary === "" || data.EmployeeMonthlySalary === null || data.EmployeeMonthlySalary === undefined || data.EmployeeMonthlySalary < 0){
+    else if(data.EmployeeMonthlySalary === null || data.EmployeeMonthlySalary === undefined || data.EmployeeMonthlySalary < 0){
         alert ("Please Enter Valid Employee Monthly Salary");
         return false
     }
@@ -36,7 +55,7 @@ export async function ValidateAddEmployee(data) {
     }
 }
 
-export async function ValidateUpdateEmployee (data){
+export async function ValidateUpdateEmployee (data:ValidateUpdateEmployee){
        // Validate Add Employee Form
        if (data.EmployeeName === "" || data.EmployeeName === null || data.EmployeeName === undefined) {
         alert ("Please Enter Employee Name");
@@ -54,7 +73,7 @@ export async function ValidateUpdateEmployee (data){
         alert ("Please Enter Valid Employee Phone");
         return false
     }
-    else if(data.EmployeeMonthlySalary === "" || data.EmployeeMonthlySalary === null || data.EmployeeMonthlySalary === undefined || data.EmployeeMonthlySalary < 0){
+    else if(data.EmployeeMonthlySalary === null || data.EmployeeMonthlySalary === undefined || data.EmployeeMonthlySalary < 0){
         alert ("Please Enter Valid Employee Monthly Salary");
         return false
     }

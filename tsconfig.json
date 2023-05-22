@@ -19,7 +19,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "sourceMap": true,
-    "inlineSourceMap": false
+    "inlineSourceMap": false 
   },
   "include": ["src", "src/Context"],
   "references": [{ "path": "./tsconfig.node.json" }]

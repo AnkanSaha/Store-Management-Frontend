@@ -11,9 +11,14 @@ import {
   ValidateUpdateEmployee,
 } from "../../Validator/Store Management/Manage Employee Validate"; // import Validate Add Employee Function
 
+
+// Typescript type
+type globe = any;
+type obj = object;
+
 // Typescript Interface
 interface EmployeeAddProps {
-  AddEmployeeData: object;
+  AddEmployeeData: obj | globe;
 }
 
 /**
@@ -45,7 +50,7 @@ export async function AddEmployee_Function({
 
 // Typescript Interface
 interface EmployeeUpdateProps {
-  UpdateEmployeeData: object;
+  UpdateEmployeeData: obj | globe;
 }
 
 /**
