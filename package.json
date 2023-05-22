@@ -13,7 +13,7 @@
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.10.0"
+    "react-router-dom": "^6.11.2"
   },
   "devDependencies": {
     "@chakra-ui/react": "^2.6.1",
@@ -25,9 +25,9 @@
     "@types/react-dom": "^18.2.4",
     "@vitejs/plugin-react-swc": "^3.3.1",
     "autoprefixer": "^10.4.14",
-    "daisyui": "^2.51.5",
+    "daisyui": "^2.51.6",
     "flowbite": "^1.6.5",
-    "framer-motion": "^10.12.10",
+    "framer-motion": "^10.12.12",
     "postcss": "^8.4.23",
     "react-csv": "^2.2.2",
     "react-icons": "^4.8.0",
@@ -35,5 +35,6 @@
     "typescript": "^5.0.4",
     "vite": "^4.3.8",
     "vite-plugin-pwa": "^0.14.7"
+    "vite-plugin-pwa": "^0.15.0"
   }
 }
