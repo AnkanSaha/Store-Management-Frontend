@@ -11,6 +11,7 @@ import {
   FormLabel,
   Input,
   Button,
+  Select
 } from "@chakra-ui/react"; // Chakra UI
 
 //import Components
@@ -148,14 +149,17 @@ export default function Add_New_Inventory({ StoreName }: props) {
           isRequired
         />
         <FormLabel className="mt-[2.25rem]">Enter Product Category</FormLabel>
-        <Input
-          type="text"
+        <Select
           name="ProductCategory"
           value={InventoryDetails.ProductCategory}
           onChange={UpdateState}
           id="ProductCategory"
-          isRequired
-        />
+          isRequired>
+             <option value=''>Select Category</option>
+             <option value='option1'>Option 1</option>
+              <option value='option2'>Option 2</option>
+              <option value='option3'>Option 3</option>
+        </Select>
         <FormLabel className="mt-[2.25rem]">Enter Product SKU ID</FormLabel>
         <Input
           type="text"
