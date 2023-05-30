@@ -26,8 +26,8 @@ import Add_New_Employee from "./Dashboard Sub Components/Employee Management/Add
 
 
 // inventory Management Components
-import Add_New_Inventory_Item from "../Dashboard Components/Dashboard Sub Components/Inventory Management/Add New Inventory"; // import Add_New_Inventory_Item component
-
+import Add_New_Inventory_Item from "./Dashboard Sub Components/Inventory Management/Add New Inventory"; // import Add_New_Inventory_Item component
+import Manage_Inventory from "./Dashboard Sub Components/Inventory Management/Manage Inventory"; // import Manage_Inventory component
 /* These lines of code are importing two components, `ViewProfile` and `LogoutComponent`, which are
 used for managing the user's profile and logging out of the dashboard, respectively. These
 components are used in the conditional rendering of the `Dashboard_Overview` component based on the
@@ -63,6 +63,8 @@ export default function Dashboard_Overview() {
         <LogoutComponent UserName={AuthDetails.Data.AccountDetails.Name.split(' ')[0]} />
       ) : SidebarOption === "add-new-inventory-item" ? (
         <Add_New_Inventory_Item StoreName={AuthDetails.Data.AccountDetails.ShopName}/>
+      ) : SidebarOption === "manage-inventory" ? (
+        <Manage_Inventory  ShopName={AuthDetails.Data.AccountDetails.ShopName}/>
       ) : null}
     </>
   );

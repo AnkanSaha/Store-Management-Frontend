@@ -6,6 +6,7 @@ import {
   FormLabel,
   Input,
   Button,
+  Select
 } from "@chakra-ui/react"; // Chakra UI
 
 // import react hooks
@@ -151,15 +152,20 @@ export default function Add_New_Employee({StoreName}:props) {
         <FormLabel className="mt-[2.25rem]">
           Enter Employee Role in Company
         </FormLabel>
-        <Input
-          type="text"
+        <Select
           name="EmployeeRole"
           id="EmployeeRole"
           onChange={UpdateState}
-          placeholder="e.g. Manager, Cashier, etc."
           value={EmployeeDetails.EmployeeRole}
-          isRequired
-        />
+          isRequired>
+          <option value="">Select Employee Role</option>
+          <option value="Manager">Manager</option>
+          <option value="Cashier">Cashier</option>
+          <option value="Salesman">Salesman</option>
+          <option value="Store Keeper">Store Keeper</option>
+          <option value= "Owner">Owner</option>
+          <option value="other">Other</option>
+          </Select>
         <FormLabel className="mt-[2.25rem]">
           Enter Employee Date of Joining
         </FormLabel>
