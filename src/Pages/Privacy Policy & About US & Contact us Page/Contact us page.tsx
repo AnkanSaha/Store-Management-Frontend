@@ -1,5 +1,8 @@
 // Description: Contact us page
 
+// import React
+import React from 'react'; // React
+
 // import Variables
 import {
   AppName,
@@ -12,14 +15,26 @@ import {
 // import Components
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 import { BsFillPersonVcardFill } from "react-icons/bs";
-
+import { Connection_Fail } from '../../Components/Most Used Components/Connection Fail';
 // import Navbar & Footer
 import Navbar from "../../Components/Most Used Components/Navbar"; // import Navbar
 import Footer from "../../Components/Most Used Components/Footer"; // import Footer
 
+// import Function
+import { Update_Document_Title, Internet_Connection_Status } from "../../Functions/Most Used Functions"; // update title Func
+
+// import Context API
+import { GlobalContext } from '../../Context/Context API'; "../../Global/Global API Linker"; // global context API
+
 const Contact = () => {
+  Update_Document_Title({TitleName: `Contact us - ${AppName}`}); // updating Document Title
+  Internet_Connection_Status(); // Internet Connection Status
+
+  // Initializing Context API
+  const {InternetStatus} : any = React.useContext(GlobalContext);
   return (
     <>
+    {InternetStatus === "Offline" ? <Connection_Fail Title='No Internet available' Message="Please Check Your Internet Config, without internet, this site can't be run" /> : null}
       <Navbar AppName="Contact us" />
       <div className="min-h-screen flex flex-col justify-center items-center">
         <h1 className="text-4xl font-bold mb-8 fixed top-[7rem]">
