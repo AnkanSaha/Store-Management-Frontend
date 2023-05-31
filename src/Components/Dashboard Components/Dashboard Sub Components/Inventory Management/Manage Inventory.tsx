@@ -45,11 +45,9 @@ export default function Manage_Inventory({ShopName} : props) {
     HTTP_GET({
       PostPath: `/get/inventory/getProducts/${AuthDetails.Data.AccountDetails.User_id}/${AuthDetails.Data.AccountDetails.Email}`,
     }).then((Response) => {
-        console.log(Response)
       setLoadingText(false); // Set Loading Text to false
       if (Response.Status === "Success") {
         setInventoryData(Response.Data);
-        console.log(InventoryData)
       } else if (Response.Status === "Inventory Not Found") {
         UpdateAlert(Response); // Update Alert
       }
