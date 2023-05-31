@@ -32,7 +32,6 @@ const Single_Inventory = () => {
     // States 
     const [ProductDetails, setProductDetails] = React.useState<object | any>({})// Started State for Product Details
     let [LoadingState, setLoadingState] = React.useState<boolean>(true); // state for loading
-    let [isDeleting, setIsDeleting] = React.useState<boolean>(false); // is Deleting
 
     // Context API
     const {AuthDetails, UpdateAlert, AlertMessage, InternetStatus } : any = React.useContext(GlobalContext);
@@ -73,13 +72,6 @@ const Single_Inventory = () => {
             Title={`Loading ${ProductSKU}'s Details`}
             Description={`Please wait while we are loading the details of ${ProductSKU} for you. This may take a few seconds.`}
           />
-        ) : isDeleting === true ? (
-          <>
-            <Loading
-              Title="Deleting Employee"
-              Description="Please wait while we are deleting the employee. This may take a few seconds."
-            />
-          </>
         ) : (
           <>
                {InternetStatus === "Offline" ? <Connection_Fail /> : null}
@@ -109,49 +101,49 @@ const Single_Inventory = () => {
                 <div className="bg-white shadow-2xl rounded-2xl p-4 mt-[4.5rem] mx-60 space-y-6 px-5">
                   <h1 className="text-center">
                     <span className="text-2xl font-bold">
-                      Inventory Details for {ProductSKU}
+                      Inventory Details for {ProductSKU?.toUpperCase()}
                     </span>
                   </h1>
                   <h2 className="text-lg font-medium">
-                    Product Name :{" "}
+                    <strong>Product Name</strong> :{" "}
                     <span className="ml-10">{ProductDetails[0].ProductName}</span>
                   </h2>
                   <h2 className="text-lg font-medium">
-                  Product Category :{" "}
+                  <strong>Product Category</strong> :{" "}
                     <span className="ml-10">{ProductDetails[0].ProductCategory}</span>
                   </h2>
                   <h2 className="text-lg font-medium">
-                  Product Price :{" "}
+                  <strong>Product Price</strong> :{" "}
                     <span className="ml-10">
                       {ProductDetails[0].ProductPrice}
                     </span>
                   </h2>
                   <h2 className="text-lg font-medium">
-                  Product Quantity :{" "}
+                  <strong>Product Quantity</strong> :{" "}
                     <span className="ml-10">{ProductDetails[0].ProductQuantity}</span>
                   </h2>
                   <h2 className="text-lg font-medium">
-                  Product SKU :{" "}
+                  <strong>Product SKU</strong> :{" "}
                     <span className="ml-10">
                       {ProductDetails[0].ProductSKU.toLowerCase()}
                     </span>
                   </h2>
                   <h2 className="text-lg font-medium">
-                  Product Manufacturing Date :{" "}
+                  <strong>Product Manufacturing Date</strong> :{" "}
                     <span className="ml-10">
                       {ProductDetails[0].ProductManufacturingDate === "" ? "N/A" : ProductDetails[0].ProductManufacturingDate}
                     </span>
                   </h2>
                   <h2 className="text-lg font-medium">
-                  Product Expiry Date :{" "}
+                  <strong>Product Expiry Date</strong> :{" "}
                     <span className="ml-10">
                       {ProductDetails[0].ProductExpiryDate === "" ? "N/A" : ProductDetails[0].ProductExpiryDate}
                     </span>
                   </h2>
                   <h2 className="text-lg font-medium">
-                  Product Description :{" "}
+                  <strong>Product Description</strong> :{" "}
                     <span className="ml-10">
-                      {ProductDetails[0].ProductDescription}
+                      <i>{ProductDetails[0].ProductDescription}</i>
                     </span>
                   </h2>
                 </div>

@@ -32,7 +32,7 @@ interface props {
 
 // Add New Inventory Function
 interface EmployeeDetails {
-  OwnerEmail: num;
+  OwnerEmail: str;
   User_id: str;
   ProductName: str;
   ProductCategory: str;

@@ -85,6 +85,9 @@ export default function Manage_Inventory({ShopName} : props) {
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
                     <th scope="col" className="px-6 py-3">
+                    S.No
+                    </th>
+                    <th scope="col" className="px-6 py-3">
                     Product Name
                     </th>
                     <th scope="col" className="px-6 py-3">
@@ -122,7 +125,13 @@ export default function Manage_Inventory({ShopName} : props) {
                             scope="row"
                             className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                           >
-                            {InventoryData.ProductName}
+                            <strong> {index+1} </strong>
+                          </th>
+                          <th
+                            scope="row"
+                            className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                          >
+                            <strong> {InventoryData.ProductName?.toUpperCase()} </strong>
                           </th>
                           <td className="px-6 py-4">
                             {InventoryData.ProductCategory}

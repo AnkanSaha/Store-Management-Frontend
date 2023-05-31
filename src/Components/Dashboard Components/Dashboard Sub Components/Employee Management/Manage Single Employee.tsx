@@ -135,31 +135,31 @@ export default function Manage_Single_Employee() {
                   </span>
                 </h1>
                 <h2 className="text-lg font-medium">
-                  Name :{" "}
+                  <strong>Name</strong> :{" "}
                   <span className="ml-10">{EmployeeData[0].EmployeeName}</span>
                 </h2>
                 <h2 className="text-lg font-medium">
-                  Email :{" "}
-                  <span className="ml-10">{EmployeeData[0].EmployeeEmail}</span>
+                  <strong>Email</strong> :{" "}
+                  <span className="ml-10"><i>{EmployeeData[0].EmployeeEmail}</i></span>
                 </h2>
                 <h2 className="text-lg font-medium">
-                  Phone Number :{" "}
+                  <strong>Phone Number</strong> :{" "}
                   <span className="ml-10">
                     {EmployeeData[0].EmployeePhoneNumber}
                   </span>
                 </h2>
                 <h2 className="text-lg font-medium">
-                  Employee Role :{" "}
+                  <strong>Employee Role</strong> :{" "}
                   <span className="ml-10">{EmployeeData[0].EmployeeRole}</span>
                 </h2>
                 <h2 className="text-lg font-medium">
-                  Employee Salary :{" "}
+                  <strong>Employee Salary</strong> :{" "}
                   <span className="ml-10">
                     {EmployeeData[0].EmployeeMonthlySalary}
                   </span>
                 </h2>
                 <h2 className="text-lg font-medium">
-                  Date of Joining :{" "}
+                  <strong>Date of Joining</strong> :{" "}
                   <span className="ml-10">
                     {EmployeeData[0].EmployeeDateOfJoining}
                   </span>

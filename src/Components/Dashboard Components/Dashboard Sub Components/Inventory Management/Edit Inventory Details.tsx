@@ -26,9 +26,9 @@ import { Edit_Inventory_Function } from '../../../../Functions/Store Management/
     User_id: string;
     ProductName: string;
     ProductCategory: string;
-    ProductSKU: string;
-    ProductQuantity: string;
-    ProductPrice: string;
+    ProductSKU: string | undefined;
+    ProductQuantity: number;
+    ProductPrice: number;
     ProductExpiryDate: string;
     ProductManufacturingDate: string;
     ProductDescription: string;
@@ -45,21 +45,22 @@ import { Edit_Inventory_Function } from '../../../../Functions/Store Management/
   React.useContext(GlobalContext);
 
 
+
     // All States
     const [isLoading, setIsLodaing] = React.useState<boolean>(false); // is Loading
 
-    const [NewInventoryData, setNewInventoryData] = React.useState<Data | any>({
-        OwnerEmail:AuthDetails.Data.AccountDetails.Email,
-        User_id: AuthDetails.Data.AccountDetails.User_id,
-        ProductName: "",
-        ProductCategory: "",
-        ProductSKU: ParameterData.ProductSKU,
-        ProductQuantity: "",
-        ProductPrice: "",
-        ProductExpiryDate: "",
-        ProductManufacturingDate: "",
-        ProductDescription: ""
-    }); // New Inventory Data
+    const [NewInventoryData, setNewInventoryData] = React.useState<Data>({
+      OwnerEmail:AuthDetails.Data.AccountDetails.Email,
+      User_id: AuthDetails.Data.AccountDetails.User_id,
+      ProductName: "",
+      ProductCategory: "",
+      ProductSKU: ParameterData.ProductSKU,
+      ProductQuantity: 0,
+      ProductPrice: 0,
+      ProductExpiryDate: "",
+      ProductManufacturingDate: "",
+      ProductDescription: ""
+  }); // New Inventory Data
 
     Update_Document_Title({
         TitleName: `Edit ${ParameterData.ProductSKU} Details`,
@@ -68,7 +69,18 @@ import { Edit_Inventory_Function } from '../../../../Functions/Store Management/
         // function on press
   const GoBack = (event: any) => {
     event.preventDefault();
-    setNewInventoryData({}); // Clearing Employee Data
+    setNewInventoryData({
+      OwnerEmail: "",
+      User_id: "",
+      ProductName: "",
+      ProductCategory: "",
+      ProductSKU: "",
+      ProductQuantity: 0,
+      ProductPrice: 0,
+      ProductExpiryDate: "",
+      ProductManufacturingDate: "",
+      ProductDescription: ""
+    }); // Clearing Employee Data
     Navigator(`/dashboard`);
   };
 
@@ -93,7 +105,6 @@ import { Edit_Inventory_Function } from '../../../../Functions/Store Management/
       UpdateAlert(AfterResult);
     }
   };
-
       return (
         <>
         {isLoading === false ? (
