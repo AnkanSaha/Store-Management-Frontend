@@ -76,7 +76,7 @@ export default function Manage_Single_Employee() {
     });
     setIsDeleting(false); // set is Deleting to true
     if (Result.Status === "Employee Deleted") {
-      Navigate("/dashboard");
+      Navigate(-1);
     } else {
       UpdateAlert(Result);
     }

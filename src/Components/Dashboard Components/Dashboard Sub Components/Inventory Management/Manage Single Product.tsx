@@ -7,7 +7,7 @@ import {RxUpdate} from 'react-icons/rx'; // RxUpdate Icon
 import {Button} from '@chakra-ui/react'; // Chakra UI
 
 // import Functions
-import { HTTP_GET } from '../../../../Functions/Most Used Functions'; // Get Method
+import { HTTP_GET, HTTP_DELETE } from '../../../../Functions/Most Used Functions'; // Get Method
 import { Update_Document_Title, Internet_Connection_Status } from '../../../../Functions/Most Used Functions';
 
 // import Variable & Context API
@@ -32,7 +32,7 @@ const Single_Inventory = () => {
     // States 
     const [ProductDetails, setProductDetails] = React.useState<object | any>({})// Started State for Product Details
     let [LoadingState, setLoadingState] = React.useState<boolean>(true); // state for loading
-
+    let [isDeleting, setIsDeleting] = React.useState<boolean>(false); // state for deleting
     // Context API
     const {AuthDetails, UpdateAlert, AlertMessage, InternetStatus } : any = React.useContext(GlobalContext);
 
@@ -64,6 +64,20 @@ const Single_Inventory = () => {
       `/dashboard/inventory/${Email}/${ProductSKU}/edit`
     );
   };
+
+  async function DeleteRecord() {
+    setIsDeleting(true); // set is Deleting to true
+    let Result = await HTTP_DELETE({
+      
+      PostPath: `/delete/inventory/delete/${AuthDetails.Data.AccountDetails.User_id}/${AuthDetails.Data.AccountDetails.Email}/${ProductSKU}`,
+    });
+    setIsDeleting(false); // set is Deleting to true
+    if (Result.Status === "Product Deleted") {
+      Navigate(-1);
+    } else {
+      UpdateAlert(Result);
+    }
+  }
   
     return ( 
         <>
@@ -72,6 +86,11 @@ const Single_Inventory = () => {
             Title={`Loading ${ProductSKU}'s Details`}
             Description={`Please wait while we are loading the details of ${ProductSKU} for you. This may take a few seconds.`}
           />
+        ) : isDeleting === true ? (
+          <Loading
+          Title={`Deleting ${ProductSKU}'s Record`}
+          Description={`Please wait while we are deleting the record of ${ProductSKU} for you. This may take a few seconds.`}
+        />
         ) : (
           <>
                {InternetStatus === "Offline" ? <Connection_Fail /> : null}
@@ -162,6 +181,7 @@ const Single_Inventory = () => {
                   leftIcon={<RiDeleteBin2Line />}
                   className="ml-[7.25rem] mt-5 rounded-3xl"
                   variant="solid"
+                  onClick={DeleteRecord}
                   colorScheme="red"
                 >
                   Delete Record
