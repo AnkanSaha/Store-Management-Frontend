@@ -20,6 +20,7 @@ import Dashboard from "../Pages/Dashboard/Dashboard Page"; // import Dashboard P
 import Manage_Single_Employee from "../Components/Dashboard Components/Dashboard Sub Components/Employee Management/Manage Single Employee"; // import Manage Single Employee
 import Edit_Employee_Details from "../Components/Dashboard Components/Dashboard Sub Components/Employee Management/Edit Employee Details"; // import Edit Employeee Data
 import Single_Inventory from "../Components/Dashboard Components/Dashboard Sub Components/Inventory Management/Manage Single Product";
+import Edit_Inventory_Details from "../Components/Dashboard Components/Dashboard Sub Components/Inventory Management/Edit Inventory Details";
 
 export default function AppRouter() {
   return (
@@ -44,6 +45,7 @@ export default function AppRouter() {
         <Route path="/dashboard/employee/:Email/:Phone/edit" element={<Edit_Employee_Details />} />
 
         <Route path="/dashboard/inventory/:Email/:ProductSKU" element={<Single_Inventory />} />
+        <Route path="/dashboard/inventory/:Email/:ProductSKU/edit" element={<Edit_Inventory_Details />} />
 
       </Routes>
     </Router>

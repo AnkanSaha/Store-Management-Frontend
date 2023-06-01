@@ -45,11 +45,9 @@ export default function Manage_Inventory({ShopName} : props) {
     HTTP_GET({
       PostPath: `/get/inventory/getProducts/${AuthDetails.Data.AccountDetails.User_id}/${AuthDetails.Data.AccountDetails.Email}`,
     }).then((Response) => {
-        console.log(Response)
       setLoadingText(false); // Set Loading Text to false
       if (Response.Status === "Success") {
         setInventoryData(Response.Data);
-        console.log(InventoryData)
       } else if (Response.Status === "Inventory Not Found") {
         UpdateAlert(Response); // Update Alert
       }
@@ -86,6 +84,9 @@ export default function Manage_Inventory({ShopName} : props) {
               <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
+                    <th scope="col" className="px-6 py-3">
+                    S.No
+                    </th>
                     <th scope="col" className="px-6 py-3">
                     Product Name
                     </th>
@@ -124,7 +125,13 @@ export default function Manage_Inventory({ShopName} : props) {
                             scope="row"
                             className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                           >
-                            {InventoryData.ProductName}
+                            <strong> {index+1} </strong>
+                          </th>
+                          <th
+                            scope="row"
+                            className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                          >
+                            <strong> {InventoryData.ProductName?.toUpperCase()} </strong>
                           </th>
                           <td className="px-6 py-4">
                             {InventoryData.ProductCategory}

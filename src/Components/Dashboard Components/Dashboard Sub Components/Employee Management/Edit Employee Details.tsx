@@ -299,7 +299,7 @@ export default function Edit_Employee_Details() {
                   Go Back
                 </button>
               </form>
-              <Footer />
+              <Footer FooterStyle="static"/>
             </>
           ) : (
             <>
