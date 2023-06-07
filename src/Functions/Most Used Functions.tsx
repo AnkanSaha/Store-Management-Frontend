@@ -6,7 +6,6 @@
 // This File is for the most used functions in the project
 // Import Essential Packages
 import { useContext } from "react"; // import UseContext from 'react';
-
 // import Context API
 import { GlobalContext } from "../Context/Context API"; // import Global Context
 

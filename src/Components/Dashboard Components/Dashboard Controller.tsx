@@ -11,10 +11,9 @@ import Sidebar from "./Dashboard Sub Components/Basic Components/Sidebar"; // im
 
 // import Variables & Context
 import { useContext } from "react"; // context API
-
+import JWT_Decode from '../../Functions/Security/JWT'; // import JWT_Decode function
 //Context API
 import { GlobalContext } from "../../Context/Context API"; // import Global Context
-
 /* These lines of code are importing three components: `Dashboad_Homepage`, `Manage_Employees`, and
 `Add_New_Employee`. These components are used in the conditional rendering of the
 `Dashboard_Overview` component based on the value of the `SidebarOption` variable. Depending on the
@@ -47,24 +46,26 @@ components include `Dashboad_Homepage`, `Manage_Employees`, `Add_New_Employee`, 
 export default function Dashboard_Overview() {
   // using Context API
   const { AuthDetails, SidebarOption }: any = useContext(GlobalContext); // const {InternetStatus, UpdateInternetStatus} = useContext(GlobalContext);
-
+  
+  // Decode JWT Token
+  const AuthDetails_Decoded: any = JWT_Decode(AuthDetails.Data.AccountDetails);
   return (
     <>
-      <Sidebar AdminName={AuthDetails.Data.AccountDetails.Name.split(' ')[0]} />
+      <Sidebar AdminName={AuthDetails_Decoded.Name.split(' ')[0]} />
       {SidebarOption === "dashboard" ? (
-        <Dashboad_Homepage ShopName={AuthDetails.Data.AccountDetails.ShopName} />
+        <Dashboad_Homepage ShopName={AuthDetails_Decoded.ShopName} />
       ) : SidebarOption === "manage-employees" ? (
-        <Manage_Employees ShopName={AuthDetails.Data.AccountDetails.ShopName} />
+        <Manage_Employees ShopName={AuthDetails_Decoded.ShopName} />
       ) : SidebarOption === "add-employee" ? (
-        <Add_New_Employee StoreName={AuthDetails.Data.AccountDetails.ShopName} />
+        <Add_New_Employee StoreName={AuthDetails_Decoded.ShopName} />
       ) : SidebarOption === "manage-profile" ? (
-        <ViewProfile ShopName={AuthDetails.Data.AccountDetails.ShopName}/>
+        <ViewProfile ShopName={AuthDetails_Decoded.ShopName}/>
       ) : SidebarOption === "logout" ? (
-        <LogoutComponent UserName={AuthDetails.Data.AccountDetails.Name.split(' ')[0]} />
+        <LogoutComponent UserName={AuthDetails_Decoded.Name.split(' ')[0]} />
       ) : SidebarOption === "add-new-inventory-item" ? (
-        <Add_New_Inventory_Item StoreName={AuthDetails.Data.AccountDetails.ShopName}/>
+        <Add_New_Inventory_Item StoreName={AuthDetails_Decoded.ShopName}/>
       ) : SidebarOption === "manage-inventory" ? (
-        <Manage_Inventory  ShopName={AuthDetails.Data.AccountDetails.ShopName}/>
+        <Manage_Inventory  ShopName={AuthDetails_Decoded.ShopName}/>
       ) : null}
     </>
   );
