@@ -19,6 +19,8 @@
     "@chakra-ui/react": "^2.7.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.3",
+    "@types/react": "^18.2.12",
     "@mui/material": "^5.13.4",
     "@types/react": "^18.2.6",
     "@mui/material": "^5.13.5",
