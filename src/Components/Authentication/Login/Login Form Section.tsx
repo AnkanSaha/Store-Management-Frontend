@@ -63,7 +63,6 @@ export default function Login_Form_Section() {
   // Handle Submit
   const SubmitData = async () => {
     UpdateLoading(true); // update loading state
-
     let LoginStatus = await Login_Function({ LoginData: LoginData }); // function for Login
     if (LoginStatus?.Status === false) {
       UpdateAlert({}); // Clearing all data from this state

@@ -3,6 +3,7 @@
 // import essential components & libraries
 import { useParams, useNavigate } from "react-router-dom"; // import useSearchParams for getting the search params
 import { useState, useEffect, useContext } from "react"; // import useState for state management
+import JWT_Decode from "../../../../Functions/Security/JWT"; // import JWT_Decode function
 
 // import Functional Components
 import Navbar from "../../../Most Used Components/Navbar"; // import Navbar Component
@@ -36,6 +37,9 @@ export default function Manage_Single_Employee() {
   const { AuthDetails, UpdateAlert, AlertMessage, InternetStatus }: any =
     useContext(GlobalContext); // Global Context
 
+  // Decode AuthDetails Token
+  const Decoded_AuthDetails : any = JWT_Decode(AuthDetails.Data.AccountDetails) // decode JWT token
+
   let ParameterData: any = useParams(); // get the search params
 
   // state management
@@ -53,7 +57,7 @@ export default function Manage_Single_Employee() {
     UpdateAlert({}); // Update Alert Message
     setLoadingState(true); // Set Loading Text to true
     HTTP_GET({
-      PostPath: `/get/employee/get?User_id=${AuthDetails.Data.AccountDetails.User_id}&OwnerEmail=${AuthDetails.Data.AccountDetails.Email}`,
+      PostPath: `/get/employee/get?User_id=${Decoded_AuthDetails.User_id}&OwnerEmail=${Decoded_AuthDetails.Email}`,
     }).then((Response) => {
       setLoadingState(false); // Set Loading Text to false
       if (Response.Status === "Employee Found") {
@@ -72,7 +76,7 @@ export default function Manage_Single_Employee() {
   async function DeleteRecord() {
     setIsDeleting(true); // set is Deleting to true
     let Result = await HTTP_DELETE({
-      PostPath: `/delete/employee/delete?User_id=${AuthDetails.Data.AccountDetails.User_id}&OwnerEmail=${AuthDetails.Data.AccountDetails.Email}&EmployeeEmail=${ParameterData.Email}&EmployeeMobileNumber=${ParameterData.Phone}`,
+      PostPath: `/delete/employee/delete?User_id=${Decoded_AuthDetails.User_id}&OwnerEmail=${Decoded_AuthDetails.Email}&EmployeeEmail=${ParameterData.Email}&EmployeeMobileNumber=${ParameterData.Phone}`,
     });
     setIsDeleting(false); // set is Deleting to true
     if (Result.Status === "Employee Deleted") {
