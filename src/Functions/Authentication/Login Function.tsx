@@ -31,7 +31,6 @@ interface Props {
 // function  for login
 export default async function Login_Function({ LoginData }: Props) {
   let Verification_Result = await LoginValidate(LoginData); // validate the login data
-
   // logic for validate result
   if (Verification_Result === true) {
     let Result = await HTTP_POST({

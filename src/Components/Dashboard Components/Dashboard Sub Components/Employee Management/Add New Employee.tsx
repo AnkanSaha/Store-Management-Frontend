@@ -11,7 +11,7 @@ import {
 
 // import react hooks
 import { useState, useContext } from "react"; // React Hooks
-
+import Decode_Token from "../../../../Functions/JWT/Decode"; // Decode Token
 // import functions
 import { Update_Document_Title } from "../../../../Functions/Most Used Functions"; // Update Document Title
 import { AddEmployee_Function } from "../../../../Functions/Store Management/Employee Management Function"; // Add Employee Function
@@ -37,13 +37,16 @@ export default function Add_New_Employee({StoreName}:props) {
     UpdateAlert,
     UpdateSidebarOption,
   }: any = useContext(GlobalContext); // Set Document Title
-
+  
+  // Decode Token
+  const Decoded : any = Decode_Token(AuthDetails.Data.AccountDetails); // decode token
+  
   // Update Document Title with logic
   Update_Document_Title({ TitleName: `Add New Employee - ${StoreName}` }); // Update Document Title
 
   // State for Employee Details
   const [EmployeeDetails, setEmployeeDetails] = useState({
-    User_id: AuthDetails.Data.AccountDetails.User_id,
+    User_id: Decoded.User_id,
     EmployeeName: "",
     EmployeeEmail: "",
     EmployeePhoneNumber: "",

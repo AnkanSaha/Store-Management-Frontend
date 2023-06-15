@@ -13,16 +13,13 @@
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-jwt": "^1.2.0",
     "react-router-dom": "^6.11.2"
   },
   "devDependencies": {
     "@chakra-ui/react": "^2.7.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.13.3",
-    "@types/react": "^18.2.12",
-    "@mui/material": "^5.13.4",
-    "@types/react": "^18.2.6",
     "@mui/material": "^5.13.5",
     "@types/react": "^18.2.11",
     "@types/react-csv": "^1.1.3",
