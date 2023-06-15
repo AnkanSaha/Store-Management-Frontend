@@ -11,10 +11,9 @@ import Sidebar from "./Dashboard Sub Components/Basic Components/Sidebar"; // im
 
 // import Variables & Context
 import { useContext } from "react"; // context API
-
+import JWT_Decode from '../../Functions/Security/JWT'; // import JWT_Decode function
 //Context API
 import { GlobalContext } from "../../Context/Context API"; // import Global Context
-
 /* These lines of code are importing three components: `Dashboad_Homepage`, `Manage_Employees`, and
 `Add_New_Employee`. These components are used in the conditional rendering of the
 `Dashboard_Overview` component based on the value of the `SidebarOption` variable. Depending on the
@@ -69,7 +68,7 @@ export default function Dashboard_Overview() {
         <Add_New_Inventory_Item StoreName={Decoded.ShopName}/>
       ) : SidebarOption === "manage-inventory" ? (
         <Manage_Inventory  ShopName={Decoded.ShopName}/>
-      ) : null}
+        ) : null}
     </>
   );
 }

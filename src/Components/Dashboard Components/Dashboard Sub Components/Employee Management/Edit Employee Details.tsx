@@ -1,5 +1,6 @@
 import React from "react"; // import React
 import { useParams, useNavigate } from "react-router-dom"; // import react router dom packages
+import JWT_Decode from "../../../../Functions/Security/JWT"; // import JWT_Decode function
 
 // import components
 import Navbar from "../../../Most Used Components/Navbar"; // import Navbar
@@ -30,13 +31,15 @@ export default function Edit_Employee_Details() {
   let { AuthDetails, UpdateAlert, AlertMessage, InternetStatus }: any =
     React.useContext(GlobalContext);
 
+    // Decode Auth Details
+    const Decoded_AuthDetails : any = JWT_Decode(AuthDetails.Data.AccountDetails); // decode JWT token
   // All States
   const [isLoading, setIsLodaing] = React.useState<boolean>(true);
   const [EmployeeData, setEmployeeData] = React.useState<any>({});
 
   const [NewEmployeeData, setNewEmployeeData] = React.useState<any>({
-    OwnerEmail: AuthDetails.Data.AccountDetails.Email,
-    User_id: AuthDetails.Data.AccountDetails.User_id,
+    OwnerEmail: Decoded_AuthDetails.Email,
+    User_id: Decoded_AuthDetails.User_id,
     EmployeeName: "",
     EmployeeEmail: ParameterData.Email,
     EmployeeMonthlySalary: "",
@@ -55,7 +58,7 @@ export default function Edit_Employee_Details() {
     UpdateAlert({}); // Update Alert Message
     setIsLodaing(true); // Set Loading Text to true
     HTTP_GET({
-      PostPath: `/get/employee/get?User_id=${AuthDetails.Data.AccountDetails.User_id}&OwnerEmail=${AuthDetails.Data.AccountDetails.Email}`,
+      PostPath: `/get/employee/get?User_id=${Decoded_AuthDetails.User_id}&OwnerEmail=${Decoded_AuthDetails.Email}`,
     }).then((Response) => {
       setIsLodaing(false); // Set Loading Text to false
       if (Response.Status === "Employee Found") {

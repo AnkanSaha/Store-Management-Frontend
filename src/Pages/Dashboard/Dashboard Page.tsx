@@ -21,7 +21,7 @@ import {
 } from "../../Functions/Most Used Functions"; // import Functions
 
 import Dashboard_Overview from "../../Components/Dashboard Components/Dashboard Controller"; // import Dashboard Overview Component
-
+import JWT_Decode from "../../Functions/Security/JWT"; // import JWT_Decode function
 /* The code is importing variables and context from other files. Specifically, it is importing the
 `AppName` variable from the `Global variables` file located in the `Global` folder and the
 `GlobalContext` from the `Context API` file located in the `Context` folder. These variables and
@@ -46,7 +46,7 @@ is mounted or updated. */
   // using Context API
   const { InternetStatus, AuthDetails, UpdateAlert, LoadingStatus }: any =
     useContext(GlobalContext); // const {InternetStatus, UpdateInternetStatus} = useContext(GlobalContext);
-
+    const AuthDetails_Decode: any = JWT_Decode(AuthDetails.Data.AccountDetails) // decode JWT token
   // clear alert message
   useEffect(() => {
     UpdateAlert({}); // Update Alert
@@ -63,7 +63,7 @@ application. */
   // Update Document Title with logic
   if (AuthDetails.Status === "Success") {
     Update_Document_Title({
-      TitleName: `${AuthDetails.Data.AccountDetails.ShopName} - ${AppName}`,
+      TitleName: `${AuthDetails_Decode.ShopName} - ${AppName}`,
     }); // Update Document Title
   }
 
@@ -76,7 +76,7 @@ application. */
             <Loading Title="Fetching from server" Description="Please wait a moment  while we fetch data from server for you." />
           ) : (
             <>
-              <Navbar AppName={AuthDetails.Data.AccountDetails.ShopName} />
+              <Navbar AppName={AuthDetails_Decode.ShopName} />
               <Dashboard_Overview />
             </>
           )}

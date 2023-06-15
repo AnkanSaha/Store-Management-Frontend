@@ -3,6 +3,7 @@ import { CSVLink } from "react-csv"; // import CSVLink
 // import all essential components & libraries
 import { useState, useEffect, useContext } from "react"; // import { useState } from react
 import { useNavigate } from "react-router-dom"; // import useNavigate
+import JWT_Decode from "../../../../Functions/Security/JWT"; // import JWT_Decode function
 
 // import Variables & Context
 import { AppName } from "../../../../Global/Global variables"; // import App Name
@@ -26,6 +27,9 @@ export default function Manage_Employees({ ShopName }: props) {
   // Context
   const { AuthDetails, UpdateAlert, AlertMessage }: any =
     useContext(GlobalContext); // Global Context
+
+    // Decode AuthDetails Token
+    const Decoded_AuthDetails : any = JWT_Decode(AuthDetails.Data.AccountDetails) // decode JWT token
   // Update Document Title with logic
   Update_Document_Title({ TitleName: `Manage Employees - ${ShopName}` }); // Update Document Title
   // End of Update Document Title with logic
@@ -38,7 +42,7 @@ export default function Manage_Employees({ ShopName }: props) {
   useEffect(() => {
     setLoadingText(true); // Set Loading Text to true
     HTTP_GET({
-      PostPath: `/get/employee/get?User_id=${AuthDetails.Data.AccountDetails.User_id}&OwnerEmail=${AuthDetails.Data.AccountDetails.Email}`,
+      PostPath: `/get/employee/get?User_id=${Decoded_AuthDetails.User_id}&OwnerEmail=${Decoded_AuthDetails.Email}`,
     }).then((Response) => {
       setLoadingText(false); // Set Loading Text to false
       if (Response.Status === "Employee Found") {
@@ -152,7 +156,7 @@ export default function Manage_Employees({ ShopName }: props) {
                   </tbody>
                 </table>
                 <CSVLink
-                  filename={`Employee Details For ${AuthDetails.Data.AccountDetails.Name} (${AuthDetails.Data.AccountDetails.ShopName}).csv`}
+                  filename={`Employee Details For ${Decoded_AuthDetails.Name} (${Decoded_AuthDetails.ShopName}).csv`}
                   className="btn bg-green-500 ml-[25.25rem] fixed bottom-[3.25rem] shadow-xl shadow-black"
                   target="_blank"
                   data={SpreadsheetData}
