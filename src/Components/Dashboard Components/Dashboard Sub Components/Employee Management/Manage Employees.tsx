@@ -3,7 +3,7 @@ import { CSVLink } from "react-csv"; // import CSVLink
 // import all essential components & libraries
 import { useState, useEffect, useContext } from "react"; // import { useState } from react
 import { useNavigate } from "react-router-dom"; // import useNavigate
-import JWT_Decode from "../../../../Functions/Security/JWT"; // import JWT_Decode function
+import JWT_Decode from "../../../../Functions/JWT/Decode"; // import JWT_Decode function
 
 // import Variables & Context
 import { AppName } from "../../../../Global/Global variables"; // import App Name

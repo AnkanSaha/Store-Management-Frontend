@@ -19,6 +19,7 @@ import {
   } from "../../../../Functions/Most Used Functions";
   import { Connection_Fail } from "../../../Most Used Components/Connection Fail";
 import { Edit_Inventory_Function } from '../../../../Functions/Store Management/Inventory Management';
+import Decode_Token from '../../../../Functions/JWT/Decode';
 
   // Data interface
   interface Data {
@@ -44,14 +45,14 @@ import { Edit_Inventory_Function } from '../../../../Functions/Store Management/
   let { AuthDetails, UpdateAlert, AlertMessage, InternetStatus }: any =
   React.useContext(GlobalContext);
 
-
+const Decoded_AuthDetails: any = Decode_Token(AuthDetails.Data.AccountDetails); // Decoding Token
 
     // All States
     const [isLoading, setIsLodaing] = React.useState<boolean>(false); // is Loading
 
     const [NewInventoryData, setNewInventoryData] = React.useState<Data>({
-      OwnerEmail:AuthDetails.Data.AccountDetails.Email,
-      User_id: AuthDetails.Data.AccountDetails.User_id,
+      OwnerEmail:Decoded_AuthDetails.Email,
+      User_id: Decoded_AuthDetails.User_id,
       ProductName: "",
       ProductCategory: "",
       ProductSKU: ParameterData.ProductSKU,

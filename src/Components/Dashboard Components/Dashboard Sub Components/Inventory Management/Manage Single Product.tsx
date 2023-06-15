@@ -20,6 +20,7 @@ import { Alert } from '../../../Most Used Components/Alert';
 import Navbar from '../../../Most Used Components/Navbar';
 import Dashboard_No_Data_Found from '../Basic Components/Dashboard No Data Found';
 import Footer from '../../../Most Used Components/Footer';
+import Decode_Token from '../../../../Functions/JWT/Decode';
 
 const Single_Inventory = () => {
     // Params Data
@@ -36,6 +37,8 @@ const Single_Inventory = () => {
     // Context API
     const {AuthDetails, UpdateAlert, AlertMessage, InternetStatus } : any = React.useContext(GlobalContext);
 
+    const Decoded_AuthDetails : any = Decode_Token(AuthDetails.Data.AccountDetails); // Decode Token
+
     // Navigator
     const Navigate = useNavigate();
 
@@ -44,8 +47,9 @@ const Single_Inventory = () => {
     UpdateAlert({}); // Update Alert Message
     setLoadingState(true); // Set Loading Text to true
     HTTP_GET({
-      PostPath: `/get/inventory/getProducts/${AuthDetails.Data.AccountDetails.User_id}/${Email}`,
+      PostPath: `/get/inventory/getProducts/${Decoded_AuthDetails.User_id}/${Email}`,
     }).then((Response) => {
+      console.log(Response);
       setLoadingState(false); // Set Loading Text to false
       if (Response.Status === "Success") {
         let Filtered_Inventory_Data = Response.Data.filter(
@@ -69,7 +73,7 @@ const Single_Inventory = () => {
     setIsDeleting(true); // set is Deleting to true
     let Result = await HTTP_DELETE({
       
-      PostPath: `/delete/inventory/delete/${AuthDetails.Data.AccountDetails.User_id}/${AuthDetails.Data.AccountDetails.Email}/${ProductSKU}`,
+      PostPath: `/delete/inventory/delete/${Decoded_AuthDetails.User_id}/${Decoded_AuthDetails.Email}/${ProductSKU}`,
     });
     setIsDeleting(false); // set is Deleting to true
     if (Result.Status === "Product Deleted") {

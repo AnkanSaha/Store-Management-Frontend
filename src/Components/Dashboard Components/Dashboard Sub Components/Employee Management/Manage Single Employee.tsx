@@ -3,7 +3,7 @@
 // import essential components & libraries
 import { useParams, useNavigate } from "react-router-dom"; // import useSearchParams for getting the search params
 import { useState, useEffect, useContext } from "react"; // import useState for state management
-import JWT_Decode from "../../../../Functions/Security/JWT"; // import JWT_Decode function
+import JWT_Decode from "../../../../Functions/JWT/Decode"; // import JWT_Decode function
 
 // import Functional Components
 import Navbar from "../../../Most Used Components/Navbar"; // import Navbar Component
@@ -198,7 +198,7 @@ export default function Manage_Single_Employee() {
               >
                 Update Record
               </Button>
-              <Footer />
+              <Footer FooterStyle="static" />
             </>
           ) : (
             <Dashboard_No_Data_Found
