@@ -25,6 +25,7 @@ import { GlobalContext } from "../../../../Context/Context API"; // Context API
 
 // import functions
 import { AddInventory_Function } from "../../../../Functions/Store Management/Inventory Management"; // Add Inventory Function
+import Decode_Token from "../../../../Functions/JWT/Decode";
 // interface for Add New Inventory
 interface props {
   StoreName: str;
@@ -50,7 +51,7 @@ export default function Add_New_Inventory({ StoreName }: props) {
     TitleName: `Add New Item into Inventory - ${StoreName}`,
   }); // Update Document Title
   // using Context API
-
+  
   const {
     AlertMessage,
     UpdateAlert,
@@ -58,11 +59,13 @@ export default function Add_New_Inventory({ StoreName }: props) {
     AuthDetails,
     UpdateLoading,
   }: any = React.useContext(GlobalContext); // const {InternetStatus, UpdateInternetStatus} = useContext(GlobalContext);
+  
+  const Decoded_AuthDetails:any = Decode_Token(AuthDetails.Data.AccountDetails); // Decode Token
 
   // States
   const [InventoryDetails, setInventoryDetails] = useState<EmployeeDetails>({
-    OwnerEmail: AuthDetails.Data.AccountDetails.Email,
-    User_id: AuthDetails.Data.AccountDetails.User_id,
+    OwnerEmail: Decoded_AuthDetails.Email,
+    User_id: Decoded_AuthDetails.User_id,
     ProductName: "",
     ProductCategory: "",
     ProductSKU: "",

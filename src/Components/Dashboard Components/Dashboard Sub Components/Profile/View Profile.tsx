@@ -3,7 +3,7 @@ import React from "react"; // import react library
 import moment from "moment"; // import moment library
 // import Functions
 import { Update_Document_Title } from "../../../../Functions/Most Used Functions"; // Function to update document title
-
+import Decode_Token from "../../../../Functions/JWT/Decode"; // Decode Token
 // import Global Context
 import { GlobalContext } from "../../../../Context/Context API"; // import Global Context
 
@@ -20,6 +20,8 @@ export default function ViewProfile({ ShopName }: Props) {
   const { AuthDetails }: any = React.useContext(GlobalContext);
   const [AccountDetails] = React.useState<any>(AuthDetails.Data.AccountDetails); // Account Details state
   console.log(AccountDetails);
+
+  const Decoded_AuthDetails : any = Decode_Token(AccountDetails); // Decode Token
   // Update document title
   Update_Document_Title({ TitleName: `Manage Profile - ${ShopName}` });
   return (
@@ -35,7 +37,7 @@ export default function ViewProfile({ ShopName }: Props) {
               Owner Name
             </h5>
             <p className="font-normal text-gray-700 dark:text-gray-400">
-              {AccountDetails.Name}
+              {Decoded_AuthDetails.Name}
             </p>
           </a>
 
@@ -44,7 +46,7 @@ export default function ViewProfile({ ShopName }: Props) {
               Email
             </h5>
             <p className="font-normal text-gray-700 dark:text-gray-400">
-              {AccountDetails.Email}
+              {Decoded_AuthDetails.Email}
             </p>
           </a>
 
@@ -53,7 +55,7 @@ export default function ViewProfile({ ShopName }: Props) {
               Password
             </h5>
             <p className="font-normal text-gray-700 dark:text-gray-400">
-              {AccountDetails.Password} <strong>(Encrypted)</strong>
+              {Decoded_AuthDetails.Password} <strong>(Encrypted)</strong>
             </p>
           </a>
 
@@ -62,7 +64,7 @@ export default function ViewProfile({ ShopName }: Props) {
               Phone Number
             </h5>
             <p className="font-normal text-gray-700 dark:text-gray-400">
-              {AccountDetails.Phone}
+              {Decoded_AuthDetails.Phone}
             </p>
           </a>
 
@@ -71,7 +73,7 @@ export default function ViewProfile({ ShopName }: Props) {
               Owner Address
             </h5>
             <p className="font-normal text-gray-700 dark:text-gray-400">
-              {AccountDetails.Address}
+              {Decoded_AuthDetails.Address}
             </p>
           </a>
 
@@ -80,7 +82,7 @@ export default function ViewProfile({ ShopName }: Props) {
               Owner City
             </h5>
             <p className="font-normal text-gray-700 dark:text-gray-400">
-              {AccountDetails.City}
+              {Decoded_AuthDetails.City}
             </p>
           </a>
 
@@ -89,7 +91,7 @@ export default function ViewProfile({ ShopName }: Props) {
               Owner State
             </h5>
             <p className="font-normal text-gray-700 dark:text-gray-400">
-              {AccountDetails.State}
+              {Decoded_AuthDetails.State}
             </p>
           </a>
 
@@ -98,7 +100,7 @@ export default function ViewProfile({ ShopName }: Props) {
               Owner Pincode
             </h5>
             <p className="font-normal text-gray-700 dark:text-gray-400">
-              {AccountDetails.Zip}
+              {Decoded_AuthDetails.Zip}
             </p>
           </a>
 
@@ -107,7 +109,7 @@ export default function ViewProfile({ ShopName }: Props) {
               Owner Country
             </h5>
             <p className="font-normal text-gray-700 dark:text-gray-400">
-              {AccountDetails.Country}
+              {Decoded_AuthDetails.Country}
             </p>
           </a>
 
@@ -116,7 +118,7 @@ export default function ViewProfile({ ShopName }: Props) {
               Account Creacted
             </h5>
             <p className="font-normal text-gray-700 dark:text-gray-400">
-              {moment(AccountDetails.CreatedAt)
+              {moment(Decoded_AuthDetails.CreatedAt)
                 .local()
                 .format("DD/MM/YYYY hh:mm:ss A")}
             </p>
@@ -127,7 +129,7 @@ export default function ViewProfile({ ShopName }: Props) {
               is GST Number Available ?
             </h5>
             <p className="font-normal text-gray-700 dark:text-gray-400">
-              {AccountDetails.isGSTIN}
+              {Decoded_AuthDetails.isGSTIN}
             </p>
           </a>
 
@@ -136,9 +138,9 @@ export default function ViewProfile({ ShopName }: Props) {
               Owner GST Number
             </h5>
             <p className="font-normal text-gray-700 dark:text-gray-400">
-              {AccountDetails.GSTIN === ""
+              {Decoded_AuthDetails.GSTIN === ""
                 ? "No GST Number Provided"
-                : AccountDetails.GSTIN}
+                : Decoded_AuthDetails.GSTIN}
             </p>
           </a>
 
@@ -148,7 +150,7 @@ export default function ViewProfile({ ShopName }: Props) {
               Store Manager User id
             </h5>
             <p className="font-normal text-gray-700 dark:text-gray-400">
-              {AccountDetails.User_id}
+              {Decoded_AuthDetails.User_id}
             </p>
           </a>
 
@@ -158,7 +160,7 @@ export default function ViewProfile({ ShopName }: Props) {
               Store Name
             </h5>
             <p className="font-normal text-gray-700 dark:text-gray-400">
-              {AccountDetails.ShopName}
+              {Decoded_AuthDetails.ShopName}
             </p>
           </a>
 
@@ -168,7 +170,7 @@ export default function ViewProfile({ ShopName }: Props) {
               Owner Pan Number
             </h5>
             <p className="font-normal text-gray-700 dark:text-gray-400">
-              {AccountDetails.PAN}
+              {Decoded_AuthDetails.PAN}
             </p>
           </a>
 
@@ -178,7 +180,7 @@ export default function ViewProfile({ ShopName }: Props) {
               Shop Address
             </h5>
             <p className="font-normal text-gray-700 dark:text-gray-400">
-              {AccountDetails.ShopAddress}
+              {Decoded_AuthDetails.ShopAddress}
             </p>
           </a>
 
@@ -188,7 +190,7 @@ export default function ViewProfile({ ShopName }: Props) {
               Shop Status
             </h5>
             <p className="font-normal text-gray-700 dark:text-gray-400">
-              {AccountDetails.Status}
+              {Decoded_AuthDetails.Status}
             </p>
           </a>
 
@@ -197,7 +199,7 @@ export default function ViewProfile({ ShopName }: Props) {
               Owner Accepted Terms & Conditions ?
             </h5>
             <p className="font-normal text-gray-700 dark:text-gray-400">
-              {AccountDetails.isTermsAccepted === true ? "YES" : "NO"}
+              {Decoded_AuthDetails.isTermsAccepted === true ? "YES" : "NO"}
             </p>
           </a>
         </div>

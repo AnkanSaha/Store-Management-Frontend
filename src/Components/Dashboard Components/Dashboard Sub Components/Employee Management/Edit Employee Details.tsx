@@ -1,6 +1,6 @@
 import React from "react"; // import React
 import { useParams, useNavigate } from "react-router-dom"; // import react router dom packages
-import JWT_Decode from "../../../../Functions/Security/JWT"; // import JWT_Decode function
+import JWT_Decode from "../../../../Functions/JWT/Decode"; // import JWT_Decode function
 
 // import components
 import Navbar from "../../../Most Used Components/Navbar"; // import Navbar

@@ -21,6 +21,7 @@ import { AppName } from '../../../../Global/Global variables'; // import App Nam
 // import functions
 import { HTTP_GET } from '../../../../Functions/Most Used Functions'; // import HTTP_POST Function
 import { Update_Document_Title } from '../../../../Functions/Most Used Functions'; // Update Document Title
+import Decode_Token from '../../../../Functions/JWT/Decode';
 
 
 export default function Manage_Inventory({ShopName} : props) {
@@ -33,6 +34,8 @@ export default function Manage_Inventory({ShopName} : props) {
     // Context API
     const {AlertMessage, AuthDetails, UpdateAlert, UpdateSidebarOption} :globe = React.useContext(GlobalContext); // Context API
 
+    const Decoded_AuthDetails : any  = Decode_Token(AuthDetails.Data.AccountDetails); // Decode Token
+
     Update_Document_Title({ TitleName: `Manage Inventory - ${ShopName}` }); // Update Document Title
     // End of Update Document Title with logic
 
@@ -43,7 +46,7 @@ export default function Manage_Inventory({ShopName} : props) {
   React.useEffect(() => {
     setLoadingText(true); // Set Loading Text to true
     HTTP_GET({
-      PostPath: `/get/inventory/getProducts/${AuthDetails.Data.AccountDetails.User_id}/${AuthDetails.Data.AccountDetails.Email}`,
+      PostPath: `/get/inventory/getProducts/${Decoded_AuthDetails.User_id}/${Decoded_AuthDetails.Email}`,
     }).then((Response) => {
       setLoadingText(false); // Set Loading Text to false
       if (Response.Status === "Success") {
@@ -156,7 +159,7 @@ export default function Manage_Inventory({ShopName} : props) {
                               type="button"
                               onClick={() => {
                                 Navigate(
-                                  `/dashboard/inventory/${AuthDetails.Data.AccountDetails.Email}/${InventoryData.ProductSKU}`
+                                  `/dashboard/inventory/${Decoded_AuthDetails.Email}/${InventoryData.ProductSKU}`
                                 );
                               }}
                               className="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
@@ -171,7 +174,7 @@ export default function Manage_Inventory({ShopName} : props) {
                 </tbody>
               </table>
               <CSVLink
-                filename={`Inventory Details For ${AuthDetails.Data.AccountDetails.Name} (${AuthDetails.Data.AccountDetails.ShopName}).csv`}
+                filename={`Inventory Details For ${Decoded_AuthDetails.Name} (${Decoded_AuthDetails.ShopName}).csv`}
                 className="btn bg-green-500 ml-[25.25rem] fixed bottom-[3.25rem] shadow-xl shadow-black"
                 target="_blank"
                 data={SpreadsheetData}

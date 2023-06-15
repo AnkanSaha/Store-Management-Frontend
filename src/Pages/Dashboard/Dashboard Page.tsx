@@ -21,7 +21,7 @@ import {
 } from "../../Functions/Most Used Functions"; // import Functions
 
 import Dashboard_Overview from "../../Components/Dashboard Components/Dashboard Controller"; // import Dashboard Overview Component
-import JWT_Decode from "../../Functions/Security/JWT"; // import JWT_Decode function
+import JWT_Decode from "../../Functions/JWT/Decode"; // import JWT_Decode function
 /* The code is importing variables and context from other files. Specifically, it is importing the
 `AppName` variable from the `Global variables` file located in the `Global` folder and the
 `GlobalContext` from the `Context API` file located in the `Context` folder. These variables and
