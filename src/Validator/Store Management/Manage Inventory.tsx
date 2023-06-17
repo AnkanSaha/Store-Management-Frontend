@@ -7,8 +7,6 @@ type bool = boolean;
 
 // interface
 interface ValidateAddInventory {
-    OwnerEmail: str;
-    User_id: str;
     ProductName: str;
     ProductCategory: str;
     ProductSKU: str | undefined;

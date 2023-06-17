@@ -57,7 +57,7 @@ export default function Manage_Single_Employee() {
     UpdateAlert({}); // Update Alert Message
     setLoadingState(true); // Set Loading Text to true
     HTTP_GET({
-      PostPath: `/get/employee/get?User_id=${Decoded_AuthDetails.User_id}&OwnerEmail=${Decoded_AuthDetails.Email}`,
+      PostPath: `/get/employee/get?User_idForQuery=${Decoded_AuthDetails.User_id}&OwnerEmailForQuery=${Decoded_AuthDetails.Email}`,
     }).then((Response) => {
       setLoadingState(false); // Set Loading Text to false
       if (Response.Status === "Employee Found") {
@@ -76,7 +76,7 @@ export default function Manage_Single_Employee() {
   async function DeleteRecord() {
     setIsDeleting(true); // set is Deleting to true
     let Result = await HTTP_DELETE({
-      PostPath: `/delete/employee/delete?User_id=${Decoded_AuthDetails.User_id}&OwnerEmail=${Decoded_AuthDetails.Email}&EmployeeEmail=${ParameterData.Email}&EmployeeMobileNumber=${ParameterData.Phone}`,
+      PostPath: `/delete/employee/delete?User_idForQuery=${Decoded_AuthDetails.User_id}&OwnerEmailForQuery=${Decoded_AuthDetails.Email}&EmployeeEmail=${ParameterData.Email}&EmployeeMobileNumber=${ParameterData.Phone}`,
     });
     setIsDeleting(false); // set is Deleting to true
     if (Result.Status === "Employee Deleted") {

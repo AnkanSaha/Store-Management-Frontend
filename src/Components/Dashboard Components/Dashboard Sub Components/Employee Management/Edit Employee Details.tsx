@@ -38,8 +38,8 @@ export default function Edit_Employee_Details() {
   const [EmployeeData, setEmployeeData] = React.useState<any>({});
 
   const [NewEmployeeData, setNewEmployeeData] = React.useState<any>({
-    OwnerEmail: Decoded_AuthDetails.Email,
-    User_id: Decoded_AuthDetails.User_id,
+    OwnerEmailForBody: Decoded_AuthDetails.Email,
+    User_idForBody: Decoded_AuthDetails.User_id,
     EmployeeName: "",
     EmployeeEmail: ParameterData.Email,
     EmployeeMonthlySalary: "",
@@ -58,7 +58,7 @@ export default function Edit_Employee_Details() {
     UpdateAlert({}); // Update Alert Message
     setIsLodaing(true); // Set Loading Text to true
     HTTP_GET({
-      PostPath: `/get/employee/get?User_id=${Decoded_AuthDetails.User_id}&OwnerEmail=${Decoded_AuthDetails.Email}`,
+      PostPath: `/get/employee/get?User_idForQuery=${Decoded_AuthDetails.User_id}&OwnerEmailForQuery=${Decoded_AuthDetails.Email}`,
     }).then((Response) => {
       setIsLodaing(false); // Set Loading Text to false
       if (Response.Status === "Employee Found") {

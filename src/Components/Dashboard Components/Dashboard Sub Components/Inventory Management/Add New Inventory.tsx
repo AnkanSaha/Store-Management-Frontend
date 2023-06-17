@@ -33,8 +33,8 @@ interface props {
 
 // Add New Inventory Function
 interface EmployeeDetails {
-  OwnerEmail: str;
-  User_id: str;
+  OwnerEmailForBody: str;
+  User_idForBody: num;
   ProductName: str;
   ProductCategory: str;
   ProductSKU: str;
@@ -64,8 +64,8 @@ export default function Add_New_Inventory({ StoreName }: props) {
 
   // States
   const [InventoryDetails, setInventoryDetails] = useState<EmployeeDetails>({
-    OwnerEmail: Decoded_AuthDetails.Email,
-    User_id: Decoded_AuthDetails.User_id,
+    OwnerEmailForBody: Decoded_AuthDetails.Email,
+    User_idForBody: Number(Decoded_AuthDetails.User_id),
     ProductName: "",
     ProductCategory: "",
     ProductSKU: "",

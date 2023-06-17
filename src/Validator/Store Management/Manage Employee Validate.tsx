@@ -16,7 +16,7 @@ interface ValidateAddEmployee {
 }
 
 interface ValidateUpdateEmployee extends ValidateAddEmployee {
-    OwnerEmail: str;
+    OwnerEmailForBody: str;
 }
 
 
@@ -85,7 +85,7 @@ export async function ValidateUpdateEmployee (data:ValidateUpdateEmployee){
         alert ("Please Enter Employee Date Of Joining");
         return false
     }
-    else if(data.OwnerEmail.includes('@') === false || data.OwnerEmail === null || data.OwnerEmail === undefined){
+    else if(data.OwnerEmailForBody.includes('@') === false || data.OwnerEmailForBody === null || data.OwnerEmailForBody === undefined){
         alert ("Please Login Correctly");
         return false;
     }

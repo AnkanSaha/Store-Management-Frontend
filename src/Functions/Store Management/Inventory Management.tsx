@@ -14,8 +14,8 @@ type bool = boolean; // type for boolean
 
 // Typescript Interface
 interface AddInventoryProps {
-    OwnerEmail: str;
-    User_id: str;
+    OwnerEmailForBody: str;
+    User_idForBody: num;
     ProductName: str;
     ProductCategory: str;
     ProductSKU: str | undefined;
