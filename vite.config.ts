@@ -13,6 +13,13 @@ export default defineConfig({
     }),
   ],
   build: {
-    chunkSizeWarningLimit: 10000
+    chunkSizeWarningLimit: 100000,
+    assetsDir:"static",
+    cssMinify: true,
+    cssCodeSplit: true,
+    sourcemap: true,
+    minify: true,
+    ssrManifest: true,
+    modulePreload: true
   },
 });

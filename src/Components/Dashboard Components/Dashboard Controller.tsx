@@ -11,7 +11,7 @@ import Sidebar from "./Dashboard Sub Components/Basic Components/Sidebar"; // im
 
 // import Variables & Context
 import { useContext } from "react"; // context API
-import JWT_Decode from '../../Functions/Security/JWT'; // import JWT_Decode function
+import JWT_Decode from '../../Functions/JWT/Decode'; // import JWT_Decode function
 //Context API
 import { GlobalContext } from "../../Context/Context API"; // import Global Context
 /* These lines of code are importing three components: `Dashboad_Homepage`, `Manage_Employees`, and
@@ -23,7 +23,6 @@ import Dashboad_Homepage from "./Dashboard Sub Components/Basic Components/Dashb
 import Manage_Employees from "./Dashboard Sub Components/Employee Management/Manage Employees"; // import Manage_Employees component
 import Add_New_Employee from "./Dashboard Sub Components/Employee Management/Add New Employee";
 
-import Decode_Token from "../../Functions/JWT/Decode"; // import Decode_Token function
 
 // inventory Management Components
 import Add_New_Inventory_Item from "./Dashboard Sub Components/Inventory Management/Add New Inventory"; // import Add_New_Inventory_Item component
@@ -49,7 +48,7 @@ export default function Dashboard_Overview() {
   const { AuthDetails, SidebarOption }: any = useContext(GlobalContext); // const {InternetStatus, UpdateInternetStatus} = useContext(GlobalContext);
 
   // Decode JWT
-  const Decoded : any = Decode_Token(AuthDetails.Data.AccountDetails); // decode token
+  const Decoded : any = JWT_Decode(AuthDetails.Data.AccountDetails); // decode token
 
   return (
     <>
