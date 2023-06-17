@@ -23,8 +23,8 @@ import Decode_Token from '../../../../Functions/JWT/Decode';
 
   // Data interface
   interface Data {
-    OwnerEmail: string;
-    User_id: string;
+    OwnerEmailForBody: string;
+    User_idForBody: number;
     ProductName: string;
     ProductCategory: string;
     ProductSKU: string | undefined;
@@ -51,8 +51,8 @@ const Decoded_AuthDetails: any = Decode_Token(AuthDetails.Data.AccountDetails); 
     const [isLoading, setIsLodaing] = React.useState<boolean>(false); // is Loading
 
     const [NewInventoryData, setNewInventoryData] = React.useState<Data>({
-      OwnerEmail:Decoded_AuthDetails.Email,
-      User_id: Decoded_AuthDetails.User_id,
+      OwnerEmailForBody:Decoded_AuthDetails.Email,
+      User_idForBody: Number(Decoded_AuthDetails.User_id),
       ProductName: "",
       ProductCategory: "",
       ProductSKU: ParameterData.ProductSKU,
@@ -71,8 +71,8 @@ const Decoded_AuthDetails: any = Decode_Token(AuthDetails.Data.AccountDetails); 
   const GoBack = (event: any) => {
     event.preventDefault();
     setNewInventoryData({
-      OwnerEmail: "",
-      User_id: "",
+      OwnerEmailForBody: "",
+      User_idForBody: Number(""),
       ProductName: "",
       ProductCategory: "",
       ProductSKU: "",

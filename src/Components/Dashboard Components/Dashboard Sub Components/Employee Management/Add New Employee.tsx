@@ -46,7 +46,8 @@ export default function Add_New_Employee({StoreName}:props) {
 
   // State for Employee Details
   const [EmployeeDetails, setEmployeeDetails] = useState({
-    User_id: Decoded.User_id,
+    User_idForBody: Decoded.User_id,
+    OwnerEmailForBody:Decoded.Email,
     EmployeeName: "",
     EmployeeEmail: "",
     EmployeePhoneNumber: "",

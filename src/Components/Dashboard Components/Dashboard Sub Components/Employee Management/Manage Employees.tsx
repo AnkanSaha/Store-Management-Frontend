@@ -42,7 +42,7 @@ export default function Manage_Employees({ ShopName }: props) {
   useEffect(() => {
     setLoadingText(true); // Set Loading Text to true
     HTTP_GET({
-      PostPath: `/get/employee/get?User_id=${Decoded_AuthDetails.User_id}&OwnerEmail=${Decoded_AuthDetails.Email}`,
+      PostPath: `/get/employee/get?User_idForQuery=${Decoded_AuthDetails.User_id}&OwnerEmailForQuery=${Decoded_AuthDetails.Email}`,
     }).then((Response) => {
       setLoadingText(false); // Set Loading Text to false
       if (Response.Status === "Employee Found") {
