@@ -37,6 +37,9 @@ value of the `SidebarOption` variable. If the value of `SidebarOption` is "manag
 import ViewProfile from "./Dashboard Sub Components/Profile/View Profile"; // import ViewProfile component
 import LogoutComponent from "./Dashboard Sub Components/Basic Components/Logout"; // import LogoutComponent component
 
+// Manage Customers
+import ViewAllCustomers from "./Dashboard Sub Components/Manage Customer/View All Customers"; // import ViewAllCustomers component
+
 /* This code exports a functional component named `Dashboard_Overview`. The component renders a
 `Sidebar` component and conditionally renders one of several components based on the value of the
 `SidebarOption` variable obtained from the `GlobalContext` using the `useContext` hook. The rendered
@@ -67,7 +70,9 @@ export default function Dashboard_Overview() {
         <Add_New_Inventory_Item StoreName={Decoded.ShopName}/>
       ) : SidebarOption === "manage-inventory" ? (
         <Manage_Inventory  ShopName={Decoded.ShopName}/>
-        ) : null}
+        ) : SidebarOption === "manage-customers" ? (
+          <ViewAllCustomers ShopName={Decoded.ShopName} />
+        ): null}
     </>
   );
 }

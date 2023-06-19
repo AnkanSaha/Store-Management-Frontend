@@ -4,7 +4,7 @@
 import { ChakraProvider } from "@chakra-ui/react";
 
 // import Main Router
-import MainRouter from "../Setting/Router"; // import Main Router
+import MainRouter from "../Connection/Router"; // import Main Router
 
 // import Global API Linker
 import { GlobalProvider } from "../Context/Context API"; // import Global API Linker

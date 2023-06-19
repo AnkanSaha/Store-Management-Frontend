@@ -63,7 +63,7 @@ export default function Signup_Form_Section() {
   const SubmitForm = async () => {
     UpdateLoading(true); // update the loading state
     let Submission_Result = await CreateAccountFunction({ FullData: FormData }); // create the account
-
+    console.log(Submission_Result);
     // ** if already registered
     if (Submission_Result.Status === "Failed") {
       UpdateAlert(Submission_Result); // *? update the alert
