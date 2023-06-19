@@ -42,14 +42,6 @@ export const Our_Features: any[] = [
       ButtonColor: "red",
     },
     {
-      Title: "Manage Your Suppliers",
-      Description:
-        "Here you can manage your suppliers, add suppliers and much more.",
-      ButtonText: "Learn More",
-      ButtonLink: "/login",
-      ButtonColor: "blue",
-    },
-    {
       Title: "Manage Your Products",
       Description:
         "Here you can manage your products, add products and much more.",
@@ -64,14 +56,6 @@ export const Our_Features: any[] = [
       ButtonText: "Learn More",
       ButtonLink: "/login",
       ButtonColor: "yellow",
-    },
-    {
-      Title: "Manage Your Salaries",
-      Description:
-        "Here you can manage your salaries, add salaries and much more.",
-      ButtonText: "Learn More",
-      ButtonLink: "/login",
-      ButtonColor: "pink",
     },
   ]; // Features Array
   
@@ -102,24 +86,12 @@ export const Our_Features: any[] = [
       OptionValue: "manage-customers",
     },
     {
-      Title: "Add Customer",
-      OptionValue: "add-customer"
-    },
-    {
       Title: "Manage Orders",
       OptionValue: "manage-orders",
     },
     {
       Title: "Create new order",
       OptionValue: "create-new-order"
-    },
-    {
-      Title: "Manage Suppliers",
-      OptionValue: "manage-suppliers",
-    },
-    {
-      Title: "Add Supplier",
-      OptionValue: "add-supplier"
     },
     {
       Title: "Manage Categories",
@@ -180,10 +152,10 @@ export const Our_Features: any[] = [
       OptionValue: "manage-employees",
     },
     {
-      Title: "Manage Suppliers",
-      Description: "Manage your suppliers and their products.",
+      Title: "Manage Profile",
+      Description: "Manage your profile. Edit your profile.",
       OptionPath: "/dashboard",
-      OptionValue: "manage-suppliers",
+      OptionValue: "manage-profile",
     },
   ]; // Navbar Options
   

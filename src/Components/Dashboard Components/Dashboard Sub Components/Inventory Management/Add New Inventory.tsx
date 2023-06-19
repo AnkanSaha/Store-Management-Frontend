@@ -18,6 +18,7 @@ import {
 import { Alert } from "../../../Most Used Components/Alert"; // Alert Component
 
 // import functions
+import { HTTP_GET } from "../../../../Functions/Most Used Functions"; // HTTP GET
 import { Update_Document_Title } from "../../../../Functions/Most Used Functions"; // Update Document Title
 // import variables & context
 import { AppName } from "../../../../Global/Global variables"; // App Name
@@ -75,6 +76,19 @@ export default function Add_New_Inventory({ StoreName }: props) {
     ProductManufacturingDate: "",
     ProductDescription: "",
   }); // Inventory Details
+
+  // State For Category name
+  const [CategoryName, setCategoryName] = useState<globe[]>([]);
+
+
+  // using useEffect
+  React.useEffect(() => {
+    HTTP_GET({PostPath:`/get/category/getCategory/${Decoded_AuthDetails.User_id}/${Decoded_AuthDetails.Email}`}).then((res:globe) => {
+      if (res.Status === "Success") {
+        setCategoryName(res.Data);
+      }
+    });
+  }, []);
 
   // State Updater for Employee Details
   const UpdateState = (element: globe): void => {
@@ -158,10 +172,9 @@ export default function Add_New_Inventory({ StoreName }: props) {
           onChange={UpdateState}
           id="ProductCategory"
           isRequired>
-             <option value=''>Select Category</option>
-             <option value='option1'>Option 1</option>
-              <option value='option2'>Option 2</option>
-              <option value='option3'>Option 3</option>
+            {CategoryName.map((element: globe) => {
+              return <option value={element.CategoryName}>{element.CategoryName}</option>
+            })}
         </Select>
         <FormLabel className="mt-[2.25rem]">Enter Product SKU ID</FormLabel>
         <Input
