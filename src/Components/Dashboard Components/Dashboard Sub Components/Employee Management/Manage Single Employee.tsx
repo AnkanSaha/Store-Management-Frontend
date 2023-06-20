@@ -63,7 +63,7 @@ export default function Manage_Single_Employee() {
       if (Response.Status === "Employee Found") {
         let Filtered_employee_Data = Response.Data.filter(
           (Employee: any) =>
-            Employee.EmployeePhoneNumber === ParameterData.Phone &&
+            Number(Employee.EmployeePhoneNumber) === Number(ParameterData.Phone) &&
             Employee.EmployeeEmail === ParameterData.Email
         );
         setEmployeeData(Filtered_employee_Data); // set Employee Data

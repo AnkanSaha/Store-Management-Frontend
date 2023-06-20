@@ -172,6 +172,7 @@ export default function Add_New_Inventory({ StoreName }: props) {
           onChange={UpdateState}
           id="ProductCategory"
           isRequired>
+            <option value="">Select Category</option>
             {CategoryName.map((element: globe) => {
               return <option value={element.CategoryName}>{element.CategoryName}</option>
             })}
