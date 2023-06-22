@@ -1,7 +1,7 @@
 // All Imports
 
 // HTTP Request Variables
-export const Hostname: String = "https://store.theankan.live/api"; // Hostname ex: http://localhost:3201/api / https://store.theankan.live/api
+export const Hostname: String = "https://store.theankan.live/api";  // / https://store.theankan.live/api"; // Hostname ex: http://localhost:3201/api / https://store.theankan.live/api
 import Applogo from "../assets/Images/store-logo.png"; // App Logo
 
 // Basic Details About the Project

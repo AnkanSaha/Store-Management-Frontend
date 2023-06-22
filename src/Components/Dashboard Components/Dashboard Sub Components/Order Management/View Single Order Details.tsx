@@ -25,11 +25,11 @@ import Decode_Token from '../../../../Functions/JWT/Decode';
 
 const Single_Order = () => {
     // Params Data
-    const {Email, User_id, ProductSKU} = useParams();
+    const {Email, User_id, OrderID} = useParams();
 
     // changing Document Title & Internet Status
     Internet_Connection_Status();
-    Update_Document_Title({TitleName: `Control panel for ${ProductSKU}`})
+    Update_Document_Title({TitleName: `Control panel for ${OrderID}`})
 
     // States 
     const [ProductDetails, setProductDetails] = React.useState<object | any>({})// Started State for Product Details
@@ -54,7 +54,7 @@ const Single_Order = () => {
       if (Response.Status === "Ok") {
         let Filtered_Inventory_Data = Response.Data.filter(
           (OrderItem: any) =>
-          OrderItem.ProductSKU === ProductSKU?.toLowerCase()
+          Number(OrderItem.OrderID) === Number(OrderID)
         );
         setProductDetails(Filtered_Inventory_Data); // set Employee Data
       } else if (Response.Status === "No Order Found") {
@@ -66,7 +66,7 @@ const Single_Order = () => {
   // Send UI in Edit
   const SendUIinEdit = () => {
     Navigate(
-      `/dashboard/orders/${Email}/${Decoded_AuthDetails.User_id}/${ProductSKU}/edit`
+      `/dashboard/orders/${Email}/${Decoded_AuthDetails.User_id}/${OrderID}/edit`
     );
   };
 
@@ -79,8 +79,8 @@ const Single_Order = () => {
         <>
         {LoadingState === true ? (
           <Loading
-            Title={`Loading ${ProductSKU}'s Details`}
-            Description={`Please wait while we are loading the details of ${ProductSKU} for you. This may take a few seconds.`}
+            Title={`Loading ${OrderID}'s Details`}
+            Description={`Please wait while we are loading the details of ${OrderID} for you. This may take a few seconds.`}
           />
         ) : (
           <>
