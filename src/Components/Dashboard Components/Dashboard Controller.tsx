@@ -40,6 +40,14 @@ import LogoutComponent from "./Dashboard Sub Components/Basic Components/Logout"
 // Manage Customers
 import ViewAllCustomers from "./Dashboard Sub Components/Manage Customer/View All Customers"; // import ViewAllCustomers component
 
+// Manage Categories
+import Add_New_Category from "./Dashboard Sub Components/Category Management/Add New Category"; // import Add New Category Component
+import ViewAllCategory from "./Dashboard Sub Components/Category Management/View All Category"; // import View All Category Component
+
+// import Order components
+import Create_New_Order from "./Dashboard Sub Components/Order Management/Create New Order"; // import Create New Order Component
+import Manage_Orders from "./Dashboard Sub Components/Order Management/View All Orders"; // import Manage Orders Component
+
 /* This code exports a functional component named `Dashboard_Overview`. The component renders a
 `Sidebar` component and conditionally renders one of several components based on the value of the
 `SidebarOption` variable obtained from the `GlobalContext` using the `useContext` hook. The rendered
@@ -72,7 +80,15 @@ export default function Dashboard_Overview() {
         <Manage_Inventory  ShopName={Decoded.ShopName}/>
         ) : SidebarOption === "manage-customers" ? (
           <ViewAllCustomers ShopName={Decoded.ShopName} />
-        ): null}
+        ): SidebarOption === "add-category" ? (
+          <Add_New_Category StoreName={Decoded.ShopName} />
+        ) : SidebarOption === "manage-categories" ? (
+          <ViewAllCategory ShopName={Decoded.ShopName} />
+        ) : SidebarOption === "create-new-order" ? (
+          <Create_New_Order StoreName={Decoded.ShopName} />
+        ) : SidebarOption === "manage-orders" ? (
+          <Manage_Orders ShopName={Decoded.ShopName} />
+        ) : null}
     </>
   );
 }

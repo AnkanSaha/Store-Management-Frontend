@@ -102,10 +102,6 @@ export const Our_Features: any[] = [
       OptionValue: "add-category"
     },
     {
-      Title: "Print Invoice",
-      OptionValue: "print-invoice",
-    },
-    {
       Title: "Manage Profile",
       OptionValue: "manage-profile",
     },
@@ -122,22 +118,10 @@ export const Our_Features: any[] = [
   // Navbar Options Variables for Navbar
   export const Navbar_Services_Options: any[] = [
     {
-      Title: "Add New Customer",
-      Description: "Add new customer to your account.",
-      OptionPath: "/dashboard",
-      OptionValue: "add-customer"
-    },
-    {
       Title: "View Inventory",
       Description: "View your inventory. Add, edit and delete products.",
       OptionPath: "/dashboard",
       OptionValue: "manage-inventory",
-    },
-    {
-      Title: "Make Product Bill",
-      Description: "Make a product bill for your customer.",
-      OptionPath: "/dashboard",
-      OptionValue: "print-invoice",
     },
     {
       Title: "View All order & Bills",
