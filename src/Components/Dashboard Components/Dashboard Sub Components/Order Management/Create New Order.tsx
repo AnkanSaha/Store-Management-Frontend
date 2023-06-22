@@ -37,7 +37,7 @@ interface OrderDetails {
     OwnerEmailForBody: str;
     User_idForBody: num;
     ProductName: str;
-    ProductCategory: str;
+    ProductCatagory: str;
     ProductSKU: str;
     ProductQuantity: num;   
     ProductPrice: num;  
@@ -54,7 +54,7 @@ interface OrderDetails {
 export default function Create_New_Order({ StoreName }: props) {
   // Update Document Title with logic
   Update_Document_Title({
-    TitleName: `Add New Item into Inventory - ${StoreName}`,
+    TitleName: `Place a new order - ${StoreName}`,
   }); // Update Document Title
   // using Context API
   
@@ -73,7 +73,7 @@ export default function Create_New_Order({ StoreName }: props) {
     OwnerEmailForBody: Decoded_AuthDetails.Email,
     User_idForBody: Number(Decoded_AuthDetails.User_id),
     ProductName: "",
-    ProductCategory: "",
+    ProductCatagory: "",
     ProductSKU: "",
     ProductQuantity: 0,
     ProductPrice: 0,
@@ -107,7 +107,7 @@ export default function Create_New_Order({ StoreName }: props) {
         setorderDetails({ // Update Inventory Details
             ...orderDetails,
             ProductName: ProductDetails !== undefined ? ProductDetails.ProductName : "",
-            ProductCategory: ProductDetails !== undefined ? ProductDetails.ProductCategory : "",
+            ProductCatagory: ProductDetails !== undefined ? ProductDetails.ProductCategory : "",
             ProductSKU: ProductDetails !== undefined ? ProductDetails.ProductSKU : "",
             ProductPrice: ProductDetails !== undefined ? ProductDetails.ProductPrice : 0
             
@@ -198,12 +198,12 @@ export default function Create_New_Order({ StoreName }: props) {
         </Select>
         <FormLabel className="mt-[2.25rem]">Enter Product Category</FormLabel>
         <Select
-          name="ProductCategory"
-          value={orderDetails.ProductCategory}
+          name="ProductCatagory"
+          value={orderDetails.ProductCatagory}
           onChange={UpdateState}
-          id="ProductCategory"
+          id="ProductCatagory"
           isRequired>
-            <option>{orderDetails.ProductCategory}</option>
+            <option>{orderDetails.ProductCatagory}</option>
         </Select>
         <FormLabel className="mt-[2.25rem]">Enter Product SKU ID</FormLabel>
         <Input
@@ -331,7 +331,7 @@ export default function Create_New_Order({ StoreName }: props) {
         className="mt-[3.5rem] ml-[27.25rem]"
         onClick={PlaceOrder}
       >
-        <span className="text-sm">Add New Product</span>
+        <span className="text-sm">Place New Order</span>
       </Button>
     </div>
   );

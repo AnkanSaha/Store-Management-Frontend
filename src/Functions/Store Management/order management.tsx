@@ -5,7 +5,7 @@ is importing the HTTP POST and PUT functions from a file located in the "../Most
 directory, as well as the ValidateAddEmployee and ValidateUpdateEmployee functions from a file
 located in the "../../Validator/Store Management/Manage Employee Validate" directory. */
 // Import Functions
-import { HTTP_POST } from "../Most Used Functions"; // import HTTP POST Function
+import { HTTP_POST, HTTP_PUT } from "../Most Used Functions"; // import HTTP POST Function
 import {
     ValidateOrderDetails,
 } from "../../Validator/Store Management/order management"; // import Validate Add Employee Function
@@ -56,17 +56,11 @@ export async function PlaceOrder_Function(OrderData: globe | obj) {
 //  * @returns either the result of the HTTP_PUT request if the validation is successful, or false if the
 //  * validation fails.
 //  */
-// export async function UpdateEmployee({
-//   UpdateEmployeeData,
-// }: EmployeeUpdateProps) {
-//   let Validation: boolean = await ValidateUpdateEmployee(UpdateEmployeeData);
-//   if (Validation === true) {
-//     let result = await HTTP_PUT({
-//       PostPath: "/put/employee/update",
-//       SendData: UpdateEmployeeData,
-//     });
-//     return result;
-//   } else if (Validation === false) {
-//     return false;
-//   }
-// }
+export async function UpdateOrder(UpdateOrderData: globe) {
+
+    let result = await HTTP_PUT({
+      PostPath: "/put/order/update-order-details",
+      SendData: UpdateOrderData,
+    });
+    return result;
+}

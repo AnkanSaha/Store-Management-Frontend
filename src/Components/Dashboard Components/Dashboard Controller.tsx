@@ -46,6 +46,7 @@ import ViewAllCategory from "./Dashboard Sub Components/Category Management/View
 
 // import Order components
 import Create_New_Order from "./Dashboard Sub Components/Order Management/Create New Order"; // import Create New Order Component
+import Manage_Orders from "./Dashboard Sub Components/Order Management/View All Orders"; // import Manage Orders Component
 
 /* This code exports a functional component named `Dashboard_Overview`. The component renders a
 `Sidebar` component and conditionally renders one of several components based on the value of the
@@ -84,7 +85,9 @@ export default function Dashboard_Overview() {
         ) : SidebarOption === "manage-categories" ? (
           <ViewAllCategory ShopName={Decoded.ShopName} />
         ) : SidebarOption === "create-new-order" ? (
-          <Create_New_Order StoreName={Decoded.User_id} />
+          <Create_New_Order StoreName={Decoded.ShopName} />
+        ) : SidebarOption === "manage-orders" ? (
+          <Manage_Orders ShopName={Decoded.ShopName} />
         ) : null}
     </>
   );
