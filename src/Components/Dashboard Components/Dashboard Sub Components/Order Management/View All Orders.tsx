@@ -143,10 +143,10 @@ export default function Manage_Orders({ShopName} : props) {
                             {Orders.ProductName}
                           </td>
                           <td className="px-6 py-4">
-                            {Orders.ProductPrice}
+                          ₹ {Orders.ProductPrice}
                           </td>
                           <td className="px-6 py-4">
-                            ₹ {Orders.ProductQuantity}
+                            {Orders.ProductQuantity}
                           </td>
                           <td className="px-6 py-4">
                             {Orders.ProductSKU.toUpperCase()}
@@ -180,7 +180,7 @@ export default function Manage_Orders({ShopName} : props) {
                 </tbody>
               </table>
               <CSVLink
-                filename={`Inventory Details For ${Decoded_AuthDetails.Name} (${Decoded_AuthDetails.ShopName}).csv`}
+                filename={`Orders Details For ${Decoded_AuthDetails.Name} (${Decoded_AuthDetails.ShopName}).csv`}
                 className="btn bg-green-500 ml-[25.25rem] fixed bottom-[3.25rem] shadow-xl shadow-black"
                 target="_blank"
                 data={SpreadsheetData}

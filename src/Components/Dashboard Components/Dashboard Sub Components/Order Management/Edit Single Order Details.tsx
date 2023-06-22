@@ -118,7 +118,7 @@ const Decoded_AuthDetails: any = Decode_Token(AuthDetails.Data.AccountDetails); 
     } else if (AfterResult.Status) {
       setIsLodaing(false);
       UpdateAlert(AfterResult);
-      Navigator(-1);
+      Navigator("/dashboard");
     }
   };
       return (
