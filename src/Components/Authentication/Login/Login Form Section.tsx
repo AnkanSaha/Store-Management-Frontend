@@ -185,12 +185,6 @@ export default function Login_Form_Section() {
             Don't have an account? click here{" "}
           </p>
         </Link>
-        <Link to="/user/system/forgot/lost-password">
-          <p className="text-center text-blue-800 mt-5">
-            {" "}
-            Forgot Password? click here{" "}
-          </p>
-        </Link>
       </div>
     </>
   );

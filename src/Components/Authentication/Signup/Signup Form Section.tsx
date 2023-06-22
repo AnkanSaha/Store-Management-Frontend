@@ -466,12 +466,6 @@ export default function Signup_Form_Section() {
             Already have an account? click here{" "}
           </p>
         </Link>
-        <Link to="/user/system/forgot/lost-password">
-          <p className="text-center text-blue-800 mt-5">
-            {" "}
-            Forgot Password? click here{" "}
-          </p>
-        </Link>
       </div>
     </>
   );

@@ -100,7 +100,6 @@ const Decoded_AuthDetails: any = Decode_Token(AuthDetails.Data.AccountDetails); 
 
     // Update Employee Data on Change
     const updateInventoryDataonChange = (element: any) => {
-        console.log(NewOrderData)
         setNewOrderDataData({
           ...NewOrderData,
           [element.target.name]: element.target.value,

@@ -22,7 +22,7 @@ import Edit_Employee_Details from "../Components/Dashboard Components/Dashboard 
 import Single_Inventory from "../Components/Dashboard Components/Dashboard Sub Components/Inventory Management/Manage Single Product";
 import Edit_Inventory_Details from "../Components/Dashboard Components/Dashboard Sub Components/Inventory Management/Edit Inventory Details";
 import Single_Order from "../Components/Dashboard Components/Dashboard Sub Components/Order Management/View Single Order Details";
- import Edit_Order_Details from "../Components/Dashboard Components/Dashboard Sub Components/Order Management/Edit Single Order Details"; 
+import Edit_Order_Details from "../Components/Dashboard Components/Dashboard Sub Components/Order Management/Edit Single Order Details"; 
  
 export default function AppRouter() {
   return (
@@ -49,8 +49,9 @@ export default function AppRouter() {
         <Route path="/dashboard/inventory/:Email/:ProductSKU" element={<Single_Inventory />} />
         <Route path="/dashboard/inventory/:Email/:ProductSKU/edit" element={<Edit_Inventory_Details />} />
 
-      <Route path="/dashboard/orders/:Email/:User_id/:ProductSKU" element={<Single_Order />}/>
-      <Route path="/dashboard/orders/:Email/:User_id/:ProductSKU/edit" element={<Edit_Order_Details />} />
+      <Route path="/dashboard/orders/:Email/:User_id/:OrderID" element={<Single_Order />}/>
+      <Route path="/dashboard/orders/:Email/:User_id/:OrderID/edit" element={<Edit_Order_Details />} />
+     
       </Routes>
     </Router>
   );
