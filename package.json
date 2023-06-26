@@ -17,7 +17,7 @@
     "react-router-dom": "^6.11.2"
   },
   "devDependencies": {
-    "@chakra-ui/react": "^2.7.0",
+    "@chakra-ui/react": "^2.7.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.13.5",
