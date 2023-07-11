@@ -9,6 +9,7 @@ export default defineConfig({
       registerType: "autoUpdate",
       devOptions: {
         enabled: false,
+
       },
     }),
   ],
@@ -20,6 +21,15 @@ export default defineConfig({
     sourcemap: true,
     minify: true,
     ssrManifest: true,
-    modulePreload: true
+    modulePreload: true,
+    ssrEmitAssets: true,
+    target: "es2015",
+    assetsInlineLimit: 1024,
+    copyPublicDir: true,
+    cssTarget: "es2015",
+    emptyOutDir: true,
+    manifest: true,
+    write: true,
+    ssr: true
   },
 });
